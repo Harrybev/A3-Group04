@@ -1,0 +1,37 @@
+Minutes of Meeting: Christopher Evans, Yousef Aljasem, Harry Bevan, Tulsi Patel, Tony Viana
+------------------------------------------------
+date: 27/11/2017
+start time: 15:00
+end time: 15:50
+
+date and time of next meeting:
+
+topics discussed:
+  -- Recap of A1, thoughts on design as a result of feedback - no major changes anticipated.
+  -- Talked through A3 requirements, noting:
+     	    -- Removal of information since last login and partial search features, means there may be a need to reevaluate work distribution.
+	    -- Submission deadline/viva date. Discussed milestone planning with those two dates in mind. Working plan: implement non GUI classes by 30/11/2017 then the GUI by 7/12/17, allowing 3 days for final testing/polishing/submission.
+	    -- Viva: All in agreement that we needed a day of preparation for it once the system is submitted.
+ -- Discussed role-specific duties for the implementation stage:
+    	    -- Customer Interface Managers: no ideas for in the implementation stage.
+	    -- Design Managers: explore GUI layouts/designs in preparation for implementing it in FXML.
+	    -- Implementation Managers: Set up Git repository, manage permissions, and sign off on code style/commenting standards for each team member's code.
+	    -- Planning and Quality Manager: Keep the team on track to hit work milestones, ensure that each team member understands their respective tasks, and pull all the disparate submission elements together properly once completed.
+ -- Discussed everyone's familiarity with Git, learning that everyone felt comfortable using it and agreeing to manage project files that way.
+ -- Discussed whether to approach GUI development using JavaFX/FXML. No team member had previous experience of using either but the consensus was that FXML appeared more straghtforward to use and thus would be the adopted approach for this project.
+ -- Discussed ideas for extending the system. Ideas included:
+    	      -- a feature suggestion form;
+	      -- user ratings and reviews;
+	      -- direct messages between users;
+	      -- further brainstorming required.
+
+progress since last meeting:
+  -- None to report due to this being the first meeting of the implementation stage.
+
+TODO (for next meeting):
+  -- Harry Bevan and Tulsi Patel: Set up GitHub repository (by 30/11/2017).
+  -- Everyone: Set up GitHub accounts and sign on to the project repository (by 30/11/2017).
+  -- Everyone: Implement their respective classes from A1 as java classes (by 30/1/12017).
+  -- Tony Viana and Corey
+  -- Christopher Evans: 
+
