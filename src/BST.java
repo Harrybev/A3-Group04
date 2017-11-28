@@ -16,9 +16,17 @@ public class BST {
         if (root == null) {
             return newNode;
         } else if (currentNode.getSortable().compareTo(newNode.getSortable()) >= 0) {
+            if (currentNode.getLeft() == null) {
+                currentNode.setLeft(newNode);
+            } else {
                 insertNode(currentNode.getLeft(), newNode);
+            }
         } else {
+            if (currentNode.getRight() == null) {
+                currentNode.setRight(newNode);
+            } else {
                 insertNode(currentNode.getRight(), newNode);
+            }
         }
         return currentNode;
     }
