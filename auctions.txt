@@ -1,0 +1,1 @@
+seller;artworkname;numberofbids;reserveprice;hasended;bidamount;bidderUsername;bidTime;

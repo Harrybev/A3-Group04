@@ -1,0 +1,1 @@
+type;title;description;photoPath;creatorName;cReationYear;width;height;depth;mainMaterial;morePhotos;
