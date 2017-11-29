@@ -28,7 +28,7 @@ public class BSTNode {
     }
 
 
-//    public void setSortable(Sortable s) {
-//        this.s = s;
-//    }
+    public void setSortable(Sortable s) {
+        this.s = s;
+	}
 }

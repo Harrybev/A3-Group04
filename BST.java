@@ -8,19 +8,22 @@ public class BST {
 
     public void addNode(BSTNode newNode) {
 
-        this.root = insertNode(this.root, newNode);
+        insertNode(this.root, newNode);
 
     }
 
-    private BSTNode insertNode(BSTNode currentNode, BSTNode newNode) {
+    private void insertNode(BSTNode currentNode, BSTNode newNode) {
         if (root == null) {
-            return newNode;
-        } else if (currentNode.getSortable().compareTo(newNode.getSortable()) >= 0) {
+        	root = newNode;
+        } else if (currentNode.getSortable().compareTo(newNode.getSortable()) >= 0 && currentNode.getLeft() != null) {
                 insertNode(currentNode.getLeft(), newNode);
-        } else {
+        } else if (currentNode.getSortable().compareTo(newNode.getSortable()) <= 0 && currentNode.getRight() != null) {
                 insertNode(currentNode.getRight(), newNode);
+        } else if (currentNode.getSortable().compareTo(newNode.getSortable()) >= 0 && currentNode.getLeft() == null){
+        	currentNode.setLeft(newNode);
+        } else {
+        	currentNode.setRight(newNode);
         }
-        return currentNode;
     }
 
     public ArrayList<Sortable> inOrderList(){
