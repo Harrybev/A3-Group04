@@ -1,0 +1,32 @@
+Minutes of Meeting: Christopher Evans, Yousef Aljasem, Harry Bevan, Tulsi Patel, Carl Knapp, Corey Lurvey
+------------------------------------------------
+date: 30/11/2017
+start time: 15:00
+end time: 15:50
+
+date and time of next meeting: 15:00, 4/12/2017
+
+topics discussed:
+  -- Discussed previous meeting minutes and reviewed progress on tasks:
+  -- Discussed how the team was finding Git and whether any problems had been encountered. The consensus was that since individuals were largely just working on their own portion of the system we weren't likely to run into commit conflicts very often, hence everyone was confident that there wouldn't be any issues.
+  -- Reclarified the responsibilities of the filter class in light of no longer needing "information since last login" or "partial search" feature.
+  -- Revisited ideas for extended features. Ideas included: feature suggestion form, exchanging messages between users, and a rating system for users based off buyer feedback.
+  -- Group agreed that extended features would wait until core functionality and GUI are working.
+  -- A3 video discussed - agreed that a video clip with voice-over commentary would be optimal approach.
+  -- Viva discussed - more preparation will take place once the system is finished but questions regarding what presentation aids are acceptable to use require an answer.
+  -- Initial GUI concepts discussed and consensus was that they need to be nailed down more concretely before implementing them, else risking development time in GUI code we might eventually not include.
+  -- That day's topic of integration testing flagged up the need to check how everyone's classes work together.
+  -- Reminder of expectations regarding coding style and commenting for this project. Idea conceived for the Implementation Managers to produce a style check-list to refer to when reviewing code.
+  
+progress since last meeting:
+  -- GitHub repository set up.
+  -- All GitHub accounts created and invited to collaborate.
+  -- All A1 classes essentially done and ready to have a GUI developed for.
+  -- Initial GUI designs presented.
+  -- Tasks Gantt chart presented.
+
+TODO (for next meeting):
+  -- Everyone: conduct unit and integration testing on their respective classes (by 4/12/2017).
+  -- Everyone: finalise plan for which GUI windows will be required by continuing the discussion online (by 4/12/2017).
+  -- Christopher Evans: ensure that appropriate video making software/assets are ready (by 4/12/2017).
+  -- Harry Bevan and Tulsi Patel: prepare a style check-list as reference when reviewing code style (by 4/12/2017).

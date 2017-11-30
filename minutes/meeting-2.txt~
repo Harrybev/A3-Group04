@@ -1,0 +1,26 @@
+Minutes of Meeting: Christopher Evans, Yousef Aljasem, Harry Bevan, Tulsi Patel, Tony Viana
+------------------------------------------------
+date: 30/11/2017
+start time: 15:00
+end time: 15:50
+
+date and time of next meeting: 15:00, 4/12/2017
+
+topics discussed:
+  -- Discussed previous meeting minutes and reviewed progress on tasks:
+  -- Discussed how the team was finding Git and whether any problems had been encountered. The consensus was that since individuals were largely just working on their own portion of the system we weren't likely to run into commit conflicts very often, hence everyone was confident that there wouldn't be any issues.
+  -- Reclarified the responsibilities of the filter class in light of no longer needing "information since last login" or "partial search" feature.
+  -- Revisited ideas for extended features. Ideas included: feature suggestion form, exchanging messages between users, and a rating system for users based off buyer feedback.
+  -- Group agreed that extended features would wait until core functionality and GUI are working.
+  -- A3 video discussed
+  
+progress since last meeting:
+  -- GitHub repository set up.
+  -- All GitHub accounts created and invited to collaborate.
+  -- All A1 classes essentially done and ready to have a GUI developed for.
+  -- Initial GUI designs presented.
+  -- Tasks Gantt chart presented.
+
+TODO (for next meeting):
+  -- 
+
