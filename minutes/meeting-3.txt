@@ -1,0 +1,27 @@
+Minutes of Meeting: Christopher Evans, Yousef Aljasem, Harry Bevan, Tulsi Patel, Corey Lurvey
+------------------------------------------------
+date: 4/12/2017
+start time: 15:00
+end time: 15:50
+
+date and time of next meeting: 15:00, 7/12/2017
+
+topics discussed:
+  -- Discussed previous meeting minutes and reviewed progress on tasks:
+     	       + Individual testing successful with respect the underlying non-GUI classes appearing to work properly (individually and in collaboration).
+	       + Consensus arrived at regarding what kind of GUI layout to pursue.
+	       + Appropriate video recording software acquired.
+	       + Style check-list produced to aid review of code style.
+ -- Cleared up confusion regarding where source files should be stored in the project directory structure. All team members now agree that source files should be stored in the "src/" folder.
+ -- Repeat agreement that extended features should wait until the GUI is developed and the basic system is fully functional.
+
+progress since last meeting:
+  -- All underlying non-GUI classes tested and considered ready for hooking up to a GUI.
+  -- Working GUI design agreed on, ready for implementation.
+  -- Video-making software acquired.
+  -- Style check-list produced.
+  
+TODO (for next meeting):
+  -- Christopher Evans: Implement "Select Profile Picture" and "Draw Profile Picture" GUI windows (by 7/12/2017).
+  -- Corey Lurvey: Implement "Login Form" and "Create new profile" GUI windows (by 7/12/2017).
+  -- Harry Bevan and Tulsi Patel: Implement the "View auctions" and "View artworks" GUI windows together (by 7/12/2017).
