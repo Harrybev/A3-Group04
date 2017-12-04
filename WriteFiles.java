@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import java.io.*;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
