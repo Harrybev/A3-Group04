@@ -15,7 +15,8 @@ public class BST {
     private BSTNode insertNode(BSTNode currentNode, BSTNode newNode) {
         if (root == null) {
             return newNode;
-        } else if (currentNode.getSortable().compareTo(newNode.getSortable()) >= 0) {
+        } else if (currentNode.getSortable().compareTo(newNode.getSortable())
+                >= 0) {
             if (currentNode.getLeft() == null) {
                 currentNode.setLeft(newNode);
             } else {
@@ -48,7 +49,5 @@ public class BST {
         if (node.getRight() != null) {
             inOrderTraversal(list, node.getRight());
         }
-
-
     }
 }
