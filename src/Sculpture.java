@@ -27,7 +27,7 @@ public class Sculpture extends Artwork {
      */
     public Sculpture(String title, String description, String photoPath, String creatorName, int
                     creationYear, double width, double height, double depth, String mainMaterial,
-                     String[] additionalPhotos) {
+                     ArrayList<String> additionalPhotos) {
         this.title = title;
         this.description = description;
         this.photoPath = photoPath;
@@ -37,10 +37,8 @@ public class Sculpture extends Artwork {
         this.height = height;
         this.depth = depth;
         this.mainMaterial = mainMaterial;
+        this.additionalPhotosList = additionalPhotos;
 
-        for (String s : additionalPhotos) {
-            additionalPhotosList.add(s);
-        }
     }
     
     /**

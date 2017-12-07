@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+  <children>
+    <BorderPane layoutX="0.0" layoutY="0.0" prefHeight="600.0" prefWidth="900.0">
+      <center>
+        <SplitPane dividerPositions="0.28859060402684567" focusTraversable="true" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
+          <items>
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="83.0" prefWidth="398.0">
+              <children>
+                <Label layoutX="55.0" layoutY="8.0" text="Artatawe">
+                  <font>
+                    <Font size="24.0" fx:id="x1" />
+                  </font>
+                </Label>
+                <Label font="$x1" layoutX="29.0" layoutY="40.0" text="Sign in" />
+              </children>
+            </AnchorPane>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+              <children>
+                <TextField layoutX="14.0" layoutY="14.0" prefHeight="32.0" prefWidth="369.0" />
+                <Button layoutX="16.0" layoutY="58.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="367.0" text="Log in">
+                  <font>
+                    <Font size="18.0" />
+                  </font>
+                </Button>
+                <Label font="$x1" layoutX="16.0" layoutY="105.0" text="New? " />
+                <Hyperlink font="$x1" layoutX="82.0" layoutY="100.0" text="Create account" />
+              </children>
+            </AnchorPane>
+          </items>
+        </SplitPane>
+      </center>
+      <padding>
+        <Insets bottom="150.0" left="250.0" right="250.0" top="150.0" />
+      </padding>
+    </BorderPane>
+  </children>
+</AnchorPane>
