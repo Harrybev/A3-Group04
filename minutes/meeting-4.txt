@@ -1,0 +1,39 @@
+Minutes of Meeting: Christopher Evans, Yousef Aljasem, Harry Bevan, Tulsi Patel, Corey Lurvey, Carl Knapp, Tony Viana
+------------------------------------------------
+date: 7/12/2017
+start time: 13:30
+end time: 14:30
+
+date and time of next meeting: 14:00, 11/12/2017
+
+topics discussed:
+  -- Reviewed previous meeting minutes and reviewed progress on tasks:
+     	      + Profile picture drawing/selection GUI windows completely functional.
+	      + Login Form and Create new profile GUI windows completely functional.
+	      + View auctions/artworks GUI windows fully functional.
+  -- Discussed remaining work to be done:
+     	      + Test implemented GUI's thoroughly.
+	      + Style the GUI's to make them more presentable.
+	      + Implement extended features.
+	      + Continue reviewing code to ensure that it conforms to style guidelines.
+	      + Write up individual contribution logs.
+	      + Finally, produce demonstration video.
+  -- Discussed how to allocate the aforementioned task:
+     	      + Test the GUI's: Carl Knapp and Yousef Aljasem
+	      + Style the GUI's: Harry Bevan and Tulsi Patel
+	      + Begin implementing additional features: Christopher Evans
+	      + Review code style: Harry Bevan and Tulsi Patel
+	      + Produce demonstration video: Tony Viana
+  -- Touched on the subject of the viva again. The group accepted that due to deadline pressures the viva preparation would have to wait until another meeting next Monday (the day before the viva).
+  
+progress since last meeting:
+  -- Profile picture draw/selection GUI windows completely functional.
+  -- Login Form and Create new profile GUI windows completely functional.
+  -- View auctions/artworks GUI windows fully functional.
+
+TODO (by Sunday evening - 10/12/2017):
+  -- Carl Knapp and Yousef Aljasem: Test GUI's thoroughly.
+  -- Harry Bevan and Tulsi Patel: Style the GUI's in a cohesive way.
+  -- Christopher Evans: Implement as many of the extended feature ideas as time allows.
+  -- Harry Bevan and Tulsi Patel: Review code style.
+  -- Tony Viana: Produce demonstration video.
