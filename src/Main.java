@@ -11,9 +11,9 @@ import javafx.fxml.FXMLLoader;
  */
 public class Main extends Application {
 
-    private static final int MAIN_WINDOW_WIDTH = 900;
-    private static final int MAIN_WINDOW_HEIGHT = 600;
-    private static final String WINDOW_TITLE = "Artatawe";
+    public static final int MAIN_WINDOW_WIDTH = 900;
+    public static final int MAIN_WINDOW_HEIGHT = 600;
+    public static final String WINDOW_TITLE = "Artatawe";
 
 //    public static final int EDIT_WINDOW_WIDTH = 400;
 //    public static final int EDIT_WINDOW_HEIGHT = 250;
