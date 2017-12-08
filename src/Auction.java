@@ -52,6 +52,7 @@ public class Auction implements Sortable{
     public Bid getLatestBid() {
         return this.bidList.get(bidList.size());
     }
+
     public int compareTo(Sortable s) {
         Auction otherAuction = (Auction) s;
         return this.getArtwork().getTitle().compareTo(otherAuction.getArtwork().getTitle());

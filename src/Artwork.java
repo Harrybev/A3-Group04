@@ -1,14 +1,16 @@
 
 public abstract class Artwork implements Sortable{
     private String title;
+    private String type;
     private String description;
     private String photoPath;
     private String creatorName;
     private int creationYear;
 
-    public Artwork(String title, String description, String photoPath, String
-            creatorName, int creationYear){
+    public Artwork(String title, String type, String description, String
+            photoPath, String creatorName, int creationYear){
         this.title = title;
+        this.type = type;
         this.description = description;
         this.photoPath = photoPath;
         this.creatorName = creatorName;
@@ -83,6 +85,10 @@ public abstract class Artwork implements Sortable{
          */
         public void setCreationYear(int creationYear) {
             this.creationYear = creationYear;
+        }
+
+        public String getType() {
+            return type;
         }
 
         public String getSearchKey() {

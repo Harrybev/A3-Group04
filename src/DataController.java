@@ -2,6 +2,7 @@ public class DataController {
     private BST userTree;
     private BST artTree;
     private BST auctionTree;
+    private User loggedInUser;
 
     public DataController(BST userTree, BST artTree, BST auctionTree) {
         this.userTree = userTree;
@@ -19,5 +20,13 @@ public class DataController {
 
     public BST getAuctionTree() {
         return auctionTree;
+    }
+
+    public User getLoggedInUser() {
+        return loggedInUser;
+    }
+
+    public void setLoggedInUser(User loggedInUser) {
+        this.loggedInUser = loggedInUser;
     }
 }

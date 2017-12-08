@@ -20,10 +20,11 @@ public class Sculpture extends Artwork {
      * @param mainMaterial
      * @param additionalPhotos
      */
-    public Sculpture(String title, String description, String photoPath, String creatorName, int
-                    creationYear, double width, double height, double depth, String mainMaterial,
+    public Sculpture(String title, String type, String description, String
+            photoPath, String creatorName, int creationYear, double width,
+                     double height, double depth, String mainMaterial,
                      ArrayList<String> additionalPhotos) {
-        super(title,description,photoPath,creatorName,creationYear);
+        super(title, type, description,photoPath,creatorName,creationYear);
         this.width = width;
         this.height = height;
         this.depth = depth;

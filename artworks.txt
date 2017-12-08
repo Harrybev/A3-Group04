@@ -1,2 +1,2 @@
 Sculpture;artwork1;this is a sculpture;photoPath1;Harry;1996;2.4;4.8;8.2;stone;morePhotos;
-Painting;artwork2;this is a painting;photoPath2;Bevan;2000;3.6;6.0;
+Painting;artwork2;this is a painting;photoPath2;blerg;2000;3.6;6.0;

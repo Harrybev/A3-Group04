@@ -45,11 +45,56 @@ public class ReadFiles {
 			User user = new User(username, firstName, lastName, telNo, add, lastLogin, imagePath);
 			BSTNode node = new BSTNode(user);
 			userTree.addNode(node);
+
 			lineScanner.close();
 		}
 		in.close();
 
+		populateFavourites(userTree);
+
 		return userTree;
+	}
+
+	private static void populateFavourites(BST userTree) {
+		File inputFile = new File("users.txt");
+		Scanner in = null;
+
+		try {
+			in = new Scanner(inputFile);
+		} catch (FileNotFoundException e) {
+			System.out.println("oops");
+		}
+
+		while (in.hasNextLine()) {
+
+			String currLine = in.nextLine();
+			Scanner lineScanner = new Scanner(currLine);
+			lineScanner.useDelimiter(";");
+			String username = lineScanner.next();
+
+			lineScanner.next();
+			lineScanner.next();
+			lineScanner.next();
+			lineScanner.next();
+			lineScanner.next();
+			lineScanner.next();
+			lineScanner.next();
+			lineScanner.next();
+			lineScanner.next();
+			lineScanner.next();
+
+			User currentUser = (User) userTree.searchBST(username).getSortable();
+
+			ArrayList<User> favouriteList = new ArrayList<>();
+			while (lineScanner.hasNext()) {
+				String favouriteName = lineScanner.next();
+				User favouriteUser = (User) userTree.searchBST(favouriteName).getSortable();
+
+				favouriteList.add(favouriteUser);
+			}
+			currentUser.setFavouriteUsers(favouriteList);
+		}
+		in.close();
 	}
 
 	public static BST readAuctions(BST userTree, BST artTree) {
@@ -71,9 +116,10 @@ public class ReadFiles {
 			String sellName= lineScanner.next();
 			User seller = null;
 			ArrayList<Sortable> userList = userTree.inOrderList();
-			for(Sortable user : userList){
-				if(((User) user).getUsername().equals(sellName)){
-					seller = (User) user;
+			for(Sortable s : userList){
+				User user =  (User) s;
+				if(user.getUsername().equals(sellName)){
+					seller = user;
 				}
 			}
 			String artworks = lineScanner.next();
@@ -143,7 +189,8 @@ public class ReadFiles {
 //			Artwork art;
 			BSTNode node;
 			if(type.equals("Painting")){
-				Painting painting = new Painting(title, description, photoPath, creatorName, creationYear, width, height);
+				Painting painting = new Painting(title, type, description,
+						photoPath, creatorName, creationYear, width, height);
 
 				node = new BSTNode(painting);
 			}else{
@@ -159,7 +206,8 @@ public class ReadFiles {
 					 }else{
 						 morePhotos.add(photoString);
 					 }
-				Sculpture sculpture = new Sculpture(title, description, photoPath, creatorName,	creationYear, width, height, depth, mainMaterial, morePhotos);
+				Sculpture sculpture = new Sculpture(title, type,  description,
+						photoPath, creatorName,	creationYear, width, height, depth, mainMaterial, morePhotos);
 
 				node = new BSTNode(sculpture);
 				}

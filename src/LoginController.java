@@ -14,11 +14,19 @@ public class LoginController {
     @FXML Button btnLogin;
     @FXML TextField txtUsername;
 
-    private BST userTree = new BST();
+    private DataController data;
 
     // Initialises the controller and apparently gets called automatically
     public void initialize() {
-        userTree = ReadFiles.readUsers();
+
+        BST userTree = ReadFiles.readUsers();
+        BST artTree = ReadFiles.readArtworks();
+        BST auctionTree = ReadFiles.readAuctions(userTree, artTree);
+        data = new DataController(userTree, artTree,
+                auctionTree);
+
+
+
 
         // Setup actions on controls
         btnLogin.setOnAction(event -> {
@@ -27,7 +35,7 @@ public class LoginController {
     }
 
     private void handleBtnLoginAction() {
-        if (userTree.searchBST(txtUsername.getText()) == null) {
+        if (data.getUserTree().searchBST(txtUsername.getText()) == null) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Username not found");
             alert.setHeaderText(null);
@@ -36,8 +44,9 @@ public class LoginController {
             return;
         } else {
             // stores the currently logged in user
-            User loggedInUser = (User) userTree.searchBST(txtUsername.getText())
-                    .getSortable();
+            data.setLoggedInUser((User) data.getUserTree().searchBST(txtUsername
+                    .getText())
+                    .getSortable());
 
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource
@@ -47,8 +56,6 @@ public class LoginController {
 
                 ViewAuctionsController viewActionController = fxmlLoader
                         .<ViewAuctionsController>getController();
-
-                viewActionController.setLoggedInUser(loggedInUser);
 
                 Scene viewAuctionsScene = new Scene(viewAuctionsRoot,
                         Main.MAIN_WINDOW_WIDTH, Main.MAIN_WINDOW_HEIGHT);
@@ -71,10 +78,12 @@ public class LoginController {
 
                 System.exit(-1);
             }
-
-
-
         }
+
+    }
+
+    public void setDataController(DataController data) {
+        this.data = data;
     }
 
 

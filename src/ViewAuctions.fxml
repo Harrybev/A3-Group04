@@ -18,6 +18,13 @@
           </font>
         </Label>
       </center>
+      <left>
+        <Hyperlink id="lnkProfileStuff" fx:id="lnkProfilePage" text="Profile stuff" textFill="#4333ff">
+          <font>
+            <Font size="22.0" />
+          </font>
+        </Hyperlink>
+      </left>
       <padding>
         <Insets />
       </padding>

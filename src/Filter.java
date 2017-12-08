@@ -1,18 +1,36 @@
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Filter {
-    public ArrayList<User> searchUsers(BST userTree, String searchAttribute, String filterString) {
-        ArrayList<User> sList = new ArrayList<>();
-        return sList;
+    public static ArrayList<Artwork> filterArtwork(BST artTree, String
+            artType) {
+        ArrayList<Artwork> filteredArtList = new ArrayList<>();
 
-    }
-    public ArrayList<Artwork> searchArtwork(BST artworkTree, String searchAttribute, String filterString) {
-        ArrayList<Artwork> sList = new ArrayList<>();
-        return sList;
+        for (Sortable s: artTree.inOrderList()) {
+            Artwork art = (Artwork) s;
+            if (art.getType().equals(artType)) {
+                if (artType.equals("Sculpture")) {
+                    filteredArtList.add((Sculpture) s);
+                } else {
+                    filteredArtList.add((Painting) s);
+                }
+            }
+        }
+        return filteredArtList;
     }
 
-    public ArrayList<Auction> searchAuctions(BST auctionsTree, String searchAttribute, String filterString) {
-        ArrayList<Auction> sList = new ArrayList<>();
-        return sList;
+    public static ArrayList<Auction> filterAuctions(BST auctionTree, User
+            currentUser) {
+        ArrayList<Auction> filterAuctionList = new ArrayList<>();
+
+        for (Sortable s : auctionTree.inOrderList()) {
+            Auction auction = (Auction) s;
+
+            if (!auction.getSeller().equals(currentUser)) {
+                filterAuctionList.add(auction);
+            }
+
+        }
+        return filterAuctionList;
     }
 }

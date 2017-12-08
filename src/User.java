@@ -93,4 +93,12 @@ public class User implements Sortable {
     public String getSearchKey() {
         return this.username;
     }
+
+    public void setFavouriteUsers(ArrayList<User> favouriteUsers) {
+        this.favouriteUsers = favouriteUsers;
+    }
+
+    public ArrayList<User> getFavouriteUsers() {
+        return favouriteUsers;
+    }
 }

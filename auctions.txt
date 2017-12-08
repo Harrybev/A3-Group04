@@ -1,2 +1,2 @@
-blerg;artwork1;1;200.00;False;200.01;test2;0;
+notblerg;artwork1;1;200.00;False;200.01;test2;0;
 blerg;artwork2;0;50.00;False;

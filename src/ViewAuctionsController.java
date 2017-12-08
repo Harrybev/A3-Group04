@@ -1,25 +1,32 @@
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 public class ViewAuctionsController {
     @FXML Label lblLoggedInUser;
+    @FXML Hyperlink lnkProfilePage;
 
-    User loggedInUser;
-    Stage previousStage;
+    private DataController data;
+    private Stage previousStage;
 
-    public void initialize() {
+//    public void initialize() {
+//
+//
+//        lnkProfilePage.setOnAction(event -> {
+//            handleBtnLoginAction();
+//        });
+//
+//    }
+
+    public void handleLnkProfilePageAction() {
+
 
     }
 
-    public void setLoggedInUser(User loggedInUser) {
-        this.loggedInUser = loggedInUser;
-        lblLoggedInUser.setText("Welcome : " + loggedInUser.getUsername());
-    }
-
-    public void setPreviousStage(Stage previousStage) {
-        this.previousStage = previousStage;
+    public void setDataController(DataController data) {
+        this.data = data;
     }
 
 

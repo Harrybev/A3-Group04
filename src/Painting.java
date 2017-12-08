@@ -13,9 +13,10 @@ public class Painting extends Artwork {
      * @param width
      * @param height
      */
-    public Painting(String title, String description, String photoPath, String
+    public Painting(String title, String type, String description, String
+            photoPath, String
             creatorName, int creationYear, double width, double height) {
-        super(title,description,photoPath,creatorName,creationYear);
+        super(title, type, description,photoPath,creatorName,creationYear);
         this.width = width;
         this.height = height;
     }
@@ -49,6 +50,8 @@ public class Painting extends Artwork {
     public void setHeight(int height) {
         this.height = height;
     }
+
+
 
     /**
      *
