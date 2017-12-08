@@ -1,19 +1,22 @@
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.layout.AnchorPane;
+import javafx.event.ActionEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-
+import javafx.scene.Node;
 import java.io.IOException;
 
 public class LoginController {
     @FXML Button btnLogin;
     @FXML TextField txtUsername;
-
+    @FXML Hyperlink hyplinkCreateAccount;
     private BST userTree = new BST();
 
     // Initialises the controller and apparently gets called automatically
@@ -24,6 +27,11 @@ public class LoginController {
         btnLogin.setOnAction(event -> {
             handleBtnLoginAction();
         });
+    }
+    @FXML
+    private void handleHyplinkCreateAccount(ActionEvent event)  throws Exception {
+
+
     }
 
     private void handleBtnLoginAction() {
