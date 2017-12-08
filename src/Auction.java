@@ -56,4 +56,8 @@ public class Auction implements Sortable{
         Auction otherAuction = (Auction) s;
         return this.getArtwork().getTitle().compareTo(otherAuction.getArtwork().getTitle());
     }
+
+    public void setBidList(ArrayList<Bid> bidList) {
+        this.bidList = bidList;
+    }
 }

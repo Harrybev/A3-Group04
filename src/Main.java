@@ -40,9 +40,10 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         launch(args);
-        for (Sortable s : ReadFiles.readArtworks().inOrderList()) {
-            Artwork art = (Artwork) s;
-            System.out.println(art.getTitle());
+        for (Sortable s : ReadFiles.readAuctions(ReadFiles.readUsers(),
+                ReadFiles.readArtworks()).inOrderList()) {
+            Auction auction = (Auction) s;
+            System.out.println(auction.getSeller().getUsername());
         }
     }
 }
