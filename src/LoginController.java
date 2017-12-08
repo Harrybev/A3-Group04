@@ -15,14 +15,10 @@ public class LoginController {
     @FXML TextField txtUsername;
 
     private BST userTree = new BST();
-    private BST artTree = new BST();
-    private BST auctionTree = new BST();
 
     // Initialises the controller and apparently gets called automatically
     public void initialize() {
         userTree = ReadFiles.readUsers();
-        artTree = ReadFiles.readArtworks();
-        auctionTree = ReadFiles.readAuctions(userTree, artTree);
 
         // Setup actions on controls
         btnLogin.setOnAction(event -> {
@@ -64,7 +60,10 @@ public class LoginController {
                 viewAuctionsStage.initModality(Modality.APPLICATION_MODAL);
 
 
+                Stage loginStage = (Stage) btnLogin.getScene().getWindow();
+                loginStage.hide();
                 viewAuctionsStage.showAndWait();
+                loginStage.show();
 
 
             } catch (IOException e) {

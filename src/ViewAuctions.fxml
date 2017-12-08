@@ -11,13 +11,6 @@
 <AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="ViewAuctionsController">
   <children>
     <BorderPane focusTraversable="false" layoutX="7.0" layoutY="7.0" prefHeight="593.0" prefWidth="893.0">
-      <bottom>
-        <Button fx:id="btnReturn" mnemonicParsing="false" text="Return" BorderPane.alignment="TOP_CENTER">
-          <BorderPane.margin>
-            <Insets bottom="50.0" />
-          </BorderPane.margin>
-        </Button>
-      </bottom>
       <center>
         <Label text="Wow! You've logged in!">
           <font>

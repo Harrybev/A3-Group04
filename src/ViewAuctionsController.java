@@ -1,21 +1,15 @@
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 
 public class ViewAuctionsController {
-    @FXML Button btnReturn;
     @FXML Label lblLoggedInUser;
 
     User loggedInUser;
+    Stage previousStage;
 
     public void initialize() {
-        btnReturn.setOnAction(event -> {
-            handleRtnButtonAction();
-        });
-
-    }
-
-    public void handleRtnButtonAction() {
 
     }
 
@@ -23,4 +17,10 @@ public class ViewAuctionsController {
         this.loggedInUser = loggedInUser;
         lblLoggedInUser.setText("Welcome : " + loggedInUser.getUsername());
     }
+
+    public void setPreviousStage(Stage previousStage) {
+        this.previousStage = previousStage;
+    }
+
+
 }
