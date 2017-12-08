@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.geometry.*?>
@@ -7,23 +8,100 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.paint.*?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="450.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="AccountCreationController">
-  <children>
-    <BorderPane layoutX="0.0" layoutY="0.0" prefHeight="300.0" prefWidth="450.0">
-      <center>
-        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0" BorderPane.alignment="CENTER">
-          <children>
-            <Label text="Select a username:" />
-            <Label alignment="CENTER_LEFT" opacity="0.0" text="This username is already taken, please use another." />
-            <TextField fx:id="txtUsername" maxWidth="-Infinity" prefWidth="200.0">
-              <VBox.margin>
-                <Insets />
-              </VBox.margin>
-            </TextField>
-            <Button fx:id="btnCreateAccount" mnemonicParsing="false" text="Next" />
-          </children>
-        </VBox>
-      </center>
-    </BorderPane>
-  </children>
-</AnchorPane>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="635.0" prefWidth="524.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AccountCreationController">
+   <top>
+      <AnchorPane prefHeight="93.0" prefWidth="524.0" BorderPane.alignment="CENTER">
+         <children>
+            <Pane prefHeight="146.0" prefWidth="524.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="219.0" layoutY="29.0" text="Register">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+   </top>
+   <center>
+      <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <content>
+            <AnchorPane prefHeight="329.0" prefWidth="372.0">
+               <children>
+                  <Label id="labelUsername" text="Username" AnchorPane.leftAnchor="75.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField id="textFieldUsername" fx:id="txtFieldUsername" layoutY="25.0" onAction="#validateFieldUsername" prefHeight="25.0" prefWidth="337.0" AnchorPane.leftAnchor="75.0" />
+                  <Label id="labelErrorUsername" fx:id="lblErrorUsername" layoutY="50.0" prefHeight="17.0" prefWidth="337.0" AnchorPane.leftAnchor="75.0" />
+                  <Label id="labelLastname" fx:id="lblErrorFirstname" layoutY="130.0" prefHeight="17.0" prefWidth="337.0" AnchorPane.leftAnchor="75.0" />
+                  <TextField id="textFieldFirstname" fx:id="txtFieldFirstname" layoutX="75.0" layoutY="105.0" prefHeight="25.0" prefWidth="337.0" AnchorPane.leftAnchor="75.0" />
+                  <Label id="labelFirstname" layoutY="80.0" text="Firstname" AnchorPane.leftAnchor="75.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label id="labelLastname" layoutY="160.0" text="Lastname" AnchorPane.leftAnchor="75.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label id="labelTelephoneNumber" layoutX="10.0" layoutY="240.0" text="Telephone Number " AnchorPane.leftAnchor="75.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label id="labelAddress" layoutY="320.0" text="Address " AnchorPane.leftAnchor="75.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label id="labelAddressLine1" layoutY="350.0" text="Address line 1" AnchorPane.leftAnchor="100.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField id="textFieldLastname" fx:id="txtFieldLastname" layoutY="185.0" prefHeight="25.0" prefWidth="337.0" AnchorPane.leftAnchor="75.0" />
+                  <TextField id="textFieldTelephoneNumber" fx:id="textFieldTelephoneNumber" layoutY="265.0" onAction="#validateTelephoneNumber" prefHeight="25.0" prefWidth="337.0" AnchorPane.leftAnchor="75.0" />
+                  <Label id="labelLastname" fx:id="lblErrorLastname" layoutY="210.0" prefHeight="17.0" prefWidth="337.0" AnchorPane.leftAnchor="75.0" />
+                  <Label id="labelTelephoneNumber" fx:id="lblErrorTelephoneNumber" layoutY="290.0" prefHeight="17.0" prefWidth="337.0" AnchorPane.leftAnchor="75.0" />
+                  <TextField id="textFieldAddressLine1" fx:id="txtFieldAddressLine1" layoutY="375.0" prefHeight="25.0" prefWidth="312.0" AnchorPane.leftAnchor="100.0" />
+                  <Label id="labelErrorAddressLine1" fx:id="lblErrorAddressLine1" layoutY="400.0" prefHeight="17.0" prefWidth="312.0" AnchorPane.leftAnchor="100.0" />
+                  <Label id="labelAddressLine2" layoutY="430.0" text="Address line 2 (optional)" AnchorPane.leftAnchor="100.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label id="labelTownOrCity" layoutY="510.0" text="Town/City" AnchorPane.leftAnchor="100.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label id="labelCounty" layoutY="590.0" text="County (optional)" AnchorPane.leftAnchor="100.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label id="labelPostcode" layoutY="670.0" text="Postcode" AnchorPane.leftAnchor="100.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField id="textFieldAddressLine2" fx:id="txtFieldAddressLine2" layoutY="455.0" prefHeight="25.0" prefWidth="312.0" AnchorPane.leftAnchor="100.0" />
+                  <TextField id="textFieldTown/City" fx:id="txtFieldTownOrCity" layoutY="535.0" prefHeight="25.0" prefWidth="312.0" AnchorPane.leftAnchor="100.0" />
+                  <TextField id="textFieldCounty" fx:id="txtFieldCounty" layoutY="615.0" prefHeight="25.0" prefWidth="312.0" AnchorPane.leftAnchor="100.0" />
+                  <TextField id="textFieldPostCode" fx:id="txtFieldPostcode" layoutY="695.0" onAction="#validateFieldPostcode" prefHeight="25.0" prefWidth="312.0" AnchorPane.leftAnchor="100.0" />
+                  <Label id="labelErrorAddressLine2" fx:id="lblErrorAddressLine2" layoutY="480.0" prefHeight="17.0" prefWidth="312.0" AnchorPane.leftAnchor="100.0" />
+                  <Label id="labelErrorTownOrCity" fx:id="lblErrorTownOrCity" layoutY="560.0" prefHeight="17.0" prefWidth="312.0" AnchorPane.leftAnchor="100.0" />
+                  <Label id="labelErrorCounty" fx:id="lblErrorCounty" layoutY="640.0" prefHeight="17.0" prefWidth="312.0" AnchorPane.leftAnchor="100.0" />
+                  <Label id="labelErrorPostcode" fx:id="lblErrorPostcode" layoutY="720.0" prefHeight="17.0" prefWidth="312.0" AnchorPane.leftAnchor="100.0" />
+                  <Button id="buttonCreateAccount" fx:id="btnCreateAccount" layoutY="750.0" mnemonicParsing="false" onAction="#handleBtnCreateAccount" text="Create Account" AnchorPane.leftAnchor="300.0" />
+                  <Button id="buttonToLogin" fx:id="btnToLogin" layoutY="750.0" mnemonicParsing="false" onAction="#handleToLogin" text="Return To Login" AnchorPane.leftAnchor="150.0" />
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
+   </center>
+</BorderPane>

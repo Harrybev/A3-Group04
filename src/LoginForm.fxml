@@ -8,7 +8,7 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="LoginController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LoginController">
   <children>
     <BorderPane layoutX="0.0" layoutY="0.0" prefHeight="600.0" prefWidth="900.0">
       <center>
@@ -33,7 +33,7 @@
                   </font>
                 </Button>
                 <Label font="$x1" layoutX="16.0" layoutY="105.0" text="New? " />
-                <Hyperlink font="$x1" layoutX="82.0" layoutY="100.0" text="Create account" />
+                <Hyperlink fx:id="hyplinkCreateAccount" font="$x1" layoutX="82.0" layoutY="100.0" onAction="#handleHyplinkCreateAccount" text="Create account" />
               </children>
             </AnchorPane>
           </items>
