@@ -15,11 +15,7 @@ public class Sculpture extends Artwork {
     public Sculpture(String title, String description, String photoPath, String creatorName, int
                     creationYear, double width, double height, double depth, String mainMaterial,
                      String[] additionalPhotos) {
-        this.title = title;
-        this.description = description;
-        this.photoPath = photoPath;
-        this.creatorName = creatorName;
-        this.creationYear = creationYear;
+        super(title,description,photoPath,creatorName,creationYear);
         this.width = width;
         this.height = height;
         this.depth = depth;
@@ -30,21 +26,6 @@ public class Sculpture extends Artwork {
         }
     }
 
-    public String getTitle() {
-        return this.title;
-    }
-    public String getDescription() {
-        return this.description;
-    }
-    public String getPhotoPath() {
-        return this.photoPath;
-    }
-    public String getCreatorName() {
-        return this.creatorName;
-    }
-    public int getCreationYear() {
-        return this.creationYear;
-    }
 
     public double getWidth() {
         return this.width;
@@ -60,22 +41,6 @@ public class Sculpture extends Artwork {
 
     public String getMainMaterial() {
         return this.mainMaterial;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-    public void setDescription(String description) {
-        this.description = description;
-    }
-    public void setPhotoPath(String photoPath) {
-        this.photoPath = photoPath;
-    }
-    public void setCreatorName(String creatorName) {
-        this.creatorName = creatorName;
-    }
-    public void setCreationYear(int creationYear) {
-        this.creationYear = creationYear;
     }
 
     public void setWidth(double width) {
