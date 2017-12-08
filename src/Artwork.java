@@ -85,5 +85,8 @@ public abstract class Artwork implements Sortable{
             this.creationYear = creationYear;
         }
 
+        public String getSearchKey() {
+            return this.getTitle();
+        }
 
 }
