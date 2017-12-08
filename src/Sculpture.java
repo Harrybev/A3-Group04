@@ -209,4 +209,8 @@ public class Sculpture extends Artwork {
         Artwork otherArtwork = (Artwork) s;
         return this.getTitle().compareTo(((Artwork) s).getTitle());
     }
+
+    public String getSearchKey() {
+        return this.title;
+    }
 }

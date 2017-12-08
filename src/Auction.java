@@ -60,4 +60,8 @@ public class Auction implements Sortable{
     public void setBidList(ArrayList<Bid> bidList) {
         this.bidList = bidList;
     }
+
+    public String getSearchKey() {
+        return this.artwork.getTitle();
+    }
 }

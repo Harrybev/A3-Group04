@@ -7,9 +7,7 @@ public class BST {
     }
 
     public void addNode(BSTNode newNode) {
-
         this.root = insertNode(this.root, newNode);
-
     }
 
     private BSTNode insertNode(BSTNode currentNode, BSTNode newNode) {
@@ -48,6 +46,29 @@ public class BST {
         list.add(node.getSortable());
         if (node.getRight() != null) {
             inOrderTraversal(list, node.getRight());
+        }
+    }
+
+    public BSTNode searchBST(String searchKey) {
+        return recSearchBST(this.root, searchKey);
+    }
+
+    private BSTNode recSearchBST(BSTNode currNode, String searchKey) {
+        if (currNode.getSortable().getSearchKey().equals(searchKey)) {
+           return currNode;
+        } else if (currNode.getSortable().getSearchKey().compareTo(searchKey)
+         >= 0) {
+            if (currNode.getLeft() == null) {
+                return null;
+            } else {
+                return recSearchBST(currNode.getLeft(), searchKey);
+            }
+        } else {
+            if (currNode.getRight() == null) {
+                return null;
+            } else {
+                return recSearchBST(currNode.getRight(), searchKey);
+            }
         }
     }
 }

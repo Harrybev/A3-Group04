@@ -27,8 +27,9 @@ public class BSTNode {
         this.right = right;
     }
 
-
     public void setSortable(Sortable s) {
         this.s = s;
 	}
+
+
 }

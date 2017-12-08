@@ -56,4 +56,6 @@ public abstract class Artwork implements Sortable{
      */
     public abstract void setCreationYear(int creationYear);
 
+
+
 }

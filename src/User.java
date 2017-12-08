@@ -89,4 +89,8 @@ public class User implements Sortable {
         User otherUser = (User) s;
         return this.getUsername().compareTo(otherUser.getUsername());
     }
+
+    public String getSearchKey() {
+        return this.username;
+    }
 }

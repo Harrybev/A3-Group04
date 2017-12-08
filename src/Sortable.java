@@ -1,3 +1,4 @@
 public interface Sortable {
-    public int compareTo(Sortable s);
+    String getSearchKey();
+    int compareTo(Sortable s);
 }
