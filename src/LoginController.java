@@ -29,11 +29,9 @@ public class LoginController {
         BST userTree = ReadFiles.readUsers();
         BST artTree = ReadFiles.readArtworks();
         BST auctionTree = ReadFiles.readAuctions(userTree, artTree);
-        data = new DataController(userTree, artTree,
-                auctionTree);
-
-
-
+        DataController.setUserTree(userTree);
+        DataController.setArtTree(artTree);
+        DataController.setAuctionTree(auctionTree);
 
         // Setup actions on controls
         btnLogin.setOnAction(event -> {
@@ -47,7 +45,7 @@ public class LoginController {
     }
 
     private void handleBtnLoginAction() {
-        if (data.getUserTree().searchBST(txtUsername.getText()) == null) {
+        if (DataController.getUserTree().searchBST(txtUsername.getText()) == null) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Username not found");
             alert.setHeaderText(null);
@@ -56,9 +54,8 @@ public class LoginController {
             return;
         } else {
             // stores the currently logged in user
-            data.setLoggedInUser((User) data.getUserTree().searchBST(txtUsername
-                    .getText())
-                    .getSortable());
+            DataController.setLoggedInUser((User) data.getUserTree().searchBST
+                    (txtUsername.getText()).getSortable());
 
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource
@@ -92,7 +89,6 @@ public class LoginController {
 
                 loginStage.close();
                 viewAuctionsStage.show();
-//                loginStage.show();
 
 
             } catch (IOException e) {

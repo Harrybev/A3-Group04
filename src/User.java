@@ -26,7 +26,11 @@ public class User implements Sortable {
         this.telephoneNumber = telephoneNumber;
         this.address = address;
         this.lastLoginTime = lastLogin;
-        this.profileImagePath = profileImagePath;
+        if (profileImagePath.equals("null")) {
+            this.profileImagePath = "profile-pics/1.jpg";
+        } else {
+            this.profileImagePath = profileImagePath;
+        }
     }
 
     public String getProfileImagePath() {

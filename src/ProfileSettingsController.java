@@ -11,9 +11,11 @@ public class ProfileSettingsController {
     @FXML Button btnChangeProfilePicture;
     @FXML ImageView ivProfilePic;
 
+
     public void initialize() {
 
-        Image profileImage = new Image("profile-pics/1.jpg");
+        Image profileImage = new Image(DataController.getLoggedInUser().
+                getProfileImagePath());
         ivProfilePic.setImage(profileImage);
 
         btnChangeProfilePicture.setOnAction(event -> {
@@ -24,5 +26,4 @@ public class ProfileSettingsController {
     public void handleBtnChangeProfilePicture() {
 
     }
-
 }

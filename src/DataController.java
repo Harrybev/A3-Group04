@@ -1,32 +1,38 @@
 public class DataController {
-    private BST userTree;
-    private BST artTree;
-    private BST auctionTree;
-    private User loggedInUser;
+    private static BST userTree;
+    private static BST artTree;
+    private static BST auctionTree;
+    private static User loggedInUser;
 
-    public DataController(BST userTree, BST artTree, BST auctionTree) {
-        this.userTree = userTree;
-        this.artTree = artTree;
-        this.auctionTree = auctionTree;
-    }
-
-    public BST getUserTree() {
+    public static BST getUserTree() {
         return userTree;
     }
 
-    public BST getArtTree() {
+    public static BST getArtTree() {
         return artTree;
     }
 
-    public BST getAuctionTree() {
+    public static BST getAuctionTree() {
         return auctionTree;
     }
 
-    public User getLoggedInUser() {
+    public static User getLoggedInUser() {
         return loggedInUser;
     }
 
-    public void setLoggedInUser(User loggedInUser) {
-        this.loggedInUser = loggedInUser;
+    public static void setLoggedInUser(User newLogin) {
+        loggedInUser = newLogin;
+    }
+
+    public static void setUserTree(BST newUserTree) {
+        userTree = newUserTree;
+    }
+
+    public static void setArtTree(BST newArtTree) {
+        artTree = newArtTree;
+    }
+
+    public static void setAuctionTree(BST newAuctionTree) {
+        auctionTree = newAuctionTree;
     }
 }

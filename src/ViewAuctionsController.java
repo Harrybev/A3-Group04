@@ -33,6 +33,7 @@ public class ViewAuctionsController {
     @FXML
     public void handleLnkProfilePageAction() {
         try {
+
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource
                     ("ProfileSettings.fxml"));
 
@@ -48,6 +49,7 @@ public class ViewAuctionsController {
             profileSettingsStage.setScene(profileSettingsScene);
             profileSettingsStage.setTitle(Main.WINDOW_TITLE);
             profileSettingsStage.initModality(Modality.APPLICATION_MODAL);
+
             Stage viewAuctionsStage = (Stage) lnkProfilePage.getScene().
                     getWindow();
             // Displays Login Window again when AuctionView closes
