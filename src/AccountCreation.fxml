@@ -29,15 +29,22 @@
          <content>
             <AnchorPane prefHeight="329.0" prefWidth="372.0">
                <children>
+                  <TextField id="textFieldUsername" fx:id="txtFieldUsername" layoutY="25.0" onKeyTyped="#validateFieldUsername" prefHeight="25.0" prefWidth="337.0" AnchorPane.leftAnchor="75.0" />
+                  <TextField id="textFieldFirstname" fx:id="txtFieldFirstname" layoutX="75.0" layoutY="105.0" prefHeight="25.0" prefWidth="337.0" AnchorPane.leftAnchor="75.0" />
+                  <TextField id="textFieldLastname" fx:id="txtFieldLastname" layoutY="185.0" prefHeight="25.0" prefWidth="337.0" AnchorPane.leftAnchor="75.0" />
+                  <TextField id="textFieldTelephoneNumber" fx:id="textFieldTelephoneNumber" layoutY="265.0" onAction="#validateTelephoneNumber" onKeyTyped="#validateTelephoneNumber" prefHeight="25.0" prefWidth="337.0" AnchorPane.leftAnchor="75.0" />
+                  <TextField id="textFieldAddressLine1" fx:id="txtFieldAddressLine1" layoutY="375.0" prefHeight="25.0" prefWidth="312.0" AnchorPane.leftAnchor="100.0" />
+                  <TextField id="textFieldAddressLine2" fx:id="txtFieldAddressLine2" layoutY="455.0" prefHeight="25.0" prefWidth="312.0" AnchorPane.leftAnchor="100.0" />
+                  <TextField id="textFieldTown/City" fx:id="txtFieldTownOrCity" layoutY="535.0" prefHeight="25.0" prefWidth="312.0" AnchorPane.leftAnchor="100.0" />
+                  <TextField id="textFieldCounty" fx:id="txtFieldCounty" layoutY="615.0" prefHeight="25.0" prefWidth="312.0" AnchorPane.leftAnchor="100.0" />
+                  <TextField id="textFieldPostCode" fx:id="txtFieldPostcode" layoutY="695.0" onKeyTyped="#validateFieldPostcode" prefHeight="25.0" prefWidth="312.0" AnchorPane.leftAnchor="100.0" />
                   <Label id="labelUsername" text="Username" AnchorPane.leftAnchor="75.0">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <TextField id="textFieldUsername" fx:id="txtFieldUsername" layoutY="25.0" onAction="#validateFieldUsername" prefHeight="25.0" prefWidth="337.0" AnchorPane.leftAnchor="75.0" />
                   <Label id="labelErrorUsername" fx:id="lblErrorUsername" layoutY="50.0" prefHeight="17.0" prefWidth="337.0" AnchorPane.leftAnchor="75.0" />
                   <Label id="labelLastname" fx:id="lblErrorFirstname" layoutY="130.0" prefHeight="17.0" prefWidth="337.0" AnchorPane.leftAnchor="75.0" />
-                  <TextField id="textFieldFirstname" fx:id="txtFieldFirstname" layoutX="75.0" layoutY="105.0" prefHeight="25.0" prefWidth="337.0" AnchorPane.leftAnchor="75.0" />
                   <Label id="labelFirstname" layoutY="80.0" text="Firstname" AnchorPane.leftAnchor="75.0">
                      <font>
                         <Font size="18.0" />
@@ -63,11 +70,8 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <TextField id="textFieldLastname" fx:id="txtFieldLastname" layoutY="185.0" prefHeight="25.0" prefWidth="337.0" AnchorPane.leftAnchor="75.0" />
-                  <TextField id="textFieldTelephoneNumber" fx:id="textFieldTelephoneNumber" layoutY="265.0" onAction="#validateTelephoneNumber" prefHeight="25.0" prefWidth="337.0" AnchorPane.leftAnchor="75.0" />
                   <Label id="labelLastname" fx:id="lblErrorLastname" layoutY="210.0" prefHeight="17.0" prefWidth="337.0" AnchorPane.leftAnchor="75.0" />
                   <Label id="labelTelephoneNumber" fx:id="lblErrorTelephoneNumber" layoutY="290.0" prefHeight="17.0" prefWidth="337.0" AnchorPane.leftAnchor="75.0" />
-                  <TextField id="textFieldAddressLine1" fx:id="txtFieldAddressLine1" layoutY="375.0" prefHeight="25.0" prefWidth="312.0" AnchorPane.leftAnchor="100.0" />
                   <Label id="labelErrorAddressLine1" fx:id="lblErrorAddressLine1" layoutY="400.0" prefHeight="17.0" prefWidth="312.0" AnchorPane.leftAnchor="100.0" />
                   <Label id="labelAddressLine2" layoutY="430.0" text="Address line 2 (optional)" AnchorPane.leftAnchor="100.0">
                      <font>
@@ -89,10 +93,6 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <TextField id="textFieldAddressLine2" fx:id="txtFieldAddressLine2" layoutY="455.0" prefHeight="25.0" prefWidth="312.0" AnchorPane.leftAnchor="100.0" />
-                  <TextField id="textFieldTown/City" fx:id="txtFieldTownOrCity" layoutY="535.0" prefHeight="25.0" prefWidth="312.0" AnchorPane.leftAnchor="100.0" />
-                  <TextField id="textFieldCounty" fx:id="txtFieldCounty" layoutY="615.0" prefHeight="25.0" prefWidth="312.0" AnchorPane.leftAnchor="100.0" />
-                  <TextField id="textFieldPostCode" fx:id="txtFieldPostcode" layoutY="695.0" onAction="#validateFieldPostcode" prefHeight="25.0" prefWidth="312.0" AnchorPane.leftAnchor="100.0" />
                   <Label id="labelErrorAddressLine2" fx:id="lblErrorAddressLine2" layoutY="480.0" prefHeight="17.0" prefWidth="312.0" AnchorPane.leftAnchor="100.0" />
                   <Label id="labelErrorTownOrCity" fx:id="lblErrorTownOrCity" layoutY="560.0" prefHeight="17.0" prefWidth="312.0" AnchorPane.leftAnchor="100.0" />
                   <Label id="labelErrorCounty" fx:id="lblErrorCounty" layoutY="640.0" prefHeight="17.0" prefWidth="312.0" AnchorPane.leftAnchor="100.0" />
