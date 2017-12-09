@@ -1,3 +1,4 @@
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -11,6 +12,8 @@ import javafx.event.ActionEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.scene.Node;
+import javafx.stage.WindowEvent;
+
 import java.io.IOException;
 
 public class LoginController {
@@ -63,8 +66,12 @@ public class LoginController {
 
                 AnchorPane viewAuctionsRoot = (AnchorPane) fxmlLoader.load();
 
-                ViewAuctionsController viewActionController = fxmlLoader
+                ViewAuctionsController viewAuctionController = fxmlLoader
                         .<ViewAuctionsController>getController();
+
+
+                Stage loginStage = (Stage) btnLogin.getScene().getWindow();
+                viewAuctionController.setPreviousStage(loginStage);
 
                 Scene viewAuctionsScene = new Scene(viewAuctionsRoot,
                         Main.MAIN_WINDOW_WIDTH, Main.MAIN_WINDOW_HEIGHT);
@@ -73,13 +80,19 @@ public class LoginController {
                 viewAuctionsStage.setScene(viewAuctionsScene);
                 viewAuctionsStage.setTitle(Main.WINDOW_TITLE);
 
+                // Displays Login Window again when AuctionView closes
+                viewAuctionsStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+                    public void handle(WindowEvent we) {
+                        loginStage.show();
+                    }
+                });
+
                 viewAuctionsStage.initModality(Modality.APPLICATION_MODAL);
 
 
-                Stage loginStage = (Stage) btnLogin.getScene().getWindow();
-                loginStage.hide();
-                viewAuctionsStage.showAndWait();
-                loginStage.show();
+                loginStage.close();
+                viewAuctionsStage.show();
+//                loginStage.show();
 
 
             } catch (IOException e) {
