@@ -84,7 +84,7 @@ public class LoginController {
     }
 
 
-    }
+    
 
     private void handleBtnLoginAction() {
         if (DataController.getUserTree().searchBST(txtUsername.getText()) == null) {
