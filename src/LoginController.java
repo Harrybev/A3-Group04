@@ -38,6 +38,7 @@ public class LoginController {
             handleBtnLoginAction();
         });
     }
+
     @FXML
     private void handleHyplinkCreateAccount(ActionEvent event)  throws Exception {
 

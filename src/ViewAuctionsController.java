@@ -52,7 +52,7 @@ public class ViewAuctionsController {
 
             Stage viewAuctionsStage = (Stage) lnkProfilePage.getScene().
                     getWindow();
-            // Displays Login Window again when AuctionView closes
+
             profileSettingsStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
                 public void handle(WindowEvent we) {
                     viewAuctionsStage.show();

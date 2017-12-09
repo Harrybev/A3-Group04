@@ -9,7 +9,14 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane id="BorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+<BorderPane id="BorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="ChooseProfilePictureController">
+  <bottom>
+    <Button fx:id="btnDraw" alignment="TOP_LEFT" mnemonicParsing="false" text="Draw your own!" BorderPane.alignment="TOP_LEFT">
+      <BorderPane.margin>
+        <Insets bottom="50.0" left="20.0" />
+      </BorderPane.margin>
+    </Button>
+  </bottom>
   <center>
     <ImageView fx:id="viwChosenPicture" fitHeight="225.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
       <BorderPane.margin>
@@ -18,7 +25,17 @@
     </ImageView>
   </center>
   <left>
-    <GridPane gridLinesVisible="true" maxHeight="-Infinity" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER_LEFT">
+    <GridPane id="grid" fx:id="gridPictures" gridLinesVisible="true" maxHeight="-Infinity" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER_LEFT">
+      <children>
+        <ImageView fx:id="iv1" fitHeight="56.25" fitWidth="50.0" pickOnBounds="true" preserveRatio="false" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <ImageView fx:id="iv2" fitHeight="56.25" fitWidth="50.0" pickOnBounds="true" preserveRatio="false" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+        <ImageView fx:id="iv3" fitHeight="56.25" fitWidth="50.0" pickOnBounds="true" preserveRatio="false" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <ImageView fx:id="iv4" fitHeight="52.125" fitWidth="50.0" pickOnBounds="true" preserveRatio="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        <ImageView fx:id="iv5" fitHeight="52.125" fitWidth="50.0" pickOnBounds="true" preserveRatio="false" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <ImageView fx:id="iv6" fitHeight="56.25" fitWidth="50.0" pickOnBounds="true" preserveRatio="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+        <ImageView fx:id="iv7" fitHeight="52.125" fitWidth="50.0" pickOnBounds="true" preserveRatio="false" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+        <ImageView fx:id="iv8" fitHeight="56.25" fitWidth="50.00001525878906" pickOnBounds="true" preserveRatio="false" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+      </children>
       <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -30,7 +47,7 @@
         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
       </rowConstraints>
       <BorderPane.margin>
-        <Insets bottom="50.0" />
+        <Insets bottom="-30.0" />
       </BorderPane.margin>
     </GridPane>
   </left>
