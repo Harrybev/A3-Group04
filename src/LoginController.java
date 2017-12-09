@@ -8,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.event.ActionEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -41,9 +42,47 @@ public class LoginController {
 
     @FXML
     private void handleHyplinkCreateAccount(ActionEvent event)  throws Exception {
+      try {
+          FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource
+                  ("AccountCreation.fxml"));
+
+          BorderPane accountCreationRoot = (BorderPane) fxmlLoader.load();
+
+          AccountCreationController accountCreationController = fxmlLoader
+                  .<AccountCreationController>getController();
 
 
+          Stage loginStage = (Stage) btnLogin.getScene().getWindow();
+          accountCreationController.setPreviousStage(loginStage);
+
+          Scene accountCreationScene = new Scene(accountCreationRoot,
+                  Main.MAIN_WINDOW_WIDTH, Main.MAIN_WINDOW_HEIGHT);
+
+          Stage accountCreationStage = new Stage();
+          accountCreationStage.setScene(accountCreationScene);
+          accountCreationStage.setTitle(Main.WINDOW_TITLE);
+
+          // Displays Login Window again when AuctionView closes
+          accountCreationStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+              public void handle(WindowEvent we) {
+                  loginStage.show();
+              }
+          });
+
+          accountCreationStage.initModality(Modality.APPLICATION_MODAL);
+
+
+          loginStage.close();
+          accountCreationStage.show();
+
+
+      } catch (IOException e) {
+          e.printStackTrace();
+
+          System.exit(-1);
+      }
     }
+
 
     private void handleBtnLoginAction() {
         if (DataController.getUserTree().searchBST(txtUsername.getText()) == null) {

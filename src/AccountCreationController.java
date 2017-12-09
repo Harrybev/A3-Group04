@@ -33,6 +33,7 @@ public class AccountCreationController {
     @FXML Button btnCreateAccount;
 
     private BST userTree = new BST();
+    private Stage previousStage;
 
     public void initialize() {
         userTree = ReadFiles.readUsers();
@@ -63,6 +64,10 @@ public class AccountCreationController {
 
     @FXML public void handleBtnCreateAccount(){
 
+    }
+
+    public void setPreviousStage(Stage previousStage) {
+        this.previousStage = previousStage;
     }
 
 }
