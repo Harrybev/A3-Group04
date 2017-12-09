@@ -22,6 +22,8 @@ public class LoginController {
     @FXML TextField txtUsername;
     @FXML Hyperlink hyplinkCreateAccount;
 
+    private DataController data;
+
     // Initialises the controller and apparently gets called automatically
     public void initialize() {
 
@@ -58,7 +60,7 @@ public class LoginController {
 
           Stage accountCreationStage = new Stage();
           accountCreationStage.setScene(viewAuctionsScene);
-          accountCreationStage.setTitle(Main.WINDOW_TITLE);
+          viewAuctionsStage.setTitle(Main.WINDOW_TITLE);
 
           // Displays Login Window again when AuctionView closes
           viewAuctionsStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
@@ -94,7 +96,7 @@ public class LoginController {
             return;
         } else {
             // stores the currently logged in user
-            DataController.setLoggedInUser((User) DataController.getUserTree().searchBST
+            DataController.setLoggedInUser((User) data.getUserTree().searchBST
                     (txtUsername.getText()).getSortable());
 
             try {
@@ -130,6 +132,7 @@ public class LoginController {
                 loginStage.close();
                 viewAuctionsStage.show();
 
+
             } catch (IOException e) {
                 e.printStackTrace();
 
@@ -138,4 +141,11 @@ public class LoginController {
         }
 
     }
+
+    public void setDataController(DataController data) {
+        this.data = data;
+    }
+
+
+
 }
