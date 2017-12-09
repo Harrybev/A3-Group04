@@ -1,3 +1,5 @@
+import javafx.scene.canvas.GraphicsContext;
+
 import java.awt.*;
 
 /**
@@ -44,21 +46,21 @@ public class Rectangle extends FillableShape {
      * Draws the rectangle using the given Graphics object.
      * @param g The Graphics object containing the drawing properties.
      */
-    public void draw(Graphics g) {
-        Graphics2D g2 = (Graphics2D)g; // Obtain a Graphics2D object via casting
-
-        // Calculate the rectangle area
-        int pointX = Math.min(xStart,xFinish);
-        int pointY = Math.min(yStart,yFinish);
-        int width=Math.abs(xStart-xFinish);
-        int height=Math.abs(yStart-yFinish);
-
-        g2.setStroke(stroke); // Set the stroke property of the Graphics object
-        // Check the fill property of the rectangle and draw it appropriately
-        if (isFilled) {
-            g.fillRect(pointX, pointY, width, height);
-        } else {
-            g.drawRect(pointX, pointY, width, height);
-        }
+    public void draw(GraphicsContext g) {
+//        Graphics2D g2 = (Graphics2D)g; // Obtain a Graphics2D object via casting
+//
+//        // Calculate the rectangle area
+//        int pointX = Math.min(xStart,xFinish);
+//        int pointY = Math.min(yStart,yFinish);
+//        int width=Math.abs(xStart-xFinish);
+//        int height=Math.abs(yStart-yFinish);
+//
+//        g2.setStroke(stroke); // Set the stroke property of the Graphics object
+//        // Check the fill property of the rectangle and draw it appropriately
+//        if (isFilled) {
+//            g.fillRect(pointX, pointY, width, height);
+//        } else {
+//            g.drawRect(pointX, pointY, width, height);
+//        }
     }
 }

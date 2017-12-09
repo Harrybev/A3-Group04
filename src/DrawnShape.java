@@ -1,3 +1,5 @@
+import javafx.scene.canvas.GraphicsContext;
+
 import java.awt.*;
 
 /**
@@ -17,5 +19,5 @@ public abstract class DrawnShape {
      * colour and width)
      * @param g The Graphics object containing the drawing properties.
      */
-    public abstract void draw(Graphics g);
+    public abstract void draw(GraphicsContext g);
 }

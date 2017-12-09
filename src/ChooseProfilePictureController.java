@@ -132,7 +132,6 @@ public class ChooseProfilePictureController {
 
             Stage chooseProfilePictureStage = (Stage) btnDraw.getScene()
                     .getWindow();
-            drawPanelController.setPreviousStage(chooseProfilePictureStage);
 
             drawPanelStage.setOnCloseRequest(new EventHandler<
                                 WindowEvent>() {

@@ -1,3 +1,5 @@
+import javafx.scene.canvas.GraphicsContext;
+
 import java.awt.*;
 
 public class Text extends DrawnShape {
@@ -15,8 +17,8 @@ public class Text extends DrawnShape {
         this.font = font;
     }
 
-    public void draw(Graphics g){
-        g.drawString(displayString, xFinish, yFinish);
+    public void draw(GraphicsContext g){
+//        g.drawString(displayString, xFinish, yFinish);
     }
 //    public String getName(){
 //       return this.name;

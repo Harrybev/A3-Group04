@@ -1,3 +1,5 @@
+import javafx.scene.canvas.GraphicsContext;
+
 import java.awt.*;
 import java.awt.geom.Ellipse2D;
 
@@ -46,18 +48,18 @@ public class Ellipse extends FillableShape {
      * Method which draws the ellipse using the given graphics object.
      * @param g The Graphics object containing the drawing properties.
      */
-    public void draw(Graphics g) {
-        Graphics2D g2 = (Graphics2D)g;  // Obtain a Graphics2D object bu casting
-
-        // Calculate boundary-rectangle from start and finish coordinates
-        int pointX = Math.min(xStart,xFinish);
-        int pointY = Math.min(yStart,yFinish);
-        int width=Math.abs(xStart-xFinish);
-        int height=Math.abs(yStart-yFinish);
-
-        g2.setStroke(stroke);   // Set the graphics object's stroke
-
-        // Draw the ellipse
-        g2.draw(new Ellipse2D.Double(pointX, pointY, width, height));
+    public void draw(GraphicsContext g) {
+//        Graphics2D g2 = (Graphics2D)g;  // Obtain a Graphics2D object bu casting
+//
+//        // Calculate boundary-rectangle from start and finish coordinates
+//        int pointX = Math.min(xStart,xFinish);
+//        int pointY = Math.min(yStart,yFinish);
+//        int width=Math.abs(xStart-xFinish);
+//        int height=Math.abs(yStart-yFinish);
+//
+//        g2.setStroke(stroke);   // Set the graphics object's stroke
+//
+//        // Draw the ellipse
+//        g2.draw(new Ellipse2D.Double(pointX, pointY, width, height));
     }
 }

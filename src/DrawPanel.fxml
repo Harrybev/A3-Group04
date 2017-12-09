@@ -1,29 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.paint.*?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
 
-<BorderPane id="BorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="DrawPanelController">
-  <center>
-    <StackPane fx:id="spImageCanvas" prefHeight="150.0" prefWidth="200.0">
-      <children>
-        <ImageView fx:id="ivCanvas" fitHeight="291.25" fitWidth="344.5" pickOnBounds="true" preserveRatio="false" />
-      </children>
-    </StackPane>
-  </center>
+<BorderPane id="BorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DrawPanelController">
   <top>
     <ToolBar fx:id="toolbarDraw">
       <items>
-        <Button fx:id="btnSave" mnemonicParsing="false" text="Save Image" />
+        <Button fx:id="btnSave" mnemonicParsing="false" text="Save" />
         <Button fx:id="btnLine" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="" />
         <Button id="btnLine" fx:id="btnEllipse" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="" />
         <Button id="btnLine" fx:id="btnRect" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="" />
         <Button id="btnLine" fx:id="btnPencil" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="" />
         <TextField fx:id="txtStrokeWidth" prefWidth="34.0" />
+        <RadioButton fx:id="rdioFill" mnemonicParsing="false" text="Fill Shape" />
         <ColorPicker fx:id="colLine" />
         <ColorPicker fx:id="colFill" />
         <Button id="btnLine" fx:id="btnText" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="" />
@@ -33,4 +29,11 @@
       </items>
     </ToolBar>
   </top>
+   <center>
+      <StackPane fx:id="spImageCanvas" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" style="-fx-border-color: black;" BorderPane.alignment="CENTER">
+         <children>
+            <Canvas fx:id="cnvCanvas" height="400.0" width="400.0" />
+         </children>
+      </StackPane>
+   </center>
 </BorderPane>
