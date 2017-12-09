@@ -43,16 +43,16 @@ public class Main extends Application {
 //        BST userTree = ReadFiles.readUsers();
 //        BST artTree = ReadFiles.readArtworks();
 //        BST auctionTree = ReadFiles.readAuctions(userTree, artTree);
-//        DataController data = new DataController(userTree, artTree,
-//                auctionTree);
-//
-//        User testUser = (User) userTree.searchBST("blerg").getSortable();
-//
-//        for (User user : testUser.getFavouriteUsers()) {
-//            System.out.println(user.getUsername());
-//        }
+//        DataController.setUserTree(userTree);
+//        DataController.setArtTree(artTree);
+//        DataController.setAuctionTree(auctionTree);
 
-        launch(args);
+
+//        User testUser = (User) userTree.searchBST("blerg").getSortable();
+//        for (User user : testUser.getFavouriteUsers()) {
+//            System.out.println(user.getUsername());        }
+
+      launch(args);
 
     }
 }
