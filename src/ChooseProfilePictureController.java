@@ -36,8 +36,6 @@ public class ChooseProfilePictureController {
         Image image6 = new Image("profile-pics/6.jpg");
         Image image7 = new Image("profile-pics/7.jpg");
 
-        boolean hasCustomImage = false;
-
         iv1.setImage(image1);
         iv2.setImage(image2);
         iv3.setImage(image3);
@@ -46,13 +44,13 @@ public class ChooseProfilePictureController {
         iv6.setImage(image6);
         iv7.setImage(image7);
 
-//        try {
-//            Image customImage = new Image("profile-pics/" + DataController.getLoggedInUser().getUsername() + ".jpg");
-//            iv8.setImage(customImage);
-//        } catch (IllegalArgumentException e) {
-//            Image customImage = new Image("profile-pics/drawyourown.jpg");
-//            iv8.setImage(customImage);
-//        }
+        try {
+            Image customImage = new Image("profile-pics/" + DataController.getLoggedInUser().getUsername() + ".jpg");
+            iv8.setImage(customImage);
+        } catch (IllegalArgumentException e) {
+            Image customImage = new Image("profile-pics/drawyourown.jpg");
+            iv8.setImage(customImage);
+        }
 
         btnDraw.setOnAction(event -> {
             handleBtnDraw();
