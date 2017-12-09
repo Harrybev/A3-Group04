@@ -55,24 +55,25 @@ public class LoginController {
           Stage loginStage = (Stage) btnLogin.getScene().getWindow();
           accountCreationController.setPreviousStage(loginStage);
 
-          Scene accountCreationScene = new Scene(accountCreationRoot);
+          Scene accountCreationScene = new Scene(accountCreationRoot,
+                  Main.MAIN_WINDOW_WIDTH, Main.MAIN_WINDOW_HEIGHT);
 
           Stage accountCreationStage = new Stage();
-          accountCreationStage.setScene(accountCreationScene);
+          accountCreationStage.setScene(viewAuctionsScene);
           accountCreationStage.setTitle(Main.WINDOW_TITLE);
 
           // Displays Login Window again when AuctionView closes
-          accountCreationStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+          viewAuctionsStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
               public void handle(WindowEvent we) {
                   loginStage.show();
               }
           });
 
-          accountCreationStage.initModality(Modality.APPLICATION_MODAL);
+          viewAuctionsStage.initModality(Modality.APPLICATION_MODAL);
 
 
           loginStage.close();
-          accountCreationStage.show();
+          viewAuctionsStage.show();
 
 
       } catch (IOException e) {
@@ -82,6 +83,8 @@ public class LoginController {
       }
     }
 
+
+    }
 
     private void handleBtnLoginAction() {
         if (DataController.getUserTree().searchBST(txtUsername.getText()) == null) {
@@ -128,7 +131,6 @@ public class LoginController {
 
                 loginStage.close();
                 viewAuctionsStage.show();
-
 
             } catch (IOException e) {
                 e.printStackTrace();
