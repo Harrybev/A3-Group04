@@ -55,8 +55,7 @@ public class LoginController {
           Stage loginStage = (Stage) btnLogin.getScene().getWindow();
           accountCreationController.setPreviousStage(loginStage);
 
-          Scene accountCreationScene = new Scene(accountCreationRoot,
-                  Main.MAIN_WINDOW_WIDTH, Main.MAIN_WINDOW_HEIGHT);
+          Scene accountCreationScene = new Scene(accountCreationRoot);
 
           Stage accountCreationStage = new Stage();
           accountCreationStage.setScene(accountCreationScene);

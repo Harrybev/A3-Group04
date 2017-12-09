@@ -43,7 +43,7 @@ public class AccountCreationController {
         if (userTree.searchBST(txtFieldUsername.getText()) == null) {
           lblErrorUsername.setText("Please enter a username");
           lblErrorUsername.setTextFill(Color.web("#C00000 "));
-        }else if (userTree.searchBST(txtFieldUsername.getText()) == null) {
+        }else if (userTree.searchBST(txtFieldUsername.getText()) != null) {
           lblErrorUsername.setText("Available");
           lblErrorUsername.setTextFill(Color.web("#228B22"));
           return;
@@ -63,6 +63,10 @@ public class AccountCreationController {
     }
 
     @FXML public void handleBtnCreateAccount(){
+
+    }
+
+    @FXML public void validateTelephoneNumber(){
 
     }
 
