@@ -2,41 +2,35 @@
 
 <?import java.lang.*?>
 <?import java.util.*?>
-<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.paint.*?>
-<?import javafx.scene.text.*?>
 
 <BorderPane id="BorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="DrawPanelController">
-  <bottom>
-    <Button fx:id="btnSave" mnemonicParsing="false" text="Save image" BorderPane.alignment="CENTER">
-      <BorderPane.margin>
-        <Insets bottom="50.0" />
-      </BorderPane.margin>
-    </Button>
-  </bottom>
-  <left>
-    <GridPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="150.0" prefWidth="50.0" BorderPane.alignment="CENTER_LEFT">
-      <columnConstraints>
-        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-      </columnConstraints>
-      <rowConstraints>
-        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-      </rowConstraints>
-    </GridPane>
-  </left>
+  <center>
+    <StackPane fx:id="spImageCanvas" prefHeight="150.0" prefWidth="200.0">
+      <children>
+        <ImageView fx:id="ivCanvas" fitHeight="291.25" fitWidth="344.5" pickOnBounds="true" preserveRatio="false" />
+      </children>
+    </StackPane>
+  </center>
   <top>
-    <Label text="Draw" BorderPane.alignment="CENTER">
-      <font>
-        <Font size="25.0" />
-      </font>
-    </Label>
+    <ToolBar fx:id="toolbarDraw">
+      <items>
+        <Button fx:id="btnSave" mnemonicParsing="false" text="Save Image" />
+        <Button fx:id="btnLine" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="" />
+        <Button id="btnLine" fx:id="btnEllipse" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="" />
+        <Button id="btnLine" fx:id="btnRect" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="" />
+        <Button id="btnLine" fx:id="btnPencil" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="" />
+        <TextField fx:id="txtStrokeWidth" prefWidth="34.0" />
+        <ColorPicker fx:id="colLine" />
+        <ColorPicker fx:id="colFill" />
+        <Button id="btnLine" fx:id="btnText" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="" />
+        <Button id="btnLine" fx:id="btnBold" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="" />
+        <Button id="btnLine" fx:id="btnUnderline" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="" />
+        <TextField id="txtStrokeWidth" fx:id="txtFontSize" prefWidth="34.0" />
+      </items>
+    </ToolBar>
   </top>
 </BorderPane>

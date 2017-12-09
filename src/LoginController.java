@@ -22,8 +22,6 @@ public class LoginController {
     @FXML TextField txtUsername;
     @FXML Hyperlink hyplinkCreateAccount;
 
-    private DataController data;
-
     // Initialises the controller and apparently gets called automatically
     public void initialize() {
 
@@ -93,7 +91,7 @@ public class LoginController {
             return;
         } else {
             // stores the currently logged in user
-            DataController.setLoggedInUser((User) data.getUserTree().searchBST
+            DataController.setLoggedInUser((User) DataController.getUserTree().searchBST
                     (txtUsername.getText()).getSortable());
 
             try {
@@ -138,11 +136,4 @@ public class LoginController {
         }
 
     }
-
-    public void setDataController(DataController data) {
-        this.data = data;
-    }
-
-
-
 }

@@ -37,7 +37,6 @@ public class ChooseProfilePictureController {
 
     private boolean userHasCustomPic = false;
     private ArrayList<StackPane> stackPaneBorderState = new ArrayList<>();
-    private DropShadow dropShadow = new DropShadow(20, Color.PURPLE);
 
     public void initialize() {
 
@@ -116,7 +115,7 @@ public class ChooseProfilePictureController {
         try {
 
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource
-                    ("DrawPanelController.fxml"));
+                    ("DrawPanel.fxml"));
 
             BorderPane drawPanelRoot = (BorderPane) fxmlLoader.load();
 
@@ -131,16 +130,18 @@ public class ChooseProfilePictureController {
             drawPanelStage.setTitle(Main.WINDOW_TITLE);
             drawPanelStage.initModality(Modality.APPLICATION_MODAL);
 
-            Stage profileSettingsStage = (Stage) btnDraw.getScene().getWindow();
+            Stage chooseProfilePictureStage = (Stage) btnDraw.getScene()
+                    .getWindow();
+            drawPanelController.setPreviousStage(chooseProfilePictureStage);
 
             drawPanelStage.setOnCloseRequest(new EventHandler<
                                 WindowEvent>() {
                 public void handle(WindowEvent we) {
-                    profileSettingsStage.show();
+                    chooseProfilePictureStage.show();
                 }
             });
 
-            profileSettingsStage.close();
+            chooseProfilePictureStage.close();
             drawPanelStage.show();
 
         } catch (IOException e) {
