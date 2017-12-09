@@ -14,7 +14,8 @@ import javafx.scene.input.KeyEvent;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.time.ZonedDateTime;
-
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 
 //import javafx.scene.control.TextInputControl.TextProperty;
 
@@ -110,11 +111,24 @@ public class AccountCreationController {
     }
 
     @FXML public void handleToLogin(){
+      Stage registerStage = (Stage) btnCreateAccount.getScene().getWindow();
 
-
+      registerStage.close();
+      this.previousStage.show();
     }
 
     @FXML public void handleBtnCreateAccount(){
+      lblErrorFirstname.setText("");
+      lblErrorLastname.setText("");
+      lblErrorAddressLine1.setText("");
+      lblErrorTownOrCity.setText("");
+      lblErrorFirstname.setTextFill(Color.web("0xC00000"));
+      lblErrorLastname.setTextFill(Color.web("0xC00000"));
+      lblErrorAddressLine1.setTextFill(Color.web("0xC00000"));
+      lblErrorTownOrCity.setTextFill(Color.web("0xC00000"));
+      lblErrorUsername.setTextFill(Color.web("0xC00000"));
+      lblErrorTelephoneNumber.setTextFill(Color.web("0xC00000"));
+      lblErrorPostcode.setTextFill(Color.web("0xC00000"));
         if(lblErrorUsername.getText().equals("Available") &&
          !(txtFieldFirstname.getText().isEmpty()) &&
          !(txtFieldLastname.getText().isEmpty()) &&
@@ -138,8 +152,36 @@ public class AccountCreationController {
            );
            BSTNode newNode = new BSTNode(newUser);
            DataController.getUserTree().addNode(newNode);
+           Alert alert = new Alert(AlertType.INFORMATION);
+           alert.setTitle("Registration Notice");
+           alert.setHeaderText("Successful Registration");
+           alert.setContentText("You have signed up! Your username is: "+txtFieldUsername.getText());
+           alert.showAndWait();
+
+           Stage registerStage = (Stage) btnCreateAccount.getScene().getWindow();
+           registerStage.close();
+           this.previousStage.show();
+
+
          }else{
-           System.out.println("handle erros");
+           if(txtFieldUsername.getText().isEmpty()){
+             lblErrorUsername.setText("Username is compulsory");
+           }
+           if(txtFieldPostcode.getText().isEmpty()){
+             lblErrorPostcode.setText("Postcode is compulsory");
+           }
+           if(textFieldTelephoneNumber.getText().isEmpty()){
+             lblErrorTelephoneNumber.setText("Telephone number is compulsory");
+           }
+           if(txtFieldFirstname.getText().isEmpty()){
+             lblErrorFirstname.setText("First Name is compulsory");
+           }if(txtFieldLastname.getText().isEmpty()){
+             lblErrorLastname.setText("Last Name is compulsory");
+           }if(txtFieldAddressLine1.getText().isEmpty()){
+             lblErrorAddressLine1.setText("Address line one is compulsory");
+           }if(txtFieldTownOrCity.getText().isEmpty()){
+             lblErrorTownOrCity.setText("Town or city is compulsory");
+           }
          }
     }
 
