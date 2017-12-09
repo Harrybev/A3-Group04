@@ -18,11 +18,7 @@
     </Button>
   </bottom>
   <center>
-    <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-      <image>
-        <Image url="@../../../../../../../../../Desktop/kokoelma_05_jenninurminen-720x480.jpg" />
-      </image>
-    </ImageView>
+    <ImageView fx:id="ivProfilePic" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
   </center>
   <top>
     <Label alignment="CENTER" contentDisplay="CENTER" text="Profile Settings" textAlignment="JUSTIFY" BorderPane.alignment="CENTER">
