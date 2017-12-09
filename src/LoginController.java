@@ -22,8 +22,6 @@ public class LoginController {
     @FXML TextField txtUsername;
     @FXML Hyperlink hyplinkCreateAccount;
 
-    private DataController data;
-
     // Initialises the controller and apparently gets called automatically
     public void initialize() {
 
@@ -55,25 +53,24 @@ public class LoginController {
           Stage loginStage = (Stage) btnLogin.getScene().getWindow();
           accountCreationController.setPreviousStage(loginStage);
 
-          Scene accountCreationScene = new Scene(accountCreationRoot,
-                  Main.MAIN_WINDOW_WIDTH, Main.MAIN_WINDOW_HEIGHT);
+          Scene accountCreationScene = new Scene(accountCreationRoot);
 
           Stage accountCreationStage = new Stage();
-          accountCreationStage.setScene(viewAuctionsScene);
-          viewAuctionsStage.setTitle(Main.WINDOW_TITLE);
+          accountCreationStage.setScene(accountCreationScene);
+          accountCreationStage.setTitle(Main.WINDOW_TITLE);
 
           // Displays Login Window again when AuctionView closes
-          viewAuctionsStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+          accountCreationStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
               public void handle(WindowEvent we) {
                   loginStage.show();
               }
           });
 
-          viewAuctionsStage.initModality(Modality.APPLICATION_MODAL);
+          accountCreationStage.initModality(Modality.APPLICATION_MODAL);
 
 
           loginStage.close();
-          viewAuctionsStage.show();
+          accountCreationStage.show();
 
 
       } catch (IOException e) {
@@ -83,8 +80,6 @@ public class LoginController {
       }
     }
 
-
-    
 
     private void handleBtnLoginAction() {
         if (DataController.getUserTree().searchBST(txtUsername.getText()) == null) {
@@ -96,7 +91,7 @@ public class LoginController {
             return;
         } else {
             // stores the currently logged in user
-            DataController.setLoggedInUser((User) data.getUserTree().searchBST
+            DataController.setLoggedInUser((User) DataController.getUserTree().searchBST
                     (txtUsername.getText()).getSortable());
 
             try {
@@ -141,11 +136,4 @@ public class LoginController {
         }
 
     }
-
-    public void setDataController(DataController data) {
-        this.data = data;
-    }
-
-
-
 }
