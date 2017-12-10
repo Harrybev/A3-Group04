@@ -105,6 +105,8 @@ public class ViewAuctionsController {
           SingleAuctionViewController singleAuctionViewController = fxmlLoader
                   .<SingleAuctionViewController>getController();
 
+//          singleAuctionViewController.setSelectedAuction();
+
           Scene singleAuctionViewScene = new Scene(singleAuctionViewRoot);
 
           Stage singleAuctionViewStage = new Stage();
