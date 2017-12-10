@@ -1,3 +1,5 @@
+import javafx.event.EventHandler;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -21,6 +23,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.Node;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.stage.WindowEvent;
 
 import java.io.IOException;
 public class MainController{
@@ -32,7 +35,7 @@ public class MainController{
   private User loggedInUser = DataController.getLoggedInUser();
 
   public void initialize(){
-    lblWelcome.setText("Welcome: "+loggedInUser.getUsername());
+    lblWelcome.setText("Welcome: "+ loggedInUser.getUsername());
   }
 
   @FXML
@@ -74,6 +77,48 @@ public class MainController{
       e.printStackTrace();
     }
   }
+
+  @FXML
+  public  void handleBtnProfileSettings(ActionEvent event) {
+      try {
+
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource
+                  ("ProfileSettings.fxml"));
+
+        BorderPane profileSettingsRoot = (BorderPane) fxmlLoader.load();
+
+        ProfileSettingsController profileSettingsController = fxmlLoader
+              .<ProfileSettingsController>getController();
+
+
+        Stage mainStage = (Stage) lblWelcome.getScene().getWindow();
+
+        Scene profileSettingsScene = new Scene(profileSettingsRoot);
+        Stage profileSettingsStage = new Stage();
+        profileSettingsStage.setScene(profileSettingsScene);
+        profileSettingsStage.setTitle(Main.WINDOW_TITLE);
+
+        // Displays Login Window again when AuctionView closes
+        profileSettingsStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+          public void handle(WindowEvent we) {
+              mainStage.show();
+          }
+         });
+
+        profileSettingsStage.initModality(Modality.APPLICATION_MODAL);
+
+
+        mainStage.close();
+        profileSettingsStage.show();
+
+
+      } catch (IOException e) {
+          e.printStackTrace();
+
+          System.exit(-1);
+      }
+  }
+
   public void setPreviousStage(Stage previousStage) {
       this.previousStage = previousStage;
   }
