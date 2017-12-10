@@ -52,6 +52,7 @@ public class ViewAuctionsController {
       int x = 0;
       int y = 0;
       for(Sortable sortable : auctionsList){
+
         if(x==5){
           y=y+1;
           y=0;
@@ -62,29 +63,30 @@ public class ViewAuctionsController {
           gridPaneInside.setHgap(10);
           gridPaneInside.setVgap(10);
           gridPaneInside.setPadding(new Insets(25, 25, 25, 25));
+
           Auction auction = (Auction) sortable;
-          Label newArtName = new Label(auction.getArtwork().getTitle());
+          if(!(auction.isHasEnded())){
+            Label newArtName = new Label(auction.getArtwork().getTitle());
 
-          Label newArtDesc = new Label(auction.getArtwork().getDescription());
+            Label newArtDesc = new Label(auction.getArtwork().getDescription());
 
-          Image newImage = new Image(auction.getArtwork().getPhotoPath());
-          ImageView newImageView = new ImageView();
-          newImageView.setImage(newImage);
-          newImageView.setFitHeight(100);
-          newImageView.setFitWidth(100);
+            Image newImage = new Image(auction.getArtwork().getPhotoPath());
+            ImageView newImageView = new ImageView();
+            newImageView.setImage(newImage);
+            newImageView.setFitHeight(100);
+            newImageView.setFitWidth(100);
 
-          gridPaneInside.add(newImageView,0,0);
-          gridPaneInside.add(newArtName,0,1);
-          gridPaneInside.add(newArtDesc,0,2);
+            gridPaneInside.add(newImageView,0,0);
+            gridPaneInside.add(newArtName,0,1);
+            gridPaneInside.add(newArtDesc,0,2);
 
-          gridPaneInside.setOnMouseClicked(e -> {
-            System.out.printf("Mouse Clicked on "+auction.getArtwork().getTitle());
-          });
-          gridPane.add(gridPaneInside,x,y);
+            gridPaneInside.setOnMouseClicked(e -> {
+              System.out.printf("Mouse Clicked on "+auction.getArtwork().getTitle());
+            });
+            gridPane.add(gridPaneInside,x,y);
+          }else{
 
-
-
-        }catch(ClassCastException e){
+        }}catch(ClassCastException e){
           System.out.println(e);
           break;
         }
