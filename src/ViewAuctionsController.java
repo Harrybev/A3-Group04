@@ -81,7 +81,7 @@ public class ViewAuctionsController {
             gridPaneInside.add(newArtDesc,0,2);
 
             gridPaneInside.setOnMouseClicked(e -> {
-              System.out.printf("Mouse Clicked on "+auction.getArtwork().getTitle());
+              handleAuctionClicked();
             });
             gridPane.add(gridPaneInside,x,y);
           }else{
@@ -93,9 +93,35 @@ public class ViewAuctionsController {
 
         x=x+1;
       }
+    }
+
+    private void handleAuctionClicked() {
+        try {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource
+                  ("SingleAuctionView.fxml"));
+
+          BorderPane singleAuctionViewRoot = (BorderPane) fxmlLoader.load();
+
+          SingleAuctionViewController singleAuctionViewController = fxmlLoader
+                  .<SingleAuctionViewController>getController();
+
+          Scene singleAuctionViewScene = new Scene(singleAuctionViewRoot);
+
+          Stage singleAuctionViewStage = new Stage();
+          singleAuctionViewStage.setScene(singleAuctionViewScene);
+          singleAuctionViewStage.setTitle("Auction");
 
 
+         singleAuctionViewStage.initModality(Modality.APPLICATION_MODAL);
 
+         singleAuctionViewStage.show();
+
+
+      } catch (IOException e) {
+          e.printStackTrace();
+
+          System.exit(-1);
+      }
     }
 
 
