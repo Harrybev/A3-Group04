@@ -1,3 +1,5 @@
+import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
+
 import java.io.*;
 import java.lang.reflect.Array;
 import java.time.ZonedDateTime;
@@ -108,39 +110,49 @@ public class WriteFiles {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+		}
 
-//			System.out.println("Type: " + type + " Title: " + title + " Description: " + description + " PhotoPath: " + photoPath + " Creator Name: " + creatorName + " Creation Year: " + creationYear + " Width: " + width + " Height: " + height + " Depth: " + depth + " Main Material: " + mainMat + " MorePhotos " + morePhotos);
+
+	public static void writeAuctions(BST auctionTree) {
+		File outputFile = new File("auctions.txt");
+		FileWriter out = null;
+		try {
+			out = new FileWriter(outputFile);
+		} catch (IOException e) {
+			System.out.println("File not found.");
+			System.exit(0);
+		}
+		ArrayList<Sortable> aucList = auctionTree.inOrderList();
+		for (Sortable elem : aucList) {
+			Auction auction = (Auction) elem;
+			String sellerName = auction.getSeller().getUsername();
+			String artworkName = auction.getArtwork().getTitle();
+			int numberOfBids = auction.getNumberOfBids();
+			double reservePrice = auction.getReservePrice();
+			ArrayList<Bid> bidList = auction.getBidList();
+			Boolean hasEnded = auction.isHasEnded();
+			String bidsString = "";
+			if (!bidList.isEmpty()) {
+				for (Bid bid : bidList) {
+					bidsString += bid.getBidAmount() + ";" + bid.getBidder()
+							.getUsername() + ";" + bid.getBidTime().toString() +
+							";";
+				}
+			}
+
+			try {
+				out.write(sellerName + ";" + artworkName + ";" + numberOfBids + ";" +
+						reservePrice + ";" + hasEnded + ";" + bidsString + "\n");
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+
+		try {
+				out.close();
+		} catch (IOException e) {
+				e.printStackTrace();
 		}
 
 	}
-
-//	public void writeAuctions(BST auctionTree) {
-//		File outputFile = new File("auctions.txt");
-//		FileWriter out = null;
-//		try {
-//			out = new FileWriter(outputFile, true);
-//		} catch (IOException e) {
-//			System.out.println("File not found.");
-//			System.exit(0);
-//		}
-//		ArrayList<Sortable> aucList = auctionTree.inOrderList();
-//		for (Sortable elem : aucList) {
-//				Auction auction = (Auction)elem;
-//				User seller = auction.getSeller();
-//				Artwork artwork = auction.getArtwork();
-//				int numberOfBids = auction.getNumberOfBids();
-//				Double reservePrice = auction.getReservePrice();
-//				ArrayList<Bid> bidList = auction.getBidList();
-//				Boolean hasEnded = auction.isHasEnded();
-//
-//			try {
-//				out.write(seller + ";" + artwork + ";" + numberOfBids + ";" + reservePrice + ";" + bidList + ";"
-//						+ hasEnded + ";");
-//				out.close();
-//			} catch (IOException e) {
-//				System.out.println("Error!");
-//			}
-//			System.out.println("Seller: " + seller.getUsername() + " Artwork: " + artwork.getTitle() + " NumOfBids: " + numberOfBids + " ReservePrice: " + reservePrice + " BidList: " + bidList + " hasEnded: " + hasEnded);
-//		}
-//	}
-//}
+}

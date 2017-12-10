@@ -1,11 +1,11 @@
-import java.sql.Time;
+import java.time.LocalDateTime;
 
 public class Bid {
     private double bidAmount;
     private User bidder;
-    private Time bidTime;
+    private LocalDateTime bidTime;
 
-    public Bid(double bidAmount, User bidder, Time bidTime) {
+    public Bid(double bidAmount, User bidder, LocalDateTime bidTime) {
         this.bidAmount = bidAmount;
         this.bidder = bidder;
         this.bidTime = bidTime;
@@ -19,7 +19,7 @@ public class Bid {
         return bidder;
     }
 
-    public Time getBidTime() {
+    public LocalDateTime getBidTime() {
         return bidTime;
     }
 }

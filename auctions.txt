@@ -1,2 +1,2 @@
-notblerg;artwork1;1;200.00;False;200.01;test2;0;
-blerg;artwork2;0;50.00;False;
+notblerg;artwork1;3;200.0;false;200.01;blerg;2017-12-10T20:04:52.130;
+blerg;artwork2;5;50.0;false;
