@@ -12,13 +12,13 @@
             <Label fx:id="lblWelcome" prefHeight="62.0" prefWidth="148.0" text="Welcome" />
             <Button fx:id="btnAuctions" mnemonicParsing="false" onAction="#handleBtnAuctions" prefHeight="62.0" prefWidth="154.0" text="Auctions" />
             <Button fx:id="btnbidHistory" mnemonicParsing="false" onAction="#handleBtnBidHistory" prefHeight="62.0" prefWidth="154.0" text="My bids" />
-            <Button fx:id="btnUserArtwork" mnemonicParsing="false" onAction="#handleBtnUserArtwork" prefHeight="62.0" prefWidth="154.0" text="My Artwork" />
+            <Button fx:id="btnWonArt" mnemonicParsing="false" onAction="#handleBtnWonArt" prefHeight="62.0" prefWidth="154.0" text="Won Art" />
+            <Button mnemonicParsing="false" onAction="#handleBtnMyAuction" prefHeight="62.0" prefWidth="154.0" text="My Auctions" />
             <Button fx:id="btnCompletedAuctions" mnemonicParsing="false" onAction="#handleBtnCompletedAuctions" prefHeight="62.0" prefWidth="154.0" text="Completed Auctions" />
-            <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="154.0" />
          </children>
       </VBox>
    </left>
    <center>
-      <AnchorPane fx:id="changePane" prefHeight="513.0" prefWidth="636.0" BorderPane.alignment="CENTER" />
+      <ScrollPane fx:id="changePane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
    </center>
 </BorderPane>
