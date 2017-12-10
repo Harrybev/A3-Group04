@@ -48,7 +48,18 @@ public class AccountCreationController {
     Pattern telephonePattern = Pattern.compile("^(((\\+44\\s?\\d{4}|\\(?0\\d{4}\\)?)\\s?\\d{3}\\s?\\d{3})|((\\+44\\s?\\d{3}|\\(?0\\d{3}\\)?)\\s?\\d{3}\\s?\\d{4})|((\\+44\\s?\\d{2}|\\(?0\\d{2}\\)?)\\s?\\d{4}\\s?\\d{4}))(\\s?\\#(\\d{4}|\\d{3}))?$");
     Pattern postcodePattern = Pattern.compile("([Gg][Ii][Rr] 0[Aa]{2})|((([A-Za-z][0-9]{1,2})|(([A-Za-z][A-Ha-hJ-Yj-y][0-9]{1,2})|(([AZa-z][0-9][A-Za-z])|([A-Za-z][A-Ha-hJ-Yj-y][0-9]?[A-Za-z]))))[0-9][A-Za-z]{2})");
 
-    private void initialize() {
+    public void initialize() {
+
+        txtFieldUsername.textProperty().addListener(((observable, oldValue,
+                                                      newValue) -> {
+            validateUsername(newValue.replaceAll("\\s+",""));
+
+        }));
+
+        textFieldTelephoneNumber.textProperty().addListener(((observable, oldValue,
+                                                      newValue) -> {
+            validateTelephoneNumber(newValue.replaceAll("\\s+",""));
+        }));
 
     }
 
@@ -67,37 +78,78 @@ public class AccountCreationController {
 // Handle TextField enter key event.
 
 
-
-
-    @FXML public void validateFieldUsername(KeyEvent event){
+    private void validateUsername(String newValue) {
         lblErrorUsername.setText("");
         lblErrorUsername.setTextFill(Color.web("0x008000"));
-        if (txtFieldUsername.getText().trim().isEmpty()) {
+        if (newValue.equals("")) {
           lblErrorUsername.setText("Please enter a username");
           lblErrorUsername.setTextFill(Color.web("0xC00000"));
-          return ;
+        } else if (DataController.getUserTree().searchBST(newValue) != null) {
+            lblErrorUsername.setText("Unavailable");
+            lblErrorUsername.setTextFill(Color.web("0xC00000"));
+        } else {
+            lblErrorUsername.setText("Available");
+            lblErrorUsername.setTextFill(Color.web("0x008000"));
         }
-        System.out.println(txtFieldUsername.getText());
-        lblErrorUsername.setText("Available");
-        if (DataController.getUserTree().searchBST(txtFieldUsername.getText().replaceAll("\\s+","")).getSortable().getSearchKey().equals(txtFieldUsername.getText().replaceAll("\\s+",""))) {
-          lblErrorUsername.setText("Unavailable");
-          lblErrorUsername.setTextFill(Color.web("0xC00000"));
-          return ;
-        }
-
     }
 
-    @FXML public void validateTelephoneNumber(KeyEvent event){
-      String telephoneNumber = textFieldTelephoneNumber.getText().replaceAll("\\s+","");
-      Matcher match = telephonePattern.matcher(telephoneNumber);
-      System.out.println(match.matches());
-      if(match.matches()){
-        lblErrorTelephoneNumber.setText("Valid Number");
-        lblErrorTelephoneNumber.setTextFill(Color.web("0x008000"));
-      }else{
-        lblErrorTelephoneNumber.setText("Invalid Number");
-      }
+    private void validateTelephoneNumber(String newValue) {
+        Matcher match = telephonePattern.matcher(newValue);
+        if(match.matches()){
+            lblErrorTelephoneNumber.setText("Valid Number");
+            lblErrorTelephoneNumber.setTextFill(Color.web("0x008000"));
+        } else {
+            lblErrorTelephoneNumber.setText("Invalid Number");
+            lblErrorTelephoneNumber.setTextFill(Color.web("0xC00000"));
+        }
     }
+
+
+//    @FXML public void validateFieldUsername(String newValue){
+//        lblErrorUsername.setText("");
+//        lblErrorUsername.setTextFill(Color.web("0x008000"));
+//        if (newValue.equals("")) {
+//          lblErrorUsername.setText("Please enter a username");
+//          lblErrorUsername.setTextFill(Color.web("0xC00000"));
+//        } else if (DataController.getUserTree().searchBST(newValue) != null) {
+//            System.out.println(newValue);
+//            lblErrorUsername.setText("Unavailable");
+//            lblErrorUsername.setTextFill(Color.web("0xC00000"));
+//        } else {
+//            lblErrorUsername.setText("Available");
+//            lblErrorUsername.setTextFill(Color.web("0x008000"));
+//        }
+//        System.out.println(txtFieldUsername.getText());
+//        lblErrorUsername.setText("Available");
+//        if (DataController.getUserTree().searchBST(txtFieldUsername.getText().replaceAll("\\s+","")).getSortable().getSearchKey().equals(txtFieldUsername.getText().replaceAll("\\s+",""))) {
+//          lblErrorUsername.setText("Unavailable");
+//          lblErrorUsername.setTextFill(Color.web("0xC00000"));
+//          return ;
+//        }
+//        if (DataController.getUserTree().searchBST(txtFieldUsername.getText()
+//                .replaceAll("\\s+","")) != null) {
+//            System.out.println(txtFieldUsername.getText().replaceAll("\\s+",
+//                    ""));
+//            lblErrorUsername.setText("Unavailable");
+//            lblErrorUsername.setTextFill(Color.web("0xC00000"));
+//        } else {
+//            lblErrorUsername.setText("Available");
+//            lblErrorUsername.setTextFill(Color.web("0x008000"));
+//        }
+//
+//    }
+
+//    @FXML public void validateTelephoneNumber(KeyEvent event){
+//      String telephoneNumber = textFieldTelephoneNumber.getText().replaceAll("\\s+","");
+//      Matcher match = telephonePattern.matcher(telephoneNumber);
+//      System.out.println(match.matches());
+//      if(match.matches()){
+//        lblErrorTelephoneNumber.setText("Valid Number");
+//        lblErrorTelephoneNumber.setTextFill(Color.web("0x008000"));
+//      }else{
+//        lblErrorTelephoneNumber.setText("Invalid Number");
+//      }
+//    }
 
     @FXML public void validateFieldPostcode(){
       String postCode = txtFieldPostcode.getText().replaceAll("\\s+","");

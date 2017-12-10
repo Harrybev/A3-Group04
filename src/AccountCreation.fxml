@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.paint.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="635.0" prefWidth="524.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AccountCreationController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="635.0" prefWidth="524.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AccountCreationController">
    <top>
       <AnchorPane prefHeight="93.0" prefWidth="524.0" BorderPane.alignment="CENTER">
          <children>
@@ -29,10 +30,10 @@
          <content>
             <AnchorPane prefHeight="329.0" prefWidth="372.0">
                <children>
-                  <TextField id="textFieldUsername" fx:id="txtFieldUsername" layoutY="25.0" onKeyTyped="#validateFieldUsername" prefHeight="25.0" prefWidth="337.0" AnchorPane.leftAnchor="75.0" />
+                  <TextField id="textFieldUsername" fx:id="txtFieldUsername" layoutY="25.0" prefHeight="25.0" prefWidth="337.0" AnchorPane.leftAnchor="75.0" />
                   <TextField id="textFieldFirstname" fx:id="txtFieldFirstname" layoutX="75.0" layoutY="105.0" prefHeight="25.0" prefWidth="337.0" AnchorPane.leftAnchor="75.0" />
                   <TextField id="textFieldLastname" fx:id="txtFieldLastname" layoutY="185.0" prefHeight="25.0" prefWidth="337.0" AnchorPane.leftAnchor="75.0" />
-                  <TextField id="textFieldTelephoneNumber" fx:id="textFieldTelephoneNumber" layoutY="265.0" onAction="#validateTelephoneNumber" onKeyTyped="#validateTelephoneNumber" prefHeight="25.0" prefWidth="337.0" AnchorPane.leftAnchor="75.0" />
+                  <TextField id="textFieldTelephoneNumber" fx:id="textFieldTelephoneNumber" layoutY="265.0" prefHeight="25.0" prefWidth="337.0" AnchorPane.leftAnchor="75.0" />
                   <TextField id="textFieldAddressLine1" fx:id="txtFieldAddressLine1" layoutY="375.0" prefHeight="25.0" prefWidth="312.0" AnchorPane.leftAnchor="100.0" />
                   <TextField id="textFieldAddressLine2" fx:id="txtFieldAddressLine2" layoutY="455.0" prefHeight="25.0" prefWidth="312.0" AnchorPane.leftAnchor="100.0" />
                   <TextField id="textFieldTown/City" fx:id="txtFieldTownOrCity" layoutY="535.0" prefHeight="25.0" prefWidth="312.0" AnchorPane.leftAnchor="100.0" />
