@@ -16,15 +16,16 @@
     <ToolBar fx:id="toolbarDraw">
       <items>
         <Button fx:id="btnSave" mnemonicParsing="false" text="Save" />
-        <Button fx:id="btnLine" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="" />
-        <Button id="btnLine" fx:id="btnEllipse" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="" />
-        <Button id="btnLine" fx:id="btnRect" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="" />
-        <Button id="btnLine" fx:id="btnPencil" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="" />
+            <ToggleButton fx:id="btnLine" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" />
+            <ToggleButton fx:id="btnEllipse" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" />
+            <ToggleButton fx:id="btnRect" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" />
+            <ToggleButton fx:id="btnPencil" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" />
+            <ToggleButton fx:id="btnEraser" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" />
             <ChoiceBox fx:id="choiceLineWidth" prefHeight="25.0" prefWidth="46.0" />
         <RadioButton fx:id="rdioFill" mnemonicParsing="false" text="Fill Shape" />
         <ColorPicker fx:id="colLine" />
         <ColorPicker fx:id="colFill" />
-        <Button id="btnLine" fx:id="btnText" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="" />
+            <ToggleButton fx:id="btnText" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" />
             <ToggleButton fx:id="btnBold" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="B" textAlignment="CENTER">
                <font>
                   <Font name="System Bold" size="12.0" />

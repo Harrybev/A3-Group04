@@ -21,13 +21,14 @@ public class DrawPanelController {
 
     @FXML ToolBar toolbarDraw;
     @FXML Button btnSave;
-    @FXML Button btnLine;
-    @FXML Button btnEllipse;
-    @FXML Button btnRect;
-    @FXML Button btnPencil;
-    @FXML Button btnText;
+    @FXML ToggleButton btnLine;
+    @FXML ToggleButton btnEllipse;
+    @FXML ToggleButton btnRect;
+    @FXML ToggleButton btnPencil;
+    @FXML ToggleButton btnText;
     @FXML ToggleButton btnBold;
     @FXML ToggleButton btnUnderline;
+    @FXML ToggleButton btnEraser;
     @FXML ColorPicker colLine;
     @FXML ColorPicker colFill;
     @FXML RadioButton rdioFill;
@@ -53,11 +54,24 @@ public class DrawPanelController {
 
     public void initialize() {
 
+        ToggleGroup drawToolToggleGroup = new ToggleGroup();
+        btnLine.setToggleGroup(drawToolToggleGroup);
+        btnEllipse.setToggleGroup(drawToolToggleGroup);
+        btnRect.setToggleGroup(drawToolToggleGroup);
+        btnPencil.setToggleGroup(drawToolToggleGroup);
+        btnEraser.setToggleGroup(drawToolToggleGroup);
+        btnText.setToggleGroup(drawToolToggleGroup);
+
         btnLine.setStyle("-fx-background-image: url('icons/line.png')");
         btnEllipse.setStyle("-fx-background-image: url('icons/circle.png')");
         btnRect.setStyle("-fx-background-image: url('icons/square.png')");
         btnPencil.setStyle("-fx-background-image: url('icons/pencil.png')");
         btnText.setStyle("-fx-background-image: url('icons/text.png')");
+        btnEraser.setStyle("-fx-background-image: url('icons/eraser.png')");
+
+        btnLine.setSelected(true);
+
+
 
         choiceLineWidth.getItems().add(1);
         choiceLineWidth.getItems().add(2);
@@ -65,6 +79,9 @@ public class DrawPanelController {
         choiceLineWidth.getItems().add(4);
         choiceLineWidth.getItems().add(5);
         choiceLineWidth.getItems().add(6);
+        choiceLineWidth.getItems().add(10);
+        choiceLineWidth.getItems().add(16);
+        choiceLineWidth.getItems().add(24);
 
         gc = cnvCanvas.getGraphicsContext2D();
         gc.setLineWidth(lineWidth);
@@ -88,6 +105,10 @@ public class DrawPanelController {
 
         btnPencil.setOnAction(event -> {
             shapeDrawType = "Pencil";
+        });
+
+        btnEraser.setOnAction(event -> {
+            shapeDrawType = "Eraser";
         });
 
         choiceLineWidth.valueProperty().addListener(new ChangeListener() {
@@ -165,13 +186,44 @@ public class DrawPanelController {
             Line l = new Line(xStart, yStart, xFinish, yFinish, lineColour,
                 lineWidth);
             l.draw(gc);
+        } else if (shapeDrawType == "Rectangle") {
+            Rectangle r = new Rectangle(xStart, yStart, xFinish, yFinish,
+                    lineWidth, lineColour, isFilled, fillColour);
+            r.draw(gc);
+        } else if (shapeDrawType == "Ellipse") {
+            Ellipse e = new Ellipse(xStart, yStart, xFinish, yFinish,
+                    lineWidth, lineColour, isFilled, fillColour);
+            e.draw(gc);
+        } else if (shapeDrawType == "Pencil") {
+            Ellipse e = new Ellipse(xFinish - lineWidth, yFinish - lineWidth,
+                    xFinish, yFinish, lineWidth, lineColour, true, lineColour);
+            e.draw(gc);
+            shapeList.add(e);
+        } else if (shapeDrawType == "Eraser") {
+            Color erase = Color.web("#f2f2f2");
+            Ellipse e = new Ellipse(xFinish - lineWidth, yFinish - lineWidth,
+                    xFinish, yFinish, lineWidth, erase, true, erase);
+            e.draw(gc);
+            shapeList.add(e);
         }
+
     }
 
     private void addShape(double xFinish, double yFinish) {
-        Line l = new Line(xStart, yStart, xFinish, yFinish, lineColour,
+        if (shapeDrawType == "Line") {
+            Line l = new Line(xStart, yStart, xFinish, yFinish, lineColour,
                 lineWidth);
-        shapeList.add(l);
+            shapeList.add(l);
+        } else if (shapeDrawType == "Rectangle") {
+            Rectangle r = new Rectangle(xStart, yStart, xFinish, yFinish,
+                    lineWidth, lineColour, isFilled, fillColour);
+            shapeList.add(r);
+        } else if (shapeDrawType == "Ellipse") {
+            Ellipse e = new Ellipse(xStart, yStart, xFinish, yFinish,
+                    lineWidth, lineColour, isFilled, fillColour);
+            shapeList.add(e);
+        }
+
 //        if (shapeDrawType == "Line") {
 //            Line l = new Line(xStart, yStart, xFinish, yFinish);
 //            shapeList.add(l);
@@ -235,6 +287,12 @@ public class DrawPanelController {
             isTextUnderlined = false;
         }
     }
+
+    private void toggleDrawToolGroup(ToggleButton selectedButton) {
+
+    }
+
+
 
 
 
