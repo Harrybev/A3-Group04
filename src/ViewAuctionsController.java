@@ -29,7 +29,8 @@ public class ViewAuctionsController {
     //@FXML Pane paneArtwork;
     @FXML AnchorPane paneAnchorPane;
 
-    ArrayList<Sortable> auctionsList = DataController.getAuctionTree().inOrderList();
+    ArrayList<Auction> auctionsList = Filter.currentUserAuctions(DataController
+            .getAuctionTree(), DataController.getLoggedInUser());
 
     public void initialize() {
         GridPane gridPane = new GridPane();
@@ -51,7 +52,7 @@ public class ViewAuctionsController {
       //gridPane.add(test,0,0);
       int x = 0;
       int y = 0;
-      for(Sortable sortable : auctionsList){
+      for(Auction auction : auctionsList){
 
         if(x==5){
           y=y+1;
@@ -64,7 +65,6 @@ public class ViewAuctionsController {
           gridPaneInside.setVgap(10);
           gridPaneInside.setPadding(new Insets(25, 25, 25, 25));
 
-          Auction auction = (Auction) sortable;
           if(!(auction.isHasEnded())){
             Label newArtName = new Label(auction.getArtwork().getTitle());
 

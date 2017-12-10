@@ -19,7 +19,22 @@ public class Filter {
         return filteredArtList;
     }
 
-    public static ArrayList<Auction> filterAuctions(BST auctionTree, User
+    public static ArrayList<Auction> currentUserAuctions(BST auctionTree, User
+            currentUser) {
+        ArrayList<Auction> filterAuctionList = new ArrayList<>();
+
+        for (Sortable s : auctionTree.inOrderList()) {
+            Auction auction = (Auction) s;
+
+            if (auction.getSeller().equals(currentUser)) {
+                filterAuctionList.add(auction);
+            }
+
+        }
+        return filterAuctionList;
+    }
+
+    public static ArrayList<Auction> otherUserAuctions(BST auctionTree, User
             currentUser) {
         ArrayList<Auction> filterAuctionList = new ArrayList<>();
 

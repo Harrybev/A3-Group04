@@ -29,7 +29,9 @@ public class MyAuctionsController {
     //@FXML Pane paneArtwork;
     @FXML AnchorPane paneAnchorPane;
 
-    ArrayList<Auction> auctionsList =Filter.filterAuctions( DataController.getAuctionTree(), DataController.getLoggedInUser());
+    ArrayList<Auction> auctionsList = Filter.currentUserAuctions(
+            DataController.getAuctionTree
+            (), DataController.getLoggedInUser());
 
     public void initialize() {
         GridPane gridPane = new GridPane();
