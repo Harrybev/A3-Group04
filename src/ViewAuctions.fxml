@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.geometry.*?>
@@ -8,33 +9,36 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="ViewAuctionsController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ViewAuctionsController">
   <children>
     <BorderPane focusTraversable="false" layoutX="7.0" layoutY="7.0" prefHeight="593.0" prefWidth="893.0">
-      <center>
-        <Label text="Wow! You've logged in!">
-          <font>
-            <Font size="50.0" />
-          </font>
-        </Label>
-      </center>
-      <left>
-        <Hyperlink id="lnkProfileStuff" fx:id="lnkProfilePage" text="Profile stuff" textFill="#4333ff">
-          <font>
-            <Font size="22.0" />
-          </font>
-        </Hyperlink>
-      </left>
       <padding>
         <Insets />
       </padding>
-      <top>
-        <Label fx:id="lblLoggedInUser" text="Logged in as:">
-          <font>
-            <Font size="30.0" />
-          </font>
-        </Label>
-      </top>
+         <top>
+            <Label text="Auctions" BorderPane.alignment="CENTER">
+               <font>
+                  <Font size="35.0" />
+               </font>
+            </Label>
+         </top>
+         <center>
+            <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Pane layoutX="26.0" layoutY="27.0" prefHeight="243.0" prefWidth="254.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+                           <children>
+                              <ImageView fx:id="imageViewPic" fitHeight="150.0" fitWidth="200.0" layoutX="27.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+                              <Label fx:id="lblName" layoutX="27.0" layoutY="178.0" text="Name" />
+                              <Label fx:id="lblDesc" layoutX="27.0" layoutY="202.0" text="Desc" />
+                           </children>
+                        </Pane>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </ScrollPane>
+         </center>
     </BorderPane>
   </children>
 </AnchorPane>
