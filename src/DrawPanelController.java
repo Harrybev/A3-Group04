@@ -1,27 +1,16 @@
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.embed.swing.SwingFXUtils;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.image.WritableImage;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
-
 import javax.imageio.ImageIO;
-import java.awt.*;
-import java.awt.event.MouseListener;
-import java.awt.image.BufferedImage;
 import java.awt.image.RenderedImage;
 import java.io.File;
 import java.io.IOException;
@@ -37,24 +26,26 @@ public class DrawPanelController {
     @FXML Button btnRect;
     @FXML Button btnPencil;
     @FXML Button btnText;
-    @FXML Button btnBold;
-    @FXML Button btnUnderline;
-    @FXML TextField txtStrokeWidth;
-    @FXML TextField txtFontSize;
+    @FXML ToggleButton btnBold;
+    @FXML ToggleButton btnUnderline;
     @FXML ColorPicker colLine;
     @FXML ColorPicker colFill;
     @FXML RadioButton rdioFill;
     @FXML StackPane spImageCanvas;
-    @FXML public Canvas cnvCanvas;
+    @FXML Canvas cnvCanvas;
+    @FXML ChoiceBox choiceLineWidth;
 
     private double xStart;
     private double yStart;
     private double xFinish;
     private double yFinish;
-    private String shapeDrawType;
-    private double lineWidth;
-    private Color lineColour;
-    private Color fillColour;
+    private String shapeDrawType = "Line";
+    private double lineWidth = 1.0;
+    private Color lineColour = Color.BLACK;
+    private Color fillColour = Color.BLACK;
+    private boolean isFilled = false;
+    private boolean isTextBold = false;
+    private boolean isTextUnderlined = false;
     private ArrayList<DrawnShape> shapeList = new ArrayList<>();
     private GraphicsContext gc;
 
@@ -67,8 +58,13 @@ public class DrawPanelController {
         btnRect.setStyle("-fx-background-image: url('icons/square.png')");
         btnPencil.setStyle("-fx-background-image: url('icons/pencil.png')");
         btnText.setStyle("-fx-background-image: url('icons/text.png')");
-        btnBold.setStyle("-fx-background-image: url('icons/bold.png')");
-        btnUnderline.setStyle("-fx-background-image: url('icons/underline.png')");
+
+        choiceLineWidth.getItems().add(1);
+        choiceLineWidth.getItems().add(2);
+        choiceLineWidth.getItems().add(3);
+        choiceLineWidth.getItems().add(4);
+        choiceLineWidth.getItems().add(5);
+        choiceLineWidth.getItems().add(6);
 
         gc = cnvCanvas.getGraphicsContext2D();
         gc.setLineWidth(lineWidth);
@@ -78,6 +74,59 @@ public class DrawPanelController {
             saveImage();
         });
 
+        btnLine.setOnAction(event -> {
+            shapeDrawType = "Line";
+        });
+
+        btnRect.setOnAction(event -> {
+            shapeDrawType = "Rectangle";
+        });
+
+        btnEllipse.setOnAction(event -> {
+            shapeDrawType = "Ellipse";
+        });
+
+        btnPencil.setOnAction(event -> {
+            shapeDrawType = "Pencil";
+        });
+
+        choiceLineWidth.valueProperty().addListener(new ChangeListener() {
+            @Override
+            public void changed(ObservableValue observable, Object oldValue, Object newValue) {
+                // can't cast directly from Integer to double
+                int intLineWidth = (int) choiceLineWidth.getValue();
+                lineWidth = (double) intLineWidth;
+            }
+        });
+
+        rdioFill.selectedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> observable,
+                                Boolean oldValue, Boolean newValue) {
+                setFillState();
+            }
+        });
+
+        colLine.setOnAction(event -> {
+            lineColour = colLine.getValue();
+        });
+
+        colFill.setOnAction(event -> {
+            fillColour = colFill.getValue();
+        });
+
+        btnText.setOnAction(event -> {
+            shapeDrawType = "Text";
+        });
+
+
+        btnBold.setOnAction(event -> {
+            setBoldState();
+        });
+
+        btnUnderline.setOnAction(event -> {
+            setUnderlineState();
+        });
 
         cnvCanvas.setOnMousePressed(event -> {
             setShapeStart(event.getX(), event.getY());
@@ -93,14 +142,6 @@ public class DrawPanelController {
             drawShapes();
             addShape(event.getX(), event.getY());
         });
-
-
-
-
-
-
-
-
     }
 
     public void setShapeStart(double x, double y) {
@@ -115,13 +156,16 @@ public class DrawPanelController {
 
     private void drawShapes() {
         gc.clearRect(0, 0, cnvCanvas.getHeight(), cnvCanvas.getHeight());
+
         for (DrawnShape s : shapeList) {
             s.draw(gc);
         }
-        Line l = new Line(xStart, yStart, xFinish, yFinish, lineColour,
-                lineWidth);
-        l.draw(gc);
 
+        if (shapeDrawType == "Line") {
+            Line l = new Line(xStart, yStart, xFinish, yFinish, lineColour,
+                lineWidth);
+            l.draw(gc);
+        }
     }
 
     private void addShape(double xFinish, double yFinish) {
@@ -144,25 +188,54 @@ public class DrawPanelController {
 //        }
     }
 
-    public void saveImage() {
+    private void saveImage() {
         try {
             WritableImage wi = new WritableImage((int) cnvCanvas.getWidth(), (int)
                     cnvCanvas.getHeight());
             cnvCanvas.snapshot(null, wi);
             RenderedImage ri = SwingFXUtils.fromFXImage(wi, null);
 
-
-
-
             ImageIO.write(ri, "png", new File("src" + File.separator +
                     "profile-pics" + File.separator + DataController
                     .getLoggedInUser().getUsername() + ".png"));
 
-
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
+
+    private void setFillState() {
+        if (rdioFill.isSelected()) {
+            isFilled = true;
+        } else {
+            isFilled = false;
+        }
+    }
+
+    private void handleLineColourPicker() {
+        lineColour = colLine.getValue();
+    }
+
+    private void handleFillColourPicker() {
+        fillColour = colFill.getValue();
+    }
+
+    private void setBoldState() {
+        if (btnBold.isSelected()) {
+            isTextBold = true;
+        } else {
+            isTextBold = false;
+        }
+    }
+
+    private void setUnderlineState() {
+        if (btnUnderline.isSelected()) {
+            isTextUnderlined = true;
+        } else {
+            isTextUnderlined = false;
+        }
+    }
+
+
 
 }
