@@ -29,7 +29,7 @@ public class ViewAuctionsController {
     //@FXML Pane paneArtwork;
     @FXML AnchorPane paneAnchorPane;
 
-    ArrayList<Auction> auctionsList = Filter.currentUserAuctions(DataController
+    ArrayList<Auction> auctionsList = Filter.otherUserAuctions(DataController
             .getAuctionTree(), DataController.getLoggedInUser());
 
     public void initialize() {
@@ -54,9 +54,9 @@ public class ViewAuctionsController {
       int y = 0;
       for(Auction auction : auctionsList){
 
-        if(x==5){
+        if(x % 4 == 0){
           y=y+1;
-          y=0;
+          x=0;
         }
         try{
           GridPane gridPaneInside = new GridPane();
@@ -88,7 +88,6 @@ public class ViewAuctionsController {
 
         }}catch(ClassCastException e){
           System.out.println(e);
-          break;
         }
 
 

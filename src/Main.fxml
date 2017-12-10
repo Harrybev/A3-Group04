@@ -6,21 +6,21 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="852.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainController">
+<BorderPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainController">
    <left>
-      <VBox prefHeight="400.0" prefWidth="145.0" BorderPane.alignment="CENTER">
+      <VBox prefHeight="400.0" prefWidth="150.0" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="lblWelcome" prefHeight="62.0" prefWidth="148.0" text="Welcome" />
-            <Button fx:id="btnAuctions" mnemonicParsing="false" onAction="#handleBtnAuctions" prefHeight="62.0" prefWidth="154.0" text="Auctions" />
-            <Button fx:id="btnbidHistory" mnemonicParsing="false" onAction="#handleBtnBidHistory" prefHeight="62.0" prefWidth="154.0" text="My bids" />
-            <Button fx:id="btnWonArt" mnemonicParsing="false" onAction="#handleBtnWonArt" prefHeight="62.0" prefWidth="154.0" text="Won Art" />
-            <Button mnemonicParsing="false" onAction="#handleBtnMyAuction" prefHeight="62.0" prefWidth="154.0" text="My Auctions" />
-            <Button fx:id="btnCompletedAuctions" mnemonicParsing="false" onAction="#handleBtnCompletedAuctions" prefHeight="62.0" prefWidth="154.0" text="Completed Auctions" />
-            <Button fx:id="btnProfileSettings" mnemonicParsing="false" onAction="#handleBtnProfileSettings" prefHeight="62.0" prefWidth="154.0" text="Profile Settings" />
+            <Label fx:id="lblWelcome" prefHeight="62.0" prefWidth="150.0" text="Welcome" />
+            <Button fx:id="btnAuctions" mnemonicParsing="false" onAction="#handleBtnAuctions" prefHeight="62.0" prefWidth="150.0" text="Auctions" />
+            <Button fx:id="btnbidHistory" mnemonicParsing="false" onAction="#handleBtnBidHistory" prefHeight="62.0" prefWidth="150.0" text="My bids" />
+            <Button fx:id="btnWonArt" mnemonicParsing="false" onAction="#handleBtnWonArt" prefHeight="62.0" prefWidth="150.0" text="Won Art" />
+            <Button mnemonicParsing="false" onAction="#handleBtnMyAuction" prefHeight="62.0" prefWidth="150.0" text="My Auctions" />
+            <Button fx:id="btnCompletedAuctions" mnemonicParsing="false" onAction="#handleBtnCompletedAuctions" prefHeight="62.0" prefWidth="150.0" text="Completed Auctions" />
+            <Button fx:id="btnProfileSettings" mnemonicParsing="false" onAction="#handleBtnProfileSettings" prefHeight="62.0" prefWidth="150.0" text="Profile Settings" />
          </children>
       </VBox>
    </left>
    <center>
-      <ScrollPane fx:id="changePane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+      <ScrollPane fx:id="changePane" fitToWidth="true" prefHeight="200.0" prefWidth="650.0" BorderPane.alignment="CENTER" />
    </center>
 </BorderPane>

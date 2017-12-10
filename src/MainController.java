@@ -30,12 +30,14 @@ public class MainController{
 
   @FXML ScrollPane changePane;
   @FXML Label lblWelcome;
+  @FXML Button btnAuctions;
 
   private Stage previousStage;
   private User loggedInUser = DataController.getLoggedInUser();
 
   public void initialize(){
     lblWelcome.setText("Welcome: "+ loggedInUser.getUsername());
+    btnAuctions.fire();
   }
 
   @FXML
