@@ -96,36 +96,35 @@ public class LoginController {
 
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource
-                        ("ViewAuctions.fxml"));
+                        ("Main.fxml"));
 
-                AnchorPane viewAuctionsRoot = (AnchorPane) fxmlLoader.load();
+                BorderPane MainRoot = (BorderPane) fxmlLoader.load();
 
-                ViewAuctionsController viewAuctionController = fxmlLoader
-                        .<ViewAuctionsController>getController();
+                MainController MainController = fxmlLoader
+                        .<MainController>getController();
 
 
                 Stage loginStage = (Stage) btnLogin.getScene().getWindow();
-                viewAuctionController.setPreviousStage(loginStage);
+                MainController.setPreviousStage(loginStage);
 
-                Scene viewAuctionsScene = new Scene(viewAuctionsRoot,
-                        Main.MAIN_WINDOW_WIDTH, Main.MAIN_WINDOW_HEIGHT);
+                Scene MainScene = new Scene(MainRoot);
 
-                Stage viewAuctionsStage = new Stage();
-                viewAuctionsStage.setScene(viewAuctionsScene);
-                viewAuctionsStage.setTitle(Main.WINDOW_TITLE);
+                Stage MainStage = new Stage();
+                MainStage.setScene(MainScene);
+                MainStage.setTitle(Main.WINDOW_TITLE);
 
                 // Displays Login Window again when AuctionView closes
-                viewAuctionsStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+                MainStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
                     public void handle(WindowEvent we) {
                         loginStage.show();
                     }
                 });
 
-                viewAuctionsStage.initModality(Modality.APPLICATION_MODAL);
+                MainStage.initModality(Modality.APPLICATION_MODAL);
 
 
                 loginStage.close();
-                viewAuctionsStage.show();
+                MainStage.show();
 
 
             } catch (IOException e) {
