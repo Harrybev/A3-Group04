@@ -70,7 +70,6 @@ public class AccountCreationController {
 
 
     @FXML public void validateFieldUsername(KeyEvent event){
-
         lblErrorUsername.setText("");
         lblErrorUsername.setTextFill(Color.web("0x008000"));
         if (txtFieldUsername.getText().trim().isEmpty()) {
@@ -90,11 +89,11 @@ public class AccountCreationController {
 
     @FXML public void validateTelephoneNumber(KeyEvent event){
       String telephoneNumber = textFieldTelephoneNumber.getText().replaceAll("\\s+","");
-      System.out.println(telephoneNumber);
       Matcher match = telephonePattern.matcher(telephoneNumber);
       System.out.println(match.matches());
       if(match.matches()){
         lblErrorTelephoneNumber.setText("Valid Number");
+        lblErrorTelephoneNumber.setTextFill(Color.web("0x008000"));
       }else{
         lblErrorTelephoneNumber.setText("Invalid Number");
       }
@@ -105,6 +104,7 @@ public class AccountCreationController {
       Matcher match = postcodePattern.matcher(postCode);
       if(match.matches()){
         lblErrorPostcode.setText("Valid Postcode");
+        lblErrorPostcode.setTextFill(Color.web("0x008000"));
       }else{
         lblErrorPostcode.setText("Invalid Postcode");
       }
@@ -148,7 +148,7 @@ public class AccountCreationController {
            textFieldTelephoneNumber.getText(),
            newAddress,
            ZonedDateTime.now(),
-           " "
+          "profile-pics/1.jpg"
            );
            BSTNode newNode = new BSTNode(newUser);
            DataController.getUserTree().addNode(newNode);
