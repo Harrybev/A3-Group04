@@ -1,2 +1,2 @@
-Sculpture;artwork1;this is a sculpture;photoPath1;Harry;1996;2.4;4.8;8.2;stone;morePhotos;
-Painting;artwork2;this is a painting;photoPath2;blerg;2000;3.6;6.0;
+Sculpture;artwork1;this is a sculpture;artwork-pics/artwork1.png;notblerg;1996;2.4;4.8;8.2;stone;artwork-pics/artwork8.png;
+Painting;artwork2;this is a painting;artwork-pics/artwork2.png;blerg;2000;3.6;6.0;

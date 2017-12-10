@@ -1,4 +1,5 @@
 import java.io.*;
+import java.lang.reflect.Array;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
 
@@ -47,49 +48,71 @@ public class WriteFiles {
 		}
 	}
 
-//	public void writeArtworks(BST artworkTree) {
-//		File outputFile = new File("artworks.txt");
-//		FileWriter out = null;
-//		try {
-//			out = new FileWriter(outputFile, true);
-//		} catch (IOException e) {
-//			System.out.println("File not found.");
-//			System.exit(0);
-//		}
-//		ArrayList<Sortable> artList = artworkTree.inOrderList();
-//		for (Sortable elem : artList) {
-//				Artwork artwork = (Artwork)elem;
-//				String type = artwork.getType();
-//				String title = artwork.getTitle();
-//				String description = artwork.getDescription();
-//				String photoPath = artwork.getPhotoPath();
-//				String creatorName = artwork.getCreatorName();
-//				int creationYear = artwork.getCreationYear();
-//				Double width = artwork.getWidth();
-//				Double height = artwork.getHeight();
-//				double depth = 0.0;
-//				String mainMat = "Not Available";
-//				ArrayList<String> morePhotos = new ArrayList<String>();
-//				if(artwork.getType().equals("Sculpture")){
-//					depth = ((Sculpture)artwork).getDepth();
-//					mainMat = ((Sculpture)artwork).getMainMaterial();
-//					morePhotos = ((Sculpture)artwork).getAdditionalPhotosList();
-//				}
-//				System.out.println("Type: " + type + " Title: " + title + " Description: " + description + " PhotoPath: " + photoPath + " Creator Name: " + creatorName + " Creation Year: " + creationYear + " Width: " + width + " Height: " + height + " Depth: " + depth + " Main Material: " + mainMat + " MorePhotos " + morePhotos);
-//
-//			try {
-//				out.write(type + ";" + title + ";" + description + ";" + photoPath + ";" + creatorName + ";" + creationYear + ";"
-//						+ width + ";" + height + ";" + depth + ";" + mainMat + ";" + morePhotos + ";");
-//			} catch (IOException e) {
-//				System.out.println("Error!");
-//			}
-//		}
-//		try {
-//			out.close();
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
-//	}
+	public static void writeArtworks(BST artworkTree) {
+		File outputFile = new File("artworks.txt");
+		FileWriter out = null;
+		try {
+			out = new FileWriter(outputFile);
+		} catch (IOException e) {
+			System.out.println("File not found.");
+			System.exit(0);
+		}
+		ArrayList<Sortable> artList = artworkTree.inOrderList();
+		for (Sortable elem : artList) {
+			Artwork artwork = (Artwork)elem;
+			String type = artwork.getType();
+			String title = artwork.getTitle();
+			String description = artwork.getDescription();
+			String photoPath = artwork.getPhotoPath();
+			String creatorName = artwork.getCreatorName();
+			int creationYear = artwork.getCreationYear();
+			if (artwork.getType().equals("Painting")) {
+				Painting painting = (Painting) artwork;
+
+				double width = painting.getWidth();
+				double height = painting.getHeight();
+				try {
+				out.write(type + ";" + title + ";" + description + ";" + photoPath + ";" + creatorName + ";" + creationYear + ";"
+						+ width + ";" + height + ";\n");
+				} catch (IOException e) {
+					System.out.println("Error!");
+				}
+			} else {
+					Sculpture sculpture = (Sculpture) artwork;
+					double width = sculpture.getWidth();
+					double height = sculpture.getHeight();
+					double depth = sculpture.getDepth();
+					String mainMaterial = sculpture.getMainMaterial();
+					ArrayList<String> photosList = sculpture
+							.getAdditionalPhotosList();
+					String photosString = "";
+					if (!photosList.isEmpty()) {
+						for (String s : photosList) {
+							photosString += s + ";";
+						}
+					}
+
+					try {
+						out.write(type + ";" + title + ";" + description + ";" + photoPath + ";" + creatorName + ";" + creationYear + ";"
+								+ width + ";" + height + ";" + depth + ";" +
+								mainMaterial + ";" + photosString + "\n");
+					} catch (IOException e) {
+						System.out.println("Error!");
+					}
+
+				}
+
+			}
+			try {
+				out.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
+//			System.out.println("Type: " + type + " Title: " + title + " Description: " + description + " PhotoPath: " + photoPath + " Creator Name: " + creatorName + " Creation Year: " + creationYear + " Width: " + width + " Height: " + height + " Depth: " + depth + " Main Material: " + mainMat + " MorePhotos " + morePhotos);
+		}
+
+	}
 
 //	public void writeAuctions(BST auctionTree) {
 //		File outputFile = new File("auctions.txt");
@@ -120,4 +143,4 @@ public class WriteFiles {
 //			System.out.println("Seller: " + seller.getUsername() + " Artwork: " + artwork.getTitle() + " NumOfBids: " + numberOfBids + " ReservePrice: " + reservePrice + " BidList: " + bidList + " hasEnded: " + hasEnded);
 //		}
 //	}
-}
+//}
