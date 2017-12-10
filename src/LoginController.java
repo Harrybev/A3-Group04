@@ -32,10 +32,19 @@ public class LoginController {
         DataController.setArtTree(artTree);
         DataController.setAuctionTree(auctionTree);
 
+        Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
+            @Override
+            public void run() {
+                writeDataToDisk();
+            }
+        }));
+
         // Setup actions on controls
         btnLogin.setOnAction(event -> {
             handleBtnLoginAction();
         });
+
+
     }
 
     @FXML
@@ -135,5 +144,9 @@ public class LoginController {
             }
         }
 
+    }
+
+    private void writeDataToDisk() {
+        System.out.println("Writing data before closing.");
     }
 }
