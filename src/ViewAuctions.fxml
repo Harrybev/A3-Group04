@@ -23,21 +23,7 @@
             </Label>
          </top>
          <center>
-            <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
-                     <children>
-                        <Pane layoutX="26.0" layoutY="27.0" prefHeight="243.0" prefWidth="254.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
-                           <children>
-                              <ImageView fx:id="imageViewPic" fitHeight="150.0" fitWidth="200.0" layoutX="27.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-                              <Label fx:id="lblName" layoutX="27.0" layoutY="178.0" text="Name" />
-                              <Label fx:id="lblDesc" layoutX="27.0" layoutY="202.0" text="Desc" />
-                           </children>
-                        </Pane>
-                     </children>
-                  </AnchorPane>
-              </content>
-            </ScrollPane>
+            <AnchorPane fx:id="paneAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
          </center>
     </BorderPane>
   </children>
