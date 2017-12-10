@@ -7,6 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.control.ScrollPane;
 import javafx.stage.Stage;
 import javafx.stage.Modality;
 import javafx.scene.paint.Color;
@@ -24,7 +25,7 @@ import javafx.scene.layout.Pane;
 import java.io.IOException;
 public class MainController{
 
-  @FXML Pane changePane;
+  @FXML ScrollPane changePane;
   @FXML Label lblWelcome;
 
   private Stage previousStage;
@@ -35,11 +36,16 @@ public class MainController{
   }
 
   @FXML
+  public void handleBtnMyAuction(){
+
+
+  }
+  @FXML
   public void handleBtnCompletedAuctions(){
 
   }
   @FXML
-  public void handleBtnUserArtwork(){
+  public void handleBtnWonArt(){
 
   }
   @FXML
@@ -53,7 +59,7 @@ public class MainController{
               ("ViewAuctions.fxml"));
 
       AnchorPane viewAuctionsRoot = (AnchorPane) fxmlLoader.load();
-      changePane.getChildren().setAll(viewAuctionsRoot);
+      changePane.setContent(viewAuctionsRoot);
 
     } catch (IOException e) {
       e.printStackTrace();
