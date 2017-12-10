@@ -71,12 +71,17 @@ public class DrawPanelController {
 
         btnLine.setSelected(true);
 
+
+
         choiceLineWidth.getItems().add(1);
         choiceLineWidth.getItems().add(2);
         choiceLineWidth.getItems().add(3);
         choiceLineWidth.getItems().add(4);
         choiceLineWidth.getItems().add(5);
         choiceLineWidth.getItems().add(6);
+        choiceLineWidth.getItems().add(10);
+        choiceLineWidth.getItems().add(16);
+        choiceLineWidth.getItems().add(24);
 
         gc = cnvCanvas.getGraphicsContext2D();
         gc.setLineWidth(lineWidth);
@@ -100,6 +105,10 @@ public class DrawPanelController {
 
         btnPencil.setOnAction(event -> {
             shapeDrawType = "Pencil";
+        });
+
+        btnEraser.setOnAction(event -> {
+            shapeDrawType = "Eraser";
         });
 
         choiceLineWidth.valueProperty().addListener(new ChangeListener() {
@@ -188,6 +197,12 @@ public class DrawPanelController {
         } else if (shapeDrawType == "Pencil") {
             Ellipse e = new Ellipse(xFinish - lineWidth, yFinish - lineWidth,
                     xFinish, yFinish, lineWidth, lineColour, true, lineColour);
+            e.draw(gc);
+            shapeList.add(e);
+        } else if (shapeDrawType == "Eraser") {
+            Color erase = Color.web("#f2f2f2");
+            Ellipse e = new Ellipse(xFinish - lineWidth, yFinish - lineWidth,
+                    xFinish, yFinish, lineWidth, erase, true, erase);
             e.draw(gc);
             shapeList.add(e);
         }
