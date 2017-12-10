@@ -146,6 +146,6 @@ public class LoginController {
     }
 
     private void writeDataToDisk() {
-
+        WriteFiles.writeUsers(DataController.getUserTree());
     }
 }

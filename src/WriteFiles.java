@@ -3,11 +3,11 @@ import java.time.ZonedDateTime;
 import java.util.ArrayList;
 
 public class WriteFiles {
-	public void writeUsers(BST userTree) {
+	public static void writeUsers(BST userTree) {
 		File outputFile = new File("users.txt");
 		FileWriter out = null;
 		try {
-			out = new FileWriter(outputFile, true);
+			out = new FileWriter(outputFile);
 		} catch (IOException e) {
 			System.out.println("File not found.");
 			System.exit(0);
@@ -24,7 +24,6 @@ public class WriteFiles {
 			String address3 = user.getAddress().getAddress3();
 			String address4 = user.getAddress().getAddress4();
 			String postcode = user.getAddress().getPostCode();
-			ZonedDateTime lastLogin = user.getLastLoginTime();
 			String profileImagePath = user.getProfileImagePath();
 			String favouriteUsers = "";
 			if (!user.getFavouriteUsers().isEmpty()) {
@@ -32,22 +31,14 @@ public class WriteFiles {
 					favouriteUsers += favouriteUser.getUsername() + ";";
 				}
 			}
-
 			try {
-				out.write(username + ";" + firstName + ";" + lastName + ";" + telephoneNumber + ";" + address1 + ";"
-						+ address2 + ";" + address3 + ";" + address4 + ";" + postcode + ";" + lastLogin + ";"
-						+ profileImagePath + ";" + favouriteUsers);
+				out.write(username + ";" + firstName + ";" + lastName + ";"
+						+ telephoneNumber + ";" + address1 + ";"
+						+ address2 + ";" + address3 + ";" + address4 + ";" + postcode + ";" + profileImagePath + ";" + favouriteUsers + "\n");
+
 			} catch (IOException e) {
 				System.out.println("This Error!");
 			}
-
-			System.out.println("Username: " + username + " FirstName: " +
-					firstName + " LastName: " + lastName + " TelePhone Number: "
-					+ telephoneNumber + " Address1: " + address1 + " Address2: "
-					+ address2 + " Address3: " + address3 + " Address4: " +
-					address4 + " Postcode: " + postcode + " LastLogin: " +
-					lastLogin + " Profile Image Path: " + profileImagePath +
-					";" + favouriteUsers);
 		}
 		try {
 			out.close();

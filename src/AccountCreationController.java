@@ -44,7 +44,6 @@ public class AccountCreationController {
 
     private Stage previousStage;
 
-
     Pattern telephonePattern = Pattern.compile("^(((\\+44\\s?\\d{4}|\\(?0\\d{4}\\)?)\\s?\\d{3}\\s?\\d{3})|((\\+44\\s?\\d{3}|\\(?0\\d{3}\\)?)\\s?\\d{3}\\s?\\d{4})|((\\+44\\s?\\d{2}|\\(?0\\d{2}\\)?)\\s?\\d{4}\\s?\\d{4}))(\\s?\\#(\\d{4}|\\d{3}))?$");
     Pattern postcodePattern = Pattern.compile("([Gg][Ii][Rr] 0[Aa]{2})|((([A-Za-z][0-9]{1,2})|(([A-Za-z][A-Ha-hJ-Yj-y][0-9]{1,2})|(([AZa-z][0-9][A-Za-z])|([A-Za-z][A-Ha-hJ-Yj-y][0-9]?[A-Za-z]))))[0-9][A-Za-z]{2})");
 
@@ -67,21 +66,6 @@ public class AccountCreationController {
         }));
 
     }
-
-    /*txtFieldUsername.FocusedProperty().addListener((observable, oldValue, newValue) -> {
-    if(!newValue) {
-      lblErrorUsername.setText("Please enter a username");
-      lblErrorUsername.setTextFill(Color.web("#C00000 "));
-    }   if (userTree.searchBST(txtFieldUsername.getText()).getSortable().getSearchKey() == txtFieldUsername.getText()) {
-        System.out.println(userTree.searchBST(txtFieldUsername.getText()).getSortable().getSearchKey());
-        lblErrorUsername.setText("Unavailabale");
-        lblErrorUsername.setTextFill(Color.web("#C00000"));
-      }
-    });*/
-
-
-// Handle TextField enter key event.
-
 
     private void validateUsername(String newValue) {
         lblErrorUsername.setText("");
@@ -120,64 +104,6 @@ public class AccountCreationController {
         }
     }
 
-
-//    @FXML public void validateFieldUsername(String newValue){
-//        lblErrorUsername.setText("");
-//        lblErrorUsername.setTextFill(Color.web("0x008000"));
-//        if (newValue.equals("")) {
-//          lblErrorUsername.setText("Please enter a username");
-//          lblErrorUsername.setTextFill(Color.web("0xC00000"));
-//        } else if (DataController.getUserTree().searchBST(newValue) != null) {
-//            System.out.println(newValue);
-//            lblErrorUsername.setText("Unavailable");
-//            lblErrorUsername.setTextFill(Color.web("0xC00000"));
-//        } else {
-//            lblErrorUsername.setText("Available");
-//            lblErrorUsername.setTextFill(Color.web("0x008000"));
-//        }
-//        System.out.println(txtFieldUsername.getText());
-//        lblErrorUsername.setText("Available");
-//        if (DataController.getUserTree().searchBST(txtFieldUsername.getText().replaceAll("\\s+","")).getSortable().getSearchKey().equals(txtFieldUsername.getText().replaceAll("\\s+",""))) {
-//          lblErrorUsername.setText("Unavailable");
-//          lblErrorUsername.setTextFill(Color.web("0xC00000"));
-//          return ;
-//        }
-//        if (DataController.getUserTree().searchBST(txtFieldUsername.getText()
-//                .replaceAll("\\s+","")) != null) {
-//            System.out.println(txtFieldUsername.getText().replaceAll("\\s+",
-//                    ""));
-//            lblErrorUsername.setText("Unavailable");
-//            lblErrorUsername.setTextFill(Color.web("0xC00000"));
-//        } else {
-//            lblErrorUsername.setText("Available");
-//            lblErrorUsername.setTextFill(Color.web("0x008000"));
-//        }
-//
-//    }
-
-//    @FXML public void validateTelephoneNumber(KeyEvent event){
-//      String telephoneNumber = textFieldTelephoneNumber.getText().replaceAll("\\s+","");
-//      Matcher match = telephonePattern.matcher(telephoneNumber);
-//      System.out.println(match.matches());
-//      if(match.matches()){
-//        lblErrorTelephoneNumber.setText("Valid Number");
-//        lblErrorTelephoneNumber.setTextFill(Color.web("0x008000"));
-//      }else{
-//        lblErrorTelephoneNumber.setText("Invalid Number");
-//      }
-//    }
-
-//    @FXML public void validateFieldPostcode(){
-//      String postCode = txtFieldPostcode.getText().replaceAll("\\s+","");
-//      Matcher match = postcodePattern.matcher(postCode);
-//      if(match.matches()){
-//        lblErrorPostcode.setText("Valid Postcode");
-//        lblErrorPostcode.setTextFill(Color.web("0x008000"));
-//      }else{
-//        lblErrorPostcode.setText("Invalid Postcode");
-//      }
-//    }
-
     @FXML public void handleToLogin(){
       Stage registerStage = (Stage) btnCreateAccount.getScene().getWindow();
 
@@ -215,7 +141,6 @@ public class AccountCreationController {
            txtFieldLastname.getText(),
            textFieldTelephoneNumber.getText(),
            newAddress,
-           ZonedDateTime.now(),
           "profile-pics/1.png"
            );
            BSTNode newNode = new BSTNode(newUser);

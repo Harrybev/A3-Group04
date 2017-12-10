@@ -34,15 +34,11 @@ public class ReadFiles {
 			String add4 = lineScanner.next();
 			String postcode = lineScanner.next();
 
-			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("E, MMM d H:mm:ss z uuuu", Locale.UK);
-			String inputDate = lineScanner.next();
-			ZonedDateTime lastLogin = ZonedDateTime.parse(inputDate, dtf);
-
 			String imagePath = lineScanner.next();
 
 			Address add = new Address(add1, add2, add3, add4, postcode);
 
-			User user = new User(username, firstName, lastName, telNo, add, lastLogin, imagePath);
+			User user = new User(username, firstName, lastName, telNo, add, imagePath);
 			BSTNode node = new BSTNode(user);
 			userTree.addNode(node);
 
@@ -72,7 +68,6 @@ public class ReadFiles {
 			lineScanner.useDelimiter(";");
 			String username = lineScanner.next();
 
-			lineScanner.next();
 			lineScanner.next();
 			lineScanner.next();
 			lineScanner.next();

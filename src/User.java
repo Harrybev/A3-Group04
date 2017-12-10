@@ -11,7 +11,6 @@ public class User implements Sortable {
     private String lastName;
     private String telephoneNumber;
     private Address address;
-    private ZonedDateTime lastLoginTime;
     private String profileImagePath;
     private ArrayList<Auction> listedAuctions;
     private ArrayList<Auction> wonAuctions;
@@ -19,18 +18,18 @@ public class User implements Sortable {
     private ArrayList<User> favouriteUsers;
 
     public User(String username, String firstName, String lastName, String
-            telephoneNumber, Address address, ZonedDateTime lastLogin, String profileImagePath) {
+            telephoneNumber, Address address, String profileImagePath) {
         this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
         this.telephoneNumber = telephoneNumber;
         this.address = address;
-        this.lastLoginTime = lastLogin;
         if (profileImagePath.equals("null")) {
             this.profileImagePath = "profile-pics/1.jpg";
         } else {
             this.profileImagePath = profileImagePath;
         }
+        favouriteUsers = new ArrayList<>();
     }
 
     public String getProfileImagePath() {
@@ -59,14 +58,6 @@ public class User implements Sortable {
 
     public String getLastName() {
         return lastName;
-    }
-
-    public ZonedDateTime getLastLoginTime() {
-        return lastLoginTime;
-    }
-
-    public void setLastLoginTime(ZonedDateTime lastLoginTime) {
-        this.lastLoginTime = lastLoginTime;
     }
 
     public void setLastName(String lastName) {
