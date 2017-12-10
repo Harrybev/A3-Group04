@@ -80,7 +80,7 @@ public class LoginController {
       }
     }
 
-
+    @FXML
     private void handleBtnLoginAction() {
         if (DataController.getUserTree().searchBST(txtUsername.getText()) == null) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
