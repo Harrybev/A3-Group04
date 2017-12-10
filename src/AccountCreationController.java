@@ -148,7 +148,7 @@ public class AccountCreationController {
            textFieldTelephoneNumber.getText(),
            newAddress,
            ZonedDateTime.now(),
-          "profile-pics/1.jpg"
+          "profile-pics/1.png"
            );
            BSTNode newNode = new BSTNode(newUser);
            DataController.getUserTree().addNode(newNode);
