@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ViewAuctionsController">
+  <children>
+    <BorderPane focusTraversable="false" layoutX="7.0" layoutY="7.0" prefHeight="593.0" prefWidth="893.0">
+      <padding>
+        <Insets />
+      </padding>
+         <top>
+            <Label text="MyAuctions" BorderPane.alignment="CENTER">
+               <font>
+                  <Font size="35.0" />
+               </font>
+            </Label>
+         </top>
+         <center>
+            <AnchorPane fx:id="paneAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+         </center>
+    </BorderPane>
+  </children>
+</AnchorPane>
