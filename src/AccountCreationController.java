@@ -61,6 +61,11 @@ public class AccountCreationController {
             validateTelephoneNumber(newValue.replaceAll("\\s+",""));
         }));
 
+        txtFieldPostcode.textProperty().addListener(((observable, oldValue,
+                                                      newValue) -> {
+            validatePostCode(newValue.replaceAll("\\s+",""));
+        }));
+
     }
 
     /*txtFieldUsername.FocusedProperty().addListener((observable, oldValue, newValue) -> {
@@ -101,6 +106,17 @@ public class AccountCreationController {
         } else {
             lblErrorTelephoneNumber.setText("Invalid Number");
             lblErrorTelephoneNumber.setTextFill(Color.web("0xC00000"));
+        }
+    }
+
+    private void validatePostCode(String newValue) {
+        Matcher match = postcodePattern.matcher(newValue);
+        if(match.matches()){
+            lblErrorPostcode.setText("Valid Postcode");
+            lblErrorPostcode.setTextFill(Color.web("0x008000"));
+        }else{
+            lblErrorPostcode.setText("Invalid Postcode");
+            lblErrorPostcode.setTextFill(Color.web("0xC00000"));
         }
     }
 
@@ -151,16 +167,16 @@ public class AccountCreationController {
 //      }
 //    }
 
-    @FXML public void validateFieldPostcode(){
-      String postCode = txtFieldPostcode.getText().replaceAll("\\s+","");
-      Matcher match = postcodePattern.matcher(postCode);
-      if(match.matches()){
-        lblErrorPostcode.setText("Valid Postcode");
-        lblErrorPostcode.setTextFill(Color.web("0x008000"));
-      }else{
-        lblErrorPostcode.setText("Invalid Postcode");
-      }
-    }
+//    @FXML public void validateFieldPostcode(){
+//      String postCode = txtFieldPostcode.getText().replaceAll("\\s+","");
+//      Matcher match = postcodePattern.matcher(postCode);
+//      if(match.matches()){
+//        lblErrorPostcode.setText("Valid Postcode");
+//        lblErrorPostcode.setTextFill(Color.web("0x008000"));
+//      }else{
+//        lblErrorPostcode.setText("Invalid Postcode");
+//      }
+//    }
 
     @FXML public void handleToLogin(){
       Stage registerStage = (Stage) btnCreateAccount.getScene().getWindow();

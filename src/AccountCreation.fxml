@@ -38,7 +38,7 @@
                   <TextField id="textFieldAddressLine2" fx:id="txtFieldAddressLine2" layoutY="455.0" prefHeight="25.0" prefWidth="312.0" AnchorPane.leftAnchor="100.0" />
                   <TextField id="textFieldTown/City" fx:id="txtFieldTownOrCity" layoutY="535.0" prefHeight="25.0" prefWidth="312.0" AnchorPane.leftAnchor="100.0" />
                   <TextField id="textFieldCounty" fx:id="txtFieldCounty" layoutY="615.0" prefHeight="25.0" prefWidth="312.0" AnchorPane.leftAnchor="100.0" />
-                  <TextField id="textFieldPostCode" fx:id="txtFieldPostcode" layoutY="695.0" onKeyTyped="#validateFieldPostcode" prefHeight="25.0" prefWidth="312.0" AnchorPane.leftAnchor="100.0" />
+                  <TextField id="textFieldPostCode" fx:id="txtFieldPostcode" layoutY="695.0" prefHeight="25.0" prefWidth="312.0" AnchorPane.leftAnchor="100.0" />
                   <Label id="labelUsername" text="Username" AnchorPane.leftAnchor="75.0">
                      <font>
                         <Font size="18.0" />
