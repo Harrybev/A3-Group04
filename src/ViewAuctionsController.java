@@ -19,8 +19,9 @@ import javafx.stage.WindowEvent;
 import javafx.geometry.Pos;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.Node;
-
+import javafx.scene.layout.RowConstraints;
 import java.io.IOException;
+import javafx.geometry.Insets;
 
 public class ViewAuctionsController {
     @FXML Label lblName;
@@ -32,20 +33,18 @@ public class ViewAuctionsController {
 
     public void initialize() {
         GridPane gridPane = new GridPane();
-        gridPane.addEventHandler(MouseEvent.MOUSE_CLICKED, e ->{
-        Node source = (Node)e.getSource() ;
-        Integer colIndex = gridPane.getColumnIndex(source);
-        Integer rowIndex = gridPane.getRowIndex(source);
-        System.out.printf("Mouse entered cell [%d, %d]%n", colIndex.intValue(), rowIndex.intValue());
-      });
+        gridPane.setAlignment(Pos.TOP_LEFT);
+        gridPane.setHgap(10);
+        gridPane.setVgap(10);
+        gridPane.setPadding(new Insets(25, 25, 25, 25));
 
-
+        RowConstraints row = new RowConstraints(300);
 
       if(auctionsList.isEmpty()){
         System.out.println("No Auctions");
       }
 
-      gridPane.setAlignment(Pos.CENTER);
+      //gridPane.setAlignment(Pos.CENTER);
 
       paneAnchorPane.getChildren().add(gridPane);
 
@@ -53,24 +52,36 @@ public class ViewAuctionsController {
       int x = 0;
       int y = 0;
       for(Sortable sortable : auctionsList){
-        if(x==3){
+        if(x==5){
           y=y+1;
           y=0;
         }
-
         try{
+          GridPane gridPaneInside = new GridPane();
+          gridPaneInside.setAlignment(Pos.TOP_LEFT);
+          gridPaneInside.setHgap(10);
+          gridPaneInside.setVgap(10);
+          gridPaneInside.setPadding(new Insets(25, 25, 25, 25));
           Auction auction = (Auction) sortable;
           Label newArtName = new Label(auction.getArtwork().getTitle());
+
           Label newArtDesc = new Label(auction.getArtwork().getDescription());
+
           Image newImage = new Image(auction.getArtwork().getPhotoPath());
           ImageView newImageView = new ImageView();
           newImageView.setImage(newImage);
           newImageView.setFitHeight(100);
           newImageView.setFitWidth(100);
 
-          gridPane.add(newArtName,x,y);
-          gridPane.add(newArtDesc,x,y);
-          gridPane.add(newImageView,x,y);
+          gridPaneInside.add(newImageView,0,0);
+          gridPaneInside.add(newArtName,0,1);
+          gridPaneInside.add(newArtDesc,0,2);
+
+          gridPaneInside.setOnMouseClicked(e -> {
+            System.out.printf("Mouse Clicked on "+auction.getArtwork().getTitle());
+          });
+          gridPane.add(gridPaneInside,x,y);
+
 
 
         }catch(ClassCastException e){
@@ -81,6 +92,8 @@ public class ViewAuctionsController {
 
         x=x+1;
       }
+
+
 
     }
 
