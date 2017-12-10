@@ -53,6 +53,7 @@ public class ProfileSettingsController {
                     WindowEvent>() {
                 public void handle(WindowEvent we) {
                     viewProfileSettingsStage.show();
+                    refreshImage();
                 }
             });
 
@@ -64,5 +65,11 @@ public class ProfileSettingsController {
 
             System.exit(-1);
         }
+    }
+
+    private void refreshImage() {
+        Image profileImage = new Image(DataController.getLoggedInUser().
+                getProfileImagePath());
+        ivProfilePic.setImage(profileImage);
     }
 }
