@@ -181,7 +181,12 @@ public class DrawPanelController {
             Rectangle r = new Rectangle(xStart, yStart, xFinish, yFinish,
                     lineWidth, lineColour, isFilled, fillColour);
             r.draw(gc);
+        } else if (shapeDrawType == "Ellipse") {
+            Ellipse e = new Ellipse(xStart, yStart, xFinish, yFinish,
+                    lineWidth, lineColour, isFilled, fillColour);
+            e.draw(gc);
         }
+
     }
 
     private void addShape(double xFinish, double yFinish) {
@@ -193,6 +198,10 @@ public class DrawPanelController {
             Rectangle r = new Rectangle(xStart, yStart, xFinish, yFinish,
                     lineWidth, lineColour, isFilled, fillColour);
             shapeList.add(r);
+        } else if (shapeDrawType == "Ellipse") {
+            Ellipse e = new Ellipse(xStart, yStart, xFinish, yFinish,
+                    lineWidth, lineColour, isFilled, fillColour);
+            shapeList.add(e);
         }
 
 //        if (shapeDrawType == "Line") {
