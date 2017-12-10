@@ -1,3 +1,4 @@
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -5,7 +6,11 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.image.WritableImage;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
@@ -13,7 +18,13 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
+import javax.imageio.ImageIO;
+import java.awt.*;
 import java.awt.event.MouseListener;
+import java.awt.image.BufferedImage;
+import java.awt.image.RenderedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class DrawPanelController {
@@ -63,6 +74,9 @@ public class DrawPanelController {
         gc.setLineWidth(lineWidth);
         gc.setStroke(lineColour);
 
+        btnSave.setOnAction(event -> {
+            saveImage();
+        });
 
 
         cnvCanvas.setOnMousePressed(event -> {
@@ -130,5 +144,25 @@ public class DrawPanelController {
 //        }
     }
 
+    public void saveImage() {
+        try {
+            WritableImage wi = new WritableImage((int) cnvCanvas.getWidth(), (int)
+                    cnvCanvas.getHeight());
+            cnvCanvas.snapshot(null, wi);
+            RenderedImage ri = SwingFXUtils.fromFXImage(wi, null);
+
+
+
+
+            ImageIO.write(ri, "png", new File("src" + File.separator +
+                    "profile-pics" + File.separator + DataController
+                    .getLoggedInUser().getUsername() + ".png"));
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
 
 }

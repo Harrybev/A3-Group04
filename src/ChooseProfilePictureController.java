@@ -40,13 +40,13 @@ public class ChooseProfilePictureController {
 
     public void initialize() {
 
-        Image image1 = new Image("profile-pics/1.jpg");
-        Image image2 = new Image("profile-pics/2.jpg");
-        Image image3 = new Image("profile-pics/3.jpg");
-        Image image4 = new Image("profile-pics/4.jpg");
-        Image image5 = new Image("profile-pics/5.jpg");
-        Image image6 = new Image("profile-pics/6.jpg");
-        Image image7 = new Image("profile-pics/7.jpg");
+        Image image1 = new Image("profile-pics/1.png");
+        Image image2 = new Image("profile-pics/2.png");
+        Image image3 = new Image("profile-pics/3.png");
+        Image image4 = new Image("profile-pics/4.png");
+        Image image5 = new Image("profile-pics/5.png");
+        Image image6 = new Image("profile-pics/6.png");
+        Image image7 = new Image("profile-pics/7.png");
 
         iv1.setImage(image1);
         iv2.setImage(image2);
@@ -57,11 +57,12 @@ public class ChooseProfilePictureController {
         iv7.setImage(image7);
 
         try {
-            Image customImage = new Image("profile-pics/" + DataController.getLoggedInUser().getUsername() + ".jpg");
+            Image customImage = new Image("profile-pics/" + DataController
+                    .getLoggedInUser().getUsername() + ".png");
             iv8.setImage(customImage);
             userHasCustomPic = true;
         } catch (IllegalArgumentException e) {
-            Image customImage = new Image("profile-pics/drawyourown.jpg");
+            Image customImage = new Image("profile-pics/drawyourown.png");
             iv8.setImage(customImage);
         }
 
@@ -152,53 +153,53 @@ public class ChooseProfilePictureController {
 
     public void handleImageViewer1Click() {
         DataController.getLoggedInUser().setProfileImagePath
-                ("profile-pics/1.jpg");
+                ("profile-pics/1.png");
         toggleImageBorders(stackPane1);
     }
 
     public void handleImageViewer2Click() {
         DataController.getLoggedInUser().setProfileImagePath
-                ("profile-pics/2.jpg");
+                ("profile-pics/2.png");
         toggleImageBorders(stackPane2);
     }
 
     public void handleImageViewer3Click() {
         DataController.getLoggedInUser().setProfileImagePath
-                ("profile-pics/3.jpg");
+                ("profile-pics/3.png");
         toggleImageBorders(stackPane3);
     }
 
     public void handleImageViewer4Click() {
         DataController.getLoggedInUser().setProfileImagePath
-                ("profile-pics/4.jpg");
+                ("profile-pics/4.png");
         toggleImageBorders(stackPane4);
     }
 
     public void handleImageViewer5Click() {
         DataController.getLoggedInUser().setProfileImagePath
-                ("profile-pics/5.jpg");
+                ("profile-pics/5.png");
         toggleImageBorders(stackPane5);
     }
 
     public void handleImageViewer6Click() {
         DataController.getLoggedInUser().setProfileImagePath
-                ("profile-pics/6.jpg");
+                ("profile-pics/6.png");
         toggleImageBorders(stackPane6);
     }
 
     public void handleImageViewer7Click() {
         DataController.getLoggedInUser().setProfileImagePath
-                ("profile-pics/7.jpg");
+                ("profile-pics/7.png");
         toggleImageBorders(stackPane7);
     }
 
     public void handleImageViewer8Click() {
         if (userHasCustomPic == true) {
             DataController.getLoggedInUser().setProfileImagePath("profile-pics/"
-                    + DataController.getLoggedInUser().getUsername() + ".jpg");
+                    + DataController.getLoggedInUser().getUsername() + ".png");
         } else {
             DataController.getLoggedInUser().setProfileImagePath
-                ("profile-pics/drawyourown.jpg");
+                ("profile-pics/drawyourown.png");
         }
         toggleImageBorders(stackPane8);
     }
