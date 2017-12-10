@@ -147,6 +147,6 @@ public class LoginController {
     }
 
     private void writeDataToDisk() {
-        System.out.println("Writing data before closing.");
+
     }
 }
