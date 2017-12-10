@@ -185,6 +185,11 @@ public class DrawPanelController {
             Ellipse e = new Ellipse(xStart, yStart, xFinish, yFinish,
                     lineWidth, lineColour, isFilled, fillColour);
             e.draw(gc);
+        } else if (shapeDrawType == "Pencil") {
+            Ellipse e = new Ellipse(xFinish - lineWidth, yFinish - lineWidth,
+                    xFinish, yFinish, lineWidth, lineColour, true, lineColour);
+            e.draw(gc);
+            shapeList.add(e);
         }
 
     }
