@@ -179,7 +179,7 @@ public class DrawPanelController {
             l.draw(gc);
         } else if (shapeDrawType == "Rectangle") {
             Rectangle r = new Rectangle(xStart, yStart, xFinish, yFinish,
-                    lineColour, isFilled, fillColour);
+                    lineWidth, lineColour, isFilled, fillColour);
             r.draw(gc);
         }
     }
@@ -191,7 +191,7 @@ public class DrawPanelController {
             shapeList.add(l);
         } else if (shapeDrawType == "Rectangle") {
             Rectangle r = new Rectangle(xStart, yStart, xFinish, yFinish,
-                    lineColour, isFilled, fillColour);
+                    lineWidth, lineColour, isFilled, fillColour);
             shapeList.add(r);
         }
 

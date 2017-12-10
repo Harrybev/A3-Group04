@@ -47,6 +47,7 @@ public class Line extends LineShape {
 //        g.setLineWidth(strokeWidth);
 
         g.setStroke(lineColour);
+        g.setLineWidth(strokeWidth);
         g.strokeLine(xStart, yStart, xFinish, yFinish); // Draw the line
 
     }

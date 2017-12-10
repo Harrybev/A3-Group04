@@ -13,7 +13,7 @@ public class Rectangle extends FillableShape {
     private double yStart = 0;
     private double xFinish = 0;
     private double yFinish = 0;
-
+    private double strokeWidth = 1.0;
     private Color lineColour = Color.BLACK; // Line colour
     private Color fillColour = Color.BLACK; // Fill colour if applicable
     private boolean isFilled = true; // Determines whether to display a fill
@@ -29,11 +29,13 @@ public class Rectangle extends FillableShape {
      * @param fillColour The fill colours (if applicable).
      */
     public Rectangle(double xStart, double yStart, double xFinish, double
-            yFinish, Color lineColour, boolean isFilled, Color fillColour){
+            yFinish, double strokeWidth, Color lineColour, boolean isFilled,
+                     Color fillColour){
         this.xStart = xStart;
         this.yStart = yStart;
         this.xFinish = xFinish;
         this.yFinish = yFinish;
+        this.strokeWidth = strokeWidth;
         this.lineColour = lineColour;
         this.isFilled = isFilled;
         this.fillColour = fillColour;
@@ -45,6 +47,7 @@ public class Rectangle extends FillableShape {
      */
     public void draw(GraphicsContext g) {
         g.setStroke(lineColour);
+        g.setLineWidth(strokeWidth);
         // Calculate the rectangle area
         double pointX = Math.min(xStart,xFinish);
         double pointY = Math.min(yStart,yFinish);
