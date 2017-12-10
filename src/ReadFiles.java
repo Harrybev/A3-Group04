@@ -1,6 +1,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.sql.Time;
+import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -117,11 +118,11 @@ public class ReadFiles {
 					seller = user;
 				}
 			}
-			String artworks = lineScanner.next();
+			String artwork = lineScanner.next();
 			Artwork artName = null;
 			ArrayList<Sortable> artList = artTree.inOrderList();
 			for(Sortable art : artList){
-				if(((Artwork) art).getTitle().equals(artworks)){
+				if(((Artwork) art).getTitle().equals(artwork)){
 					artName = (Artwork) art;
 				}
 			}
@@ -140,8 +141,9 @@ public class ReadFiles {
 						bidderName = (User) users;
 					}
 				}
-				long bidTimeString = lineScanner.nextLong();
-				Time bidTime = new Time(bidTimeString);
+
+				LocalDateTime bidTime = LocalDateTime.parse(lineScanner.next());
+
 				Bid newBid = new Bid(bidAmount, bidderName, bidTime);
 				bidList.add(newBid);
 			}
@@ -181,7 +183,6 @@ public class ReadFiles {
 			int creationYear = lineScanner.nextInt();
 			double width = lineScanner.nextDouble();
 			double height = lineScanner.nextDouble();
-//			Artwork art;
 			BSTNode node;
 			if(type.equals("Painting")){
 				Painting painting = new Painting(title, type, description,

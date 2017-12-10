@@ -16,6 +16,8 @@ import javafx.scene.Node;
 import javafx.stage.WindowEvent;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class LoginController {
     @FXML Button btnLogin;
@@ -148,13 +150,6 @@ public class LoginController {
     private void writeDataToDisk() {
         WriteFiles.writeUsers(DataController.getUserTree());
         WriteFiles.writeArtworks(DataController.getArtTree());
-//        System.out.println("Testing reading/writing artwork");
-//        System.out.println("Printing initial art tree:");
-//        for (Sortable s : DataController.getArtTree().inOrderList()) {
-//            Artwork art = (Artwork) s;
-//            System.out.println(art.getTitle());
-//        }
-//        System.out.println("\nAttempting to write art to disk:");
-
+        WriteFiles.writeAuctions(DataController.getAuctionTree());
     }
 }
