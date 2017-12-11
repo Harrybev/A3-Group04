@@ -77,6 +77,21 @@ public class MainController{
   public void handleBtnBidHistory(){
 
   }
+
+  @FXML
+  public void handleBtnBrowseUsers(){
+    try{
+      FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource
+              ("BrowseUsers.fxml"));
+
+      AnchorPane viewAuctionsRoot = (AnchorPane) fxmlLoader.load();
+      changePane.setContent(viewAuctionsRoot);
+
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+
   @FXML
   public void handleBtnAuctions(ActionEvent event){
     try{

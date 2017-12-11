@@ -16,6 +16,7 @@
             <Button fx:id="btnWonArt" mnemonicParsing="false" onAction="#handleBtnWonArt" prefHeight="62.0" prefWidth="150.0" text="Won Art" />
             <Button mnemonicParsing="false" onAction="#handleBtnMyAuction" prefHeight="62.0" prefWidth="150.0" text="My Auctions" />
             <Button fx:id="btnCompletedAuctions" mnemonicParsing="false" onAction="#handleBtnCompletedAuctions" prefHeight="62.0" prefWidth="150.0" text="Completed Auctions" />
+            <Button fx:id="btnBrowseUsers" mnemonicParsing="false" onAction="#handleBtnBrowseUsers" prefHeight="62.0" prefWidth="150.0" text="Browse Users" />
             <Button fx:id="btnProfileSettings" mnemonicParsing="false" onAction="#handleBtnProfileSettings" prefHeight="62.0" prefWidth="150.0" text="Profile Settings" />
          </children>
       </VBox>
