@@ -57,7 +57,7 @@ public class WonAuctionsController {
             }else if(choiceBoxFilter.getValue().equals("Painting") && !(auction.getArtwork() instanceof Painting)){
               System.out.println("removed non paint");
               i.remove();
-            }else if(!(auction.isHasEnded() && !(auction.getLatestBid().getBidder().equals( DataController.getLoggedInUser())))) {
+            }else if(!(auction.isHasEnded())&& !(auction.getLatestBid().getBidder().equals( DataController.getLoggedInUser()))) {
               i.remove();
             }
         }
