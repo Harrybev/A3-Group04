@@ -53,6 +53,14 @@ public class Auction implements Sortable{
         return this.bidList.get(bidList.size() - 1);
     }
 
+    public double getNewBidMinimum() {
+        if (this.bidList.size() == 0) {
+            return this.reservePrice;
+        } else {
+            return this.bidList.get(bidList.size() - 1).getBidAmount();
+        }
+    }
+
     public int compareTo(Sortable s) {
         Auction otherAuction = (Auction) s;
         return this.getArtwork().getTitle().compareTo(otherAuction.getArtwork().getTitle());
