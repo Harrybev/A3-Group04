@@ -29,7 +29,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.collections.FXCollections;
 
-public class ViewAuctionsController {
+public class CompletedAuctionsController {
     @FXML Label lblName;
     @FXML Label lblDesc;
     //@FXML Pane paneArtwork;
@@ -57,8 +57,8 @@ public class ViewAuctionsController {
             }else if(choiceBoxFilter.getValue().equals("Painting") && !(auction.getArtwork() instanceof Painting)){
               System.out.println("removed non paint");
               i.remove();
-            }else if(auction.isHasEnded()) {
-               i.remove();
+            }else if(!(auction.isHasEnded())){
+              i.remove();
             }
         }
         populateGrid();
@@ -125,9 +125,6 @@ public class ViewAuctionsController {
             gridPaneInside.add(newArtName,0,1);
             gridPaneInside.add(newArtDesc,0,2);
 
-            gridPaneInside.setOnMouseClicked(e -> {
-              handleAuctionClicked(auction);
-            });
             gridPane.add(gridPaneInside,x,y);
           }else{
 
@@ -142,37 +139,4 @@ public class ViewAuctionsController {
       auctionsList = Filter.otherUserAuctions(DataController.getAuctionTree(), DataController.getLoggedInUser());
     }
 
-
-    private void handleAuctionClicked(Auction selectedAuction) {
-        try {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource
-                  ("SingleAuctionView.fxml"));
-
-          BorderPane singleAuctionViewRoot = (BorderPane) fxmlLoader.load();
-
-          SingleAuctionViewController singleAuctionViewController = fxmlLoader
-                  .<SingleAuctionViewController>getController();
-
-          singleAuctionViewController.setSelectedAuction(selectedAuction);
-
-          Scene singleAuctionViewScene = new Scene(singleAuctionViewRoot);
-
-          Stage singleAuctionViewStage = new Stage();
-          singleAuctionViewStage.setScene(singleAuctionViewScene);
-          singleAuctionViewStage.setTitle("Auction");
-
-
-         singleAuctionViewStage.initModality(Modality.APPLICATION_MODAL);
-
-         singleAuctionViewStage.show();
-
-
-      } catch (IOException e) {
-          e.printStackTrace();
-
-          System.exit(-1);
-      }
-    }
-
-
-}
+  }
