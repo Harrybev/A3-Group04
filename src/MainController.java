@@ -103,8 +103,8 @@ public class MainController{
       FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource
               ("BrowseUsers.fxml"));
 
-      AnchorPane viewAuctionsRoot = (AnchorPane) fxmlLoader.load();
-      changePane.setContent(viewAuctionsRoot);
+      AnchorPane viewUsersRoot = (AnchorPane) fxmlLoader.load();
+      changePane.setContent(viewUsersRoot);
 
     } catch (IOException e) {
       e.printStackTrace();
