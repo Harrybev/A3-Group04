@@ -55,6 +55,8 @@ public class CreateAuctionController {
             File initialFile = new File(".");
             fc.setInitialDirectory(initialFile);
             List<File> fileList = fc.showOpenMultipleDialog(new Stage());
+            String fullPath = fileList.get(0).toString();
+            int index = fullPath.lastIndexOf(File.pathSeparator);
 
             try {
                 txtImagePath.setText(fileList.get(0).getCanonicalPath()
