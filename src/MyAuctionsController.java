@@ -45,6 +45,9 @@ public class MyAuctionsController {
     choiceBoxFilter.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
     @Override public void changed(ObservableValue<? extends String> selected, String oldPick, String newPick) {
       if (newPick != null) {
+
+
+
         if(auctionsList.isEmpty()){
           System.out.println("No Auctions");
           return;
@@ -52,14 +55,16 @@ public class MyAuctionsController {
         for(Iterator<Auction> i = auctionsList.iterator(); i.hasNext();){
             Auction auction = i.next();
             if(choiceBoxFilter.getValue().equals("Sculpture") && !(auction.getArtwork() instanceof Sculpture)){
-              System.out.println("removed non sculpture");
               i.remove();
             }else if(choiceBoxFilter.getValue().equals("Painting") && !(auction.getArtwork() instanceof Painting)){
-              System.out.println("removed non paint");
               i.remove();
             }else{
             }
         }
+
+
+
+
         populateGrid();
         }
       }
@@ -134,7 +139,8 @@ public class MyAuctionsController {
 
 
       }
-      auctionsList = Filter.currentUserAuctions(DataController.getAuctionTree(), DataController.getLoggedInUser());
+      auctionsList = Filter.currentUserAuctions(DataController.getAuctionTree(),
+              DataController.getLoggedInUser());
     }
 
   }
