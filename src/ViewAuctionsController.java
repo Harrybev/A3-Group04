@@ -79,6 +79,7 @@ public class ViewAuctionsController {
              i.remove();
           }
       }
+
       choiceBoxFilter.setItems(cursors);
       choiceBoxFilter.setValue("All");
       gridPane = new GridPane();

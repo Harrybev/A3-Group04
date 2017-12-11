@@ -1,34 +1,22 @@
-import javafx.event.EventHandler;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Hyperlink;
-import javafx.scene.control.Label;
-import java.util.ArrayList;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.image.ImageView;
-import javafx.scene.image.Image;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Border;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.control.ChoiceBox;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
-import javafx.geometry.Pos;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.Node;
-import javafx.scene.layout.RowConstraints;
-import java.io.IOException;
-import javafx.geometry.Insets;
-import java.util.Iterator;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-public class MyAuctionsController {
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.RowConstraints;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+
+public class MyAuctionsControllerCopy {
     @FXML Label lblName;
     @FXML Label lblDesc;
     //@FXML Pane paneArtwork;
@@ -39,6 +27,7 @@ public class MyAuctionsController {
     ArrayList<Auction> auctionsList = Filter.currentUserAuctions(
               DataController.getAuctionTree
               (), DataController.getLoggedInUser());
+    String filterSetting = "All";
 
 
 
@@ -46,6 +35,7 @@ public class MyAuctionsController {
     choiceBoxFilter.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
     @Override public void changed(ObservableValue<? extends String> selected, String oldPick, String newPick) {
       if (newPick != null) {
+
 
 
 
@@ -64,6 +54,9 @@ public class MyAuctionsController {
             }
         }
 
+        for (Auction auction : auctionsList) {
+//            filiteredList.add(auction);
+        }
 
 
 
@@ -84,7 +77,17 @@ public class MyAuctionsController {
 
 
     public void initialize() {
-      choiceBoxFilter.setItems(cursors);
+
+        choiceBoxFilter.getSelectionModel().selectedItemProperty()
+            .addListener(new ChangeListener() {
+                 @Override
+                 public void changed(ObservableValue observable, Object oldValue, Object newValue) {
+                     filterSetting = choiceBoxFilter.getValue().toString();
+             }
+         });
+
+
+         choiceBoxFilter.setItems(cursors);
       choiceBoxFilter.setValue("All");
       gridPane = new GridPane();
       gridPane.setAlignment(Pos.TOP_LEFT);
