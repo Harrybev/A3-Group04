@@ -57,7 +57,7 @@ public class WonAuctionsController {
             }else if(choiceBoxFilter.getValue().equals("Painting") && !(auction.getArtwork() instanceof Painting)){
               System.out.println("removed non paint");
               i.remove();
-            }else if((auction.isHasEnded())) {
+            }else if(!(auction.isHasEnded())&& !(auction.getLatestBid().getBidder().equals( DataController.getLoggedInUser()))) {
               i.remove();
             }
         }
@@ -75,7 +75,7 @@ public class WonAuctionsController {
     public void initialize() {
       for(Iterator<Auction> i = auctionsList.iterator(); i.hasNext();){
           Auction auction = i.next();
-      if((auction.isHasEnded())) {
+      if(!(auction.isHasEnded())&& !(auction.getLatestBid().getBidder().equals( DataController.getLoggedInUser()))) {
           i.remove();
         }
       }
@@ -114,7 +114,7 @@ public class WonAuctionsController {
           gridPaneInside.setVgap(10);
           gridPaneInside.setPadding(new Insets(25, 25, 25, 25));
 
-          if(!(auction.isHasEnded())){
+          if((auction.isHasEnded() && auction.getLatestBid().getBidder().equals( DataController.getLoggedInUser()))) {
             Label newArtName = new Label(auction.getArtwork().getTitle());
 
             Label newArtDesc = new Label(auction.getArtwork().getDescription());

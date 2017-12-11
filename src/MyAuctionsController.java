@@ -14,8 +14,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Border;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.control.ChoiceBox;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
@@ -28,6 +26,9 @@ import javafx.geometry.Insets;
 import java.util.Iterator;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.ObservableList;
+import javafx.collections.FXCollections;
+
 public class MyAuctionsController {
     @FXML Label lblName;
     @FXML Label lblDesc;
@@ -36,9 +37,7 @@ public class MyAuctionsController {
     @FXML ChoiceBox choiceBoxFilter;
     GridPane gridPane;
     ObservableList<String> cursors = FXCollections.observableArrayList("All","Sculpture","Painting");
-    ArrayList<Auction> auctionsList = Filter.currentUserAuctions(
-              DataController.getAuctionTree
-              (), DataController.getLoggedInUser());
+    ArrayList<Auction> auctionsList = Filter.currentUserAuctions(DataController.getAuctionTree(), DataController.getLoggedInUser());
 
 
 
@@ -60,7 +59,6 @@ public class MyAuctionsController {
             }else if(choiceBoxFilter.getValue().equals("Painting") && !(auction.getArtwork() instanceof Painting)){
               i.remove();
             }else{
-
             }
         }
 
@@ -76,11 +74,6 @@ public class MyAuctionsController {
 
 
 
-
-
-
-
-      //auctionsList = Filter.currentUserAuctions(DataController.getAuctionTree(), DataController.getLoggedInUser());
 
 
     public void initialize() {
@@ -101,9 +94,6 @@ public class MyAuctionsController {
       applyFilter();
       populateGrid();
 
-      //gridPane.add(test,0,0);
-
-
 
     }
     void populateGrid(){
@@ -111,7 +101,7 @@ public class MyAuctionsController {
       int x = 0;
       int y = 0;
       for(Auction auction : auctionsList){
-        if(x%4==0){
+        if(x %4 == 0){
           y=y+1;
           x=0;
         }
@@ -137,9 +127,6 @@ public class MyAuctionsController {
             gridPaneInside.add(newArtName,0,1);
             gridPaneInside.add(newArtDesc,0,2);
 
-            gridPaneInside.setOnMouseClicked(e -> {
-              System.out.printf("Mouse Clicked on "+auction.getArtwork().getTitle());
-            });
             gridPane.add(gridPaneInside,x,y);
           }else{
 
@@ -155,4 +142,4 @@ public class MyAuctionsController {
               DataController.getLoggedInUser());
     }
 
-}
+  }

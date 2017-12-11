@@ -37,7 +37,7 @@ public class CompletedAuctionsController {
     @FXML ChoiceBox choiceBoxFilter;
     GridPane gridPane;
     ObservableList<String> cursors = FXCollections.observableArrayList("All","Sculpture","Painting");
-    ArrayList<Auction> auctionsList = Filter.otherUserAuctions(DataController.getAuctionTree(), DataController.getLoggedInUser());
+    ArrayList<Auction> auctionsList = Filter.currentUserAuctions(DataController.getAuctionTree(), DataController.getLoggedInUser());
 
 
 
@@ -57,8 +57,7 @@ public class CompletedAuctionsController {
             }else if(choiceBoxFilter.getValue().equals("Painting") && !(auction.getArtwork() instanceof Painting)){
               System.out.println("removed non paint");
               i.remove();
-            }else if(!(auction.isHasEnded())) {
-              i.remove();
+            }else{
             }
         }
         populateGrid();
@@ -73,12 +72,6 @@ public class CompletedAuctionsController {
 
 
     public void initialize() {
-      for(Iterator<Auction> i = auctionsList.iterator(); i.hasNext();){
-          Auction auction = i.next();
-      if(!(auction.isHasEnded())) {
-          i.remove();
-        }
-      }
       choiceBoxFilter.setItems(cursors);
       choiceBoxFilter.setValue("All");
       gridPane = new GridPane();
@@ -114,7 +107,7 @@ public class CompletedAuctionsController {
           gridPaneInside.setVgap(10);
           gridPaneInside.setPadding(new Insets(25, 25, 25, 25));
 
-          if(!(auction.isHasEnded())){
+          if((auction.isHasEnded())){
             Label newArtName = new Label(auction.getArtwork().getTitle());
 
             Label newArtDesc = new Label(auction.getArtwork().getDescription());
@@ -140,7 +133,7 @@ public class CompletedAuctionsController {
 
         x++;
       }
-      auctionsList = Filter.otherUserAuctions(DataController.getAuctionTree(), DataController.getLoggedInUser());
+      auctionsList = Filter.currentUserAuctions(DataController.getAuctionTree(), DataController.getLoggedInUser());
     }
 
   }
