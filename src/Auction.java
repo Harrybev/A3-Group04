@@ -50,7 +50,7 @@ public class Auction implements Sortable{
     }
 
     public Bid getLatestBid() {
-        return this.bidList.get(bidList.size());
+        return this.bidList.get(bidList.size() - 1);
     }
 
     public int compareTo(Sortable s) {
