@@ -33,6 +33,7 @@ public class ChooseProfilePictureController {
     @FXML ImageView iv6;
     @FXML ImageView iv7;
     @FXML ImageView iv8;
+    @FXML ImageView ivChosenPicture;
     @FXML Button btnDraw;
 
     private boolean userHasCustomPic = false;
@@ -55,6 +56,7 @@ public class ChooseProfilePictureController {
         iv5.setImage(image5);
         iv6.setImage(image6);
         iv7.setImage(image7);
+        refreshIV();
 
         try {
             Image customImage = new Image("profile-pics/" + DataController
@@ -81,30 +83,38 @@ public class ChooseProfilePictureController {
 
         iv1.setOnMouseClicked(event -> {
             handleImageViewer1Click();
+            refreshIV();
         });
 
         iv2.setOnMouseClicked(event -> {
             handleImageViewer2Click();
+            refreshIV();
         });
 
         iv3.setOnMouseClicked(event -> {
             handleImageViewer3Click();
+            refreshIV();
         });
         iv4.setOnMouseClicked(event -> {
             handleImageViewer4Click();
+            refreshIV();
         });
         iv5.setOnMouseClicked(event -> {
             handleImageViewer5Click();
+            refreshIV();
         });
         iv6.setOnMouseClicked(event -> {
             handleImageViewer6Click();
+            refreshIV();
         });
         iv7.setOnMouseClicked(event -> {
             handleImageViewer7Click();
+            refreshIV();
         });
 
         iv8.setOnMouseClicked(event -> {
             handleImageViewer8Click();
+            refreshIV();
         });
 
 
@@ -155,6 +165,7 @@ public class ChooseProfilePictureController {
         DataController.getLoggedInUser().setProfileImagePath
                 ("profile-pics/1.png");
         toggleImageBorders(stackPane1);
+        refreshIV();
     }
 
     public void handleImageViewer2Click() {
@@ -212,6 +223,12 @@ public class ChooseProfilePictureController {
                 sp.setStyle("-fx-background-color: white");
             }
         }
+    }
+
+    private void refreshIV() {
+        Image selectedImage = new Image(DataController.getLoggedInUser()
+                .getProfileImagePath());
+        this.ivChosenPicture.setImage(selectedImage);
     }
 
 
