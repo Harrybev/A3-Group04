@@ -68,7 +68,7 @@ public class MainController{
     }
   }
 
-  
+
   @FXML
   public void handleBtnWonArt(){
 
