@@ -56,8 +56,19 @@ public class MainController{
 
   @FXML
   public void handleBtnCompletedAuctions(){
+    try{
+      FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource
+              ("CompletedAuctions.fxml"));
 
+      AnchorPane completedAuctionsRoot = (AnchorPane) fxmlLoader.load();
+      changePane.setContent(completedAuctionsRoot);
+
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
   }
+
+  
   @FXML
   public void handleBtnWonArt(){
 
