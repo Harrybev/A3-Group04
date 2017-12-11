@@ -55,7 +55,7 @@
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Label>
-                        <Button fx:id="btnBid" layoutX="175.0" layoutY="222.0" mnemonicParsing="false" text="Button" />
+                        <Button fx:id="btnBid" layoutX="175.0" layoutY="222.0" mnemonicParsing="false" text="Place bid" />
                         <Label fx:id="lblHighestBidder" layoutX="99.0" layoutY="139.0" text="You are the highest bidder on this item" textFill="#3a43bf">
                            <font>
                               <Font name="System Bold" size="12.0" />
