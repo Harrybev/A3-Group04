@@ -75,6 +75,12 @@ public class ViewAuctionsController {
 
 
     public void initialize() {
+      for(Iterator<Auction> i = auctionsList.iterator(); i.hasNext();){
+          Auction auction = i.next();
+          if(auction.isHasEnded()) {
+             i.remove();
+          }
+      }
       choiceBoxFilter.setItems(cursors);
       choiceBoxFilter.setValue("All");
       gridPane = new GridPane();
