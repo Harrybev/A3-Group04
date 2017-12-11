@@ -81,8 +81,7 @@ public class ViewAuctionsController {
             gridPaneInside.add(newArtDesc,0,2);
 
             gridPaneInside.setOnMouseClicked(e -> {
-              System.out.println("Mouse Clicked on "+auction.getArtwork().getTitle());
-              handleAuctionClicked();
+              handleAuctionClicked(auction);
             });
             gridPane.add(gridPaneInside,x,y);
           }else{
@@ -96,7 +95,7 @@ public class ViewAuctionsController {
       }
     }
 
-    private void handleAuctionClicked() {
+    private void handleAuctionClicked(Auction selectedAuction) {
         try {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource
                   ("SingleAuctionView.fxml"));
@@ -106,7 +105,7 @@ public class ViewAuctionsController {
           SingleAuctionViewController singleAuctionViewController = fxmlLoader
                   .<SingleAuctionViewController>getController();
 
-//          singleAuctionViewController.setSelectedAuction();
+          singleAuctionViewController.setSelectedAuction(selectedAuction);
 
           Scene singleAuctionViewScene = new Scene(singleAuctionViewRoot);
 

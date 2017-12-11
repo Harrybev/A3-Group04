@@ -3,6 +3,7 @@ public class DataController {
     private static BST artTree;
     private static BST auctionTree;
     private static User loggedInUser;
+    private static Auction selectedAuction;
 
     public static BST getUserTree() {
         return userTree;
@@ -34,5 +35,13 @@ public class DataController {
 
     public static void setAuctionTree(BST newAuctionTree) {
         auctionTree = newAuctionTree;
+    }
+
+    public static void setSelectedAuction(Auction selectedAuction) {
+        selectedAuction = selectedAuction;
+    }
+
+    public static Auction getSelectedAuction() {
+        return selectedAuction;
     }
 }
