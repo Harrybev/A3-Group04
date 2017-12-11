@@ -13,6 +13,9 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Border;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.control.ChoiceBox;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
@@ -22,39 +25,87 @@ import javafx.scene.Node;
 import javafx.scene.layout.RowConstraints;
 import java.io.IOException;
 import javafx.geometry.Insets;
-
+import java.util.Iterator;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 public class MyAuctionsController {
     @FXML Label lblName;
     @FXML Label lblDesc;
     //@FXML Pane paneArtwork;
     @FXML AnchorPane paneAnchorPane;
-
+    @FXML ChoiceBox choiceBoxFilter;
+    GridPane gridPane;
+    ObservableList<String> cursors = FXCollections.observableArrayList("All","Sculpture","Painting");
     ArrayList<Auction> auctionsList = Filter.currentUserAuctions(
-            DataController.getAuctionTree
-            (), DataController.getLoggedInUser());
+              DataController.getAuctionTree
+              (), DataController.getLoggedInUser());
+
+
+
+    public void applyFilter(){
+    choiceBoxFilter.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+    @Override public void changed(ObservableValue<? extends String> selected, String oldPick, String newPick) {
+      if (newPick != null) {
+        if(auctionsList.isEmpty()){
+          System.out.println("No Auctions");
+          return;
+        }
+        for(Iterator<Auction> i = auctionsList.iterator(); i.hasNext();){
+            Auction auction = i.next();
+            if(choiceBoxFilter.getValue().equals("Sculpture") && !(auction.getArtwork() instanceof Sculpture)){
+              System.out.println("removed non sculpture");
+              i.remove();
+            }else if(choiceBoxFilter.getValue().equals("Painting") && !(auction.getArtwork() instanceof Painting)){
+              System.out.println("removed non paint");
+              i.remove();
+            }else{
+
+            }
+        }
+        populateGrid();
+        }
+      }
+      });
+    }
+
+
+
+
+
+
+
+
+      //auctionsList = Filter.currentUserAuctions(DataController.getAuctionTree(), DataController.getLoggedInUser());
+
 
     public void initialize() {
-        GridPane gridPane = new GridPane();
-        gridPane.setAlignment(Pos.TOP_LEFT);
-        gridPane.setHgap(10);
-        gridPane.setVgap(10);
-        gridPane.setPadding(new Insets(25, 25, 25, 25));
+      choiceBoxFilter.setItems(cursors);
+      choiceBoxFilter.setValue("All");
+      gridPane = new GridPane();
+      gridPane.setAlignment(Pos.TOP_LEFT);
+      gridPane.setHgap(10);
+      gridPane.setVgap(10);
+      gridPane.setPadding(new Insets(25, 25, 25, 25));
 
-        RowConstraints row = new RowConstraints(300);
+      RowConstraints row = new RowConstraints(300);
 
-      if(auctionsList.isEmpty()){
-        System.out.println("No Auctions");
-      }
 
       //gridPane.setAlignment(Pos.CENTER);
 
       paneAnchorPane.getChildren().add(gridPane);
+      applyFilter();
+      populateGrid();
 
       //gridPane.add(test,0,0);
+
+
+
+    }
+    void populateGrid(){
+      gridPane.getChildren().clear();
       int x = 0;
       int y = 0;
       for(Auction auction : auctionsList){
-
         if(x==5){
           y=y+1;
           y=0;
@@ -95,10 +146,7 @@ public class MyAuctionsController {
 
         x=x+1;
       }
-
-
-
+      auctionsList = Filter.currentUserAuctions(DataController.getAuctionTree(), DataController.getLoggedInUser());
     }
-
 
 }
