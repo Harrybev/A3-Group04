@@ -14,9 +14,6 @@
       <padding>
         <Insets />
       </padding>
-         <center>
-            <AnchorPane fx:id="paneAnchorPane" minHeight="0.0" minWidth="0.0" onDragDone="#applyFilter" prefHeight="476.0" prefWidth="893.0" BorderPane.alignment="CENTER" />
-         </center>
          <top>
             <Pane prefHeight="120.0" prefWidth="893.0" BorderPane.alignment="CENTER">
                <children>
@@ -30,12 +27,15 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <ChoiceBox fx:id="choiceBoxFilter" layoutX="418.0" layoutY="75.0" onContextMenuRequested="#applyFilter" onMouseExited="#applyFilter" prefWidth="150.0">
+                  <ChoiceBox fx:id="choiceBoxFilter" layoutX="418.0" layoutY="75.0" onMouseClicked="#applyFilter" prefWidth="150.0">
 
                   </ChoiceBox>
                </children>
             </Pane>
          </top>
+         <right>
+            <AnchorPane fx:id="paneAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="476.0" prefWidth="893.0" BorderPane.alignment="CENTER" />
+         </right>
     </BorderPane>
   </children>
 </AnchorPane>

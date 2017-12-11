@@ -36,7 +36,7 @@ public class ViewAuctionsController {
     @FXML AnchorPane paneAnchorPane;
     @FXML ChoiceBox choiceBoxFilter;
     GridPane gridPane;
-    ObservableList<String> cursors = FXCollections.observableArrayList("All","Sculpture","Painting");
+    ObservableList<String> cursors = FXCollections.observableArrayList("All","Sculpture","Painting","Favourites");
     ArrayList<Auction> auctionsList = Filter.otherUserAuctions(DataController.getAuctionTree(), DataController.getLoggedInUser());
 
 
@@ -46,7 +46,7 @@ public class ViewAuctionsController {
     @Override public void changed(ObservableValue<? extends String> selected, String oldPick, String newPick) {
       if (newPick != null) {
         if(auctionsList.isEmpty()){
-          System.out.println("No Auctions");
+
           return;
         }
         for(Iterator<Auction> i = auctionsList.iterator(); i.hasNext();){
@@ -55,11 +55,14 @@ public class ViewAuctionsController {
               i.remove();
             }else if(choiceBoxFilter.getValue().equals("Painting") && !(auction.getArtwork() instanceof Painting)){
               i.remove();
+            }else if(choiceBoxFilter.getValue().equals("Favourites")){
+              populateGrid(true);
+              return;
             }else if(auction.isHasEnded()) {
                i.remove();
             }
         }
-        populateGrid();
+        populateGrid(false);
         }
       }
       });
@@ -95,11 +98,11 @@ public class ViewAuctionsController {
 
       paneAnchorPane.getChildren().add(gridPane);
       applyFilter();
-      populateGrid();
+      populateGrid(false);
 
 
     }
-    void populateGrid(){
+    void populateGrid(Boolean filter){
       gridPane.getChildren().clear();
       int x = 0;
       int y = 0;
@@ -131,8 +134,17 @@ public class ViewAuctionsController {
 
             gridPaneInside.setOnMouseClicked(e -> {
               handleAuctionClicked(auction);
+              gridPane.setOnMouseClicked(null);
             });
-            gridPane.add(gridPaneInside,x,y);
+            if(filter){
+
+              if(DataController.getLoggedInUser().isFavourites(auction.getSeller())){
+                gridPane.add(gridPaneInside,x,y);
+              }
+            }if(!filter){
+
+              gridPane.add(gridPaneInside,x,y);
+            }
             x++;
           }else{
 

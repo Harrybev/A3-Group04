@@ -166,6 +166,7 @@ public class MyAuctionsController {
             createAuctionStage.show();
         } catch (IOException e) {
             e.printStackTrace();
+
         }
     }
 

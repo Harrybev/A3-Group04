@@ -4,6 +4,7 @@ import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Iterator;
 
 public class User implements Sortable {
     private String username;
@@ -87,6 +88,29 @@ public class User implements Sortable {
 
     public String getSearchKey() {
         return this.username;
+    }
+
+    public void setAFavouriteUsers(User user){
+      this.favouriteUsers.add(user);
+    }
+
+    public void RemoveAFavouriteUsers(User user){
+      for(Iterator<User> i = this.favouriteUsers.iterator(); i.hasNext();){
+          User users = i.next();
+          if(user.equals(users)){
+            i.remove();
+          }
+
+        }
+    }
+
+    public Boolean isFavourites(User user){
+      for(User userList: this.favouriteUsers){
+        if(user.equals(userList)){
+          return true;
+        }
+      }
+      return false;
     }
 
     public void setFavouriteUsers(ArrayList<User> favouriteUsers) {
