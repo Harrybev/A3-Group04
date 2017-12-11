@@ -147,31 +147,26 @@ public class MyAuctionsController {
 
     @FXML
     public void handleBtnAddAuction(ActionEvent event){
-        FXMLLoader fxmlLoader =  new FXMLLoader(getClass().getResource
-                ("CreateAuction.fxml"));
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource
+                    ("CreateAuction.fxml"));
 
-        BorderPane creaetAccountRoot = (BorderPane) fxmlLoader.load();
+            BorderPane createAuctionRoot = (BorderPane) fxmlLoader.load();
 
-        CreateAccountController createAccountController = fxmlLoader
-                .<CreateAccountController>getController();
+            CreateAuctionController createAuctionController = fxmlLoader
+                    .<CreateAuctionController>getController();
 
-        Stage mainStage = (Stage) lblName.getScene().getWindow();
+            Scene createAuctionScene = new Scene(createAuctionRoot);
+            Stage createAuctionStage = new Stage();
 
-        Scene createAccountScene = new Stage(createAccountRoot);
-        Stage createAccountStage = new Stage();
+            createAuctionStage.setScene(createAuctionScene);
+            createAuctionStage.setTitle("List auction");
 
-        createAccountStage.setScene(profileSettingsScene);
-        createAccountStage.setTitle(Main.WINDOW_TITLE);
-
-        createAccountStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
-          public void handle(WindowEvent we) {
-              mainStage.show();
-          }
-         });
-
-        createAccountStage.initModality(Modality.APPLICATION_MODAL);
-        mainStage.close();
-        createAccountStage.Show();
+            createAuctionStage.initModality(Modality.APPLICATION_MODAL);
+            createAuctionStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
   }
