@@ -57,7 +57,7 @@ public class CompletedAuctionsController {
             }else if(choiceBoxFilter.getValue().equals("Painting") && !(auction.getArtwork() instanceof Painting)){
               System.out.println("removed non paint");
               i.remove();
-            }else if(!(auction.isHasEnded())){
+            }else if(!(auction.isHasEnded())) {
               i.remove();
             }
         }
@@ -72,9 +72,13 @@ public class CompletedAuctionsController {
 
 
 
-
-
     public void initialize() {
+      for(Iterator<Auction> i = auctionsList.iterator(); i.hasNext();){
+          Auction auction = i.next();
+      if(!(auction.isHasEnded())) {
+          i.remove();
+        }
+      }
       choiceBoxFilter.setItems(cursors);
       choiceBoxFilter.setValue("All");
       gridPane = new GridPane();
