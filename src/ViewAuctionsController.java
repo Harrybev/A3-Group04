@@ -52,10 +52,8 @@ public class ViewAuctionsController {
         for(Iterator<Auction> i = auctionsList.iterator(); i.hasNext();){
             Auction auction = i.next();
             if(choiceBoxFilter.getValue().equals("Sculpture") && !(auction.getArtwork() instanceof Sculpture)){
-              System.out.println("removed non sculpture");
               i.remove();
             }else if(choiceBoxFilter.getValue().equals("Painting") && !(auction.getArtwork() instanceof Painting)){
-              System.out.println("removed non paint");
               i.remove();
             }else if(auction.isHasEnded()) {
                i.remove();
