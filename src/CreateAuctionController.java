@@ -1,4 +1,4 @@
-import com.sun.corba.se.impl.io.TypeMismatchException;
+import java.lang.Exception;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.FileChooser;
@@ -109,7 +109,7 @@ public class CreateAuctionController {
             Integer validateNumBids = Integer.parseInt(txtBidNum.getText());
             Double validateReservePrice = Double.parseDouble(txtReservePrice
                     .getText());
-        } catch (TypeMismatchException e) {
+        } catch (Exception e) {
             return false;
         }
 
@@ -138,7 +138,7 @@ public class CreateAuctionController {
         if (cboType.getValue().toString().equals("Sculpture")) {
             try {
                 Double validateDepth = Double.parseDouble(txtDepth.getText());
-            } catch (TypeMismatchException e) {
+            } catch (Exception e) {
                 return false;
             }
             if (txtDepth.getText().equals("") || txtMaterial.getText().equals
