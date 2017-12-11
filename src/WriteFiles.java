@@ -85,8 +85,11 @@ public class WriteFiles {
 							.getAdditionalPhotosList();
 					String photosString = "";
 					if (!photosList.isEmpty()) {
+						photosString = "";
 						for (String s : photosList) {
-							photosString += s + ";";
+							if (!s.equals(null)) {
+								photosString += s + ";";
+							}
 						}
 					}
 

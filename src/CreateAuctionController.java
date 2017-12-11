@@ -27,7 +27,7 @@ public class CreateAuctionController {
     @FXML Button btnSelectImage;
     @FXML Button btnListAuction;
 
-    ArrayList<String> additionalPhotosList;
+    ArrayList<String> additionalPhotosList = new ArrayList<>();
 
 
     public void initialize() {
@@ -55,23 +55,22 @@ public class CreateAuctionController {
             File initialFile = new File(".");
             fc.setInitialDirectory(initialFile);
             List<File> fileList = fc.showOpenMultipleDialog(new Stage());
-            String fullPath = fileList.get(0).toString();
-            int index = fullPath.lastIndexOf(File.pathSeparator);
 
-            try {
-                txtImagePath.setText(fileList.get(0).getCanonicalPath()
-                        .toString());
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            String name = fileList.get(0).getName();
+
+            txtImagePath.setText("artwork-pics/" + fileList.get(0).getName());
 
             if (fileList.size() > 1) {
                 for (int i = 1; i < fileList.size(); i++) {
-                    additionalPhotosList.add(fileList.get(i).getAbsolutePath());
+                    additionalPhotosList.add("artwork-pics/"+ fileList.get(i)
+                            .getName());
                 }
             }
         } catch (NullPointerException e) {
             txtImagePath.setText("");
+        }
+        for (String s : additionalPhotosList) {
+            System.out.println(s);
         }
     }
 
@@ -80,7 +79,8 @@ public class CreateAuctionController {
             String title = txtTitle.getText().replace(";","");
             String type = cboType.getValue().toString().replace(";","");
             String description = txtDescription.getText().replace(";","");
-            String photoPath = txtImagePath.getText().replace(";","");
+            String photoPath = txtImagePath.getText();
+//            String photoPath = txtImagePath.getText().replace(";","");
             String creatorName = txtCreatorName.getText().replace(";","");
             int yearCreated = (int) Integer.parseInt(txtYear.getText());
             double width = (double) Double.parseDouble(txtWidth.getText());
