@@ -13,6 +13,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.RowConstraints;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -27,67 +28,35 @@ public class MyAuctionsControllerCopy {
     ArrayList<Auction> auctionsList = Filter.currentUserAuctions(
               DataController.getAuctionTree
               (), DataController.getLoggedInUser());
+    ArrayList<Auction> filteredList = new ArrayList<>();
     String filterSetting = "All";
 
 
 
-    public void applyFilter(){
-    choiceBoxFilter.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
-    @Override public void changed(ObservableValue<? extends String> selected, String oldPick, String newPick) {
-      if (newPick != null) {
+    public ArrayList<Auction> applyFilter(ArrayList<Auction> unfilteredList){
+        ArrayList<Auction> filteredList = new ArrayList<>();
 
-
-
-
-        if(auctionsList.isEmpty()){
-          System.out.println("No Auctions");
-          return;
-        }
-        for(Iterator<Auction> i = auctionsList.iterator(); i.hasNext();){
-            Auction auction = i.next();
-            if(choiceBoxFilter.getValue().equals("Sculpture") && !(auction.getArtwork() instanceof Sculpture)){
-              i.remove();
-            }else if(choiceBoxFilter.getValue().equals("Painting") && !(auction.getArtwork() instanceof Painting)){
-              i.remove();
-            }else{
-
+        for (Auction auction : unfilteredList) {
+            if (auction.getArtwork().getType().equals(filterSetting)) {
+                filteredList.add(auction);
             }
         }
-
-        for (Auction auction : auctionsList) {
-//            filiteredList.add(auction);
-        }
-
-
-
-        populateGrid();
-        }
-      }
-      });
+        return filteredList;
     }
-
-
-
-
-
-
-
-
-      //auctionsList = Filter.currentUserAuctions(DataController.getAuctionTree(), DataController.getLoggedInUser());
-
 
     public void initialize() {
 
-        choiceBoxFilter.getSelectionModel().selectedItemProperty()
-            .addListener(new ChangeListener() {
-                 @Override
-                 public void changed(ObservableValue observable, Object oldValue, Object newValue) {
-                     filterSetting = choiceBoxFilter.getValue().toString();
+        choiceBoxFilter.getSelectionModel().selectedItemProperty().addListener(
+                new ChangeListener() {
+            @Override
+             public void changed(ObservableValue observable, Object oldValue, Object newValue) {
+                 filterSetting = choiceBoxFilter.getValue().toString();
+                 populateGrid();
              }
          });
 
 
-         choiceBoxFilter.setItems(cursors);
+     choiceBoxFilter.setItems(cursors);
       choiceBoxFilter.setValue("All");
       gridPane = new GridPane();
       gridPane.setAlignment(Pos.TOP_LEFT);
@@ -101,7 +70,6 @@ public class MyAuctionsControllerCopy {
       //gridPane.setAlignment(Pos.CENTER);
 
       paneAnchorPane.getChildren().add(gridPane);
-      applyFilter();
       populateGrid();
 
       //gridPane.add(test,0,0);
@@ -109,11 +77,13 @@ public class MyAuctionsControllerCopy {
 
 
     }
-    void populateGrid(){
+    private void populateGrid(){
       gridPane.getChildren().clear();
+      filteredList = applyFilter(auctionsList);
+
       int x = 0;
       int y = 0;
-      for(Auction auction : auctionsList){
+      for(Auction auction : filteredList){
         if(x%4==0){
           y=y+1;
           x=0;
@@ -154,8 +124,8 @@ public class MyAuctionsControllerCopy {
 
         x++;
       }
-      auctionsList = Filter.currentUserAuctions(DataController.getAuctionTree(),
-              DataController.getLoggedInUser());
+//      auctionsList = Filter.currentUserAuctions(DataController.getAuctionTree(),
+//              DataController.getLoggedInUser());
     }
 
 }
