@@ -106,9 +106,9 @@ public class MyAuctionsController {
       int x = 0;
       int y = 0;
       for(Auction auction : auctionsList){
-        if(x==5){
+        if(x%4==0){
           y=y+1;
-          y=0;
+          x=0;
         }
         try{
           GridPane gridPaneInside = new GridPane();
@@ -144,7 +144,7 @@ public class MyAuctionsController {
         }
 
 
-        x=x+1;
+        x=x++;
       }
       auctionsList = Filter.currentUserAuctions(DataController.getAuctionTree(), DataController.getLoggedInUser());
     }
