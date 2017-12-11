@@ -126,7 +126,7 @@ public class ViewAuctionsController {
             gridPaneInside.add(newArtDesc,0,2);
 
             gridPaneInside.setOnMouseClicked(e -> {
-              System.out.printf("Mouse Clicked on "+auction.getArtwork().getTitle());
+              handleAuctionClicked(auction);
             });
             gridPane.add(gridPaneInside,x,y);
           }else{
