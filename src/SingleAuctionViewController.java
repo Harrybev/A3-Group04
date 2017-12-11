@@ -20,9 +20,17 @@ public class SingleAuctionViewController {
     @FXML Label lblBidValue;
     @FXML Button btnBid;
     @FXML Label lblHighestBidder;
-
+    @FXML CheckBox checkBoxFavourite;
     private Auction selectedAuction;
 
+
+    public void HandleCheckBoxFavourite(){
+      if(checkBoxFavourite.isSelected()){
+        DataController.getLoggedInUser().setAFavouriteUsers(selectedAuction.getSeller());
+      }else if(!(checkBoxFavourite.isSelected())){
+          DataController.getLoggedInUser().RemoveAFavouriteUsers(selectedAuction.getSeller());
+      }
+    }
 
     public void initialize() {
 
@@ -58,6 +66,12 @@ public class SingleAuctionViewController {
     }
 
     private void displayAuctionDetails() {
+        if(DataController.getLoggedInUser().isFavourites(selectedAuction.getSeller())){
+          this.checkBoxFavourite.setSelected(true);
+        }else{
+          this.checkBoxFavourite.setSelected(false);
+        }
+
         this.lblSellerName.setText(selectedAuction.getSeller().getUsername()
                 .toString());
         Double doubleBidAmount = (Double) selectedAuction.getNewBidMinimum();

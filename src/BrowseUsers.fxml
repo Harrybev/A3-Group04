@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
@@ -8,7 +13,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MyAuctionsController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UsersController">
   <children>
     <BorderPane focusTraversable="false" layoutX="7.0" layoutY="7.0" prefHeight="593.0" prefWidth="893.0">
       <padding>
@@ -34,7 +39,7 @@
             </Pane>
          </top>
          <right>
-            <AnchorPane fx:id="paneAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="476.0" prefWidth="893.0" BorderPane.alignment="CENTER" />
+            <AnchorPane fx:id="paneAnchorPane" minHeight="0.0" minWidth="0.0" onMouseClicked="#applyFilter" prefHeight="476.0" prefWidth="893.0" BorderPane.alignment="CENTER" />
          </right>
     </BorderPane>
   </children>
