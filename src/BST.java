@@ -1,15 +1,26 @@
 import java.util.ArrayList;
-
+/**
+*Create a generic binary tree usinf BST Nodes
+**/
 public class BST {
     private BSTNode root = null;
-
+    /**
+    *Empty constructor to initialize tree
+    **/
     public BST() {
     }
-
+    /**
+    *Adds a nide to the Tree
+    *@param newNode is the node being added to the tree.
+    **/
     public void addNode(BSTNode newNode) {
         this.root = insertNode(this.root, newNode);
     }
-
+    /**
+    *Recuresively calls to enter a node to the tree
+    *@param currentNode the parent
+    *@param newNode node to be inerted
+    **/
     private BSTNode insertNode(BSTNode currentNode, BSTNode newNode) {
         if (root == null) {
             return newNode;
@@ -29,7 +40,9 @@ public class BST {
         }
         return currentNode;
     }
-
+    /**
+    *Returns a InOrder ArrayList of nodes.
+    **/
     public ArrayList<Sortable> inOrderList(){
         ArrayList<Sortable> sortedList = new ArrayList<>();
 
@@ -38,7 +51,10 @@ public class BST {
         return sortedList;
 
     }
-
+    /**
+    *used to create the list of nodes, this is an in order transversal
+    * of a tree.
+    **/
     private void inOrderTraversal(ArrayList<Sortable> list, BSTNode node) {
         if (node.getLeft()!= null) {
             inOrderTraversal(list, node.getLeft());
@@ -48,11 +64,16 @@ public class BST {
             inOrderTraversal(list, node.getRight());
         }
     }
-
+    /**
+    *Searches the binary tree using a search key defined in Sortable
+    **/
     public BSTNode searchBST(String searchKey) {
         return recSearchBST(this.root, searchKey);
     }
-
+    /**
+    *recSearchBST searches tree recursively to return a BSTNode that fits
+    * search paramter.
+    **/
     private BSTNode recSearchBST(BSTNode currNode, String searchKey) {
         if (currNode.getSortable().getSearchKey().equals(searchKey)) {
            return currNode;

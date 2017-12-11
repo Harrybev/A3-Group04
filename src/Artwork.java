@@ -1,98 +1,106 @@
 
+/**
+*Used to construct the storage of an artoworks inforamtion
+*
+**/
 public abstract class Artwork implements Sortable{
-    private String title;
-    private String type;
-    private String description;
-    private String photoPath;
-    private String creatorName;
-    private int creationYear;
+  private String title;
+  private String type;
+  private String description;
+  private String photoPath;
+  private String creatorName;
+  private int creationYear;
 
-    public Artwork(String title, String type, String description, String
-            photoPath, String creatorName, int creationYear){
-        this.title = title;
-        this.type = type;
-        this.description = description;
-        this.photoPath = photoPath;
-        this.creatorName = creatorName;
-        this.creationYear = creationYear;
-    }
+  public Artwork(String title, String type, String description, String
+  photoPath, String creatorName, int creationYear){
+    this.title = title;
+    this.type = type;
+    this.description = description;
+    this.photoPath = photoPath;
+    this.creatorName = creatorName;
+    this.creationYear = creationYear;
+  }
 
-        /**
-         * @return The title of the painting
-         */
-        public String getTitle() {
-            return this.title;
-        }
+  /**
+   * @return The title of the painting
+   */
+  public String getTitle() {
+      return this.title;
+  }
 
-        /**
-         * @return The description of the painting
-         */
-        public String getDescription() {
-            return this.description;
-        }
+  /**
+   * @return The description of the painting
+   */
+  public String getDescription() {
+      return this.description;
+  }
 
-        /**
-         * @return The photo path of the painting
-         */
-        public String getPhotoPath() {
-            return this.photoPath;
-        }
+  /**
+   * @return The photo path of the painting
+   */
+  public String getPhotoPath() {
+      return this.photoPath;
+  }
 
-        /**
-         * @return The creator name of the painting
-         */
-        public String getCreatorName() {
-            return this.creatorName;
-        }
+  /**
+   * @return The creator name of the painting
+   */
+  public String getCreatorName() {
+      return this.creatorName;
+  }
 
-        /**
-         * @return The creation year of the painting
-         */
-        public int getCreationYear() {
-            return this.creationYear;
-        }
-        
-        /**
-         * @param Set the title of the painting
-         */
-        public void setTitle(String title) {
-            this.title = title;
-        }
+  /**
+   * @return The creation year of the painting
+   */
+  public int getCreationYear() {
+      return this.creationYear;
+  }
 
-        /**
-         * @param Set the description of the painting
-         */
-        public void setDescription(String description) {
-            this.description = description;
-        }
+  /**
+   * @param Set the title of the painting
+   */
+  public void setTitle(String title) {
+      this.title = title;
+  }
 
-        /**
-         * @param Set the photo path for the painting
-         */
-        public void setPhotoPath(String photoPath) {
-            this.photoPath = photoPath;
-        }
+  /**
+   * @param Set the description of the painting
+   */
+  public void setDescription(String description) {
+      this.description = description;
+  }
 
-        /**
-         * @param Set the creator name of the painting
-         */
-        public void setCreatorName(String creatorName) {
-            this.creatorName = creatorName;
-        }
+  /**
+   * @param Set the photo path for the painting
+   */
+  public void setPhotoPath(String photoPath) {
+      this.photoPath = photoPath;
+  }
 
-        /**
-         * @param Set the creation year of the painting
-         */
-        public void setCreationYear(int creationYear) {
-            this.creationYear = creationYear;
-        }
+  /**
+   * @param Set the creator name of the painting
+   */
+  public void setCreatorName(String creatorName) {
+      this.creatorName = creatorName;
+  }
 
-        public String getType() {
-            return type;
-        }
-
-        public String getSearchKey() {
-            return this.getTitle();
-        }
+  /**
+   * @param Set the creation year of the painting
+   */
+  public void setCreationYear(int creationYear) {
+      this.creationYear = creationYear;
+  }
+  /**
+  *@param return the type of the painting
+  **/
+  public String getType() {
+      return type;
+  }
+  /**
+  *@param return the Key(title) of the painting
+  **/
+  public String getSearchKey() {
+      return this.getTitle();
+  }
 
 }
