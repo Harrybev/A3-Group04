@@ -1,7 +1,5 @@
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
@@ -19,12 +17,16 @@ public class SingleAuctionViewController {
     @FXML TextField txtBidAmount;
     @FXML Label lblSellerName;
     @FXML Label lblBidValue;
+    @FXML Button btnBid;
 
     private Auction selectedAuction;
 
 
     public void initialize() {
 
+        btnBid.setOnAction(event -> {
+            handleBtnBid();
+        });
 
     }
 
@@ -59,5 +61,20 @@ public class SingleAuctionViewController {
         Double doubleBidAmount = (Double) selectedAuction.getLatestBid()
                 .getBidAmount();
         this.lblBidValue.setText("£" + Double.toString(doubleBidAmount));
+    }
+
+    private void handleBtnBid() {
+        if (Double.parseDouble(txtBidAmount.getText()) > selectedAuction
+                .getLatestBid().getBidAmount()) {
+            System.out.println("Bid successful");
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Insufficient bid amount");
+            alert.setHeaderText(null);
+            alert.setContentText("Your bid must exceed the latest bid.");
+            alert.showAndWait();
+            return;
+        }
+
     }
 }
