@@ -32,6 +32,7 @@
                   <ChoiceBox fx:id="choiceBoxFilter" layoutX="418.0" layoutY="75.0" onContextMenuRequested="#applyFilter" onMouseExited="#applyFilter" prefWidth="150.0">
 
                   </ChoiceBox>
+                  <Button layoutX="708.0" layoutY="75.0" mnemonicParsing="false" onAction="#handleBtnAddAuction" prefHeight="25.0" prefWidth="131.0" text="+Add Auction" />
                </children>
             </Pane>
          </top>
