@@ -71,12 +71,32 @@ public class MainController{
 
   @FXML
   public void handleBtnWonArt(){
+    try{
+      FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource
+              ("WonAuctions.fxml"));
 
+      AnchorPane wonAuctionsRoot = (AnchorPane) fxmlLoader.load();
+      changePane.setContent(wonAuctionsRoot);
+
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
   }
+
   @FXML
   public void handleBtnBidHistory(){
+    try{
+      FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource
+              ("MyBidHistory.fxml"));
 
+      AnchorPane myBidHistoryRoot = (AnchorPane) fxmlLoader.load();
+      changePane.setContent(myBidHistoryRoot);
+
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
   }
+
   @FXML
   public void handleBtnAuctions(ActionEvent event){
     try{
