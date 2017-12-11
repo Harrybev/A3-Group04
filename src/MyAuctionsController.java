@@ -106,13 +106,13 @@ public class MyAuctionsController {
           x=0;
         }
         try{
-          GridPane gridPaneInside = new GridPane();
-          gridPaneInside.setAlignment(Pos.TOP_LEFT);
-          gridPaneInside.setHgap(10);
-          gridPaneInside.setVgap(10);
-          gridPaneInside.setPadding(new Insets(25, 25, 25, 25));
-
           if(!(auction.isHasEnded())){
+            System.out.println("gridPaneCreated"+auction.getArtwork().getTitle());
+            GridPane gridPaneInside = new GridPane();
+            gridPaneInside.setAlignment(Pos.TOP_LEFT);
+            gridPaneInside.setHgap(10);
+            gridPaneInside.setVgap(10);
+            gridPaneInside.setPadding(new Insets(25, 25, 25, 25));
             Label newArtName = new Label(auction.getArtwork().getTitle());
 
             Label newArtDesc = new Label(auction.getArtwork().getDescription());
@@ -128,6 +128,7 @@ public class MyAuctionsController {
             gridPaneInside.add(newArtDesc,0,2);
 
             gridPane.add(gridPaneInside,x,y);
+            x++;
           }else{
 
         }}catch(ClassCastException e){
@@ -136,7 +137,7 @@ public class MyAuctionsController {
         }
 
 
-        x++;
+
       }
       auctionsList = Filter.currentUserAuctions(DataController.getAuctionTree(),
               DataController.getLoggedInUser());

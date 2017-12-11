@@ -123,6 +123,7 @@ public class CompletedAuctionsController {
             gridPaneInside.add(newArtDesc,0,2);
 
             gridPane.add(gridPaneInside,x,y);
+            x++;
           }else{
 
         }}catch(ClassCastException e){
@@ -131,7 +132,7 @@ public class CompletedAuctionsController {
         }
 
 
-        x++;
+
       }
       auctionsList = Filter.currentUserAuctions(DataController.getAuctionTree(), DataController.getLoggedInUser());
     }
