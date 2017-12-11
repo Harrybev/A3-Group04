@@ -4,6 +4,6 @@ Sculpture;artwork3;this is a sculpture;artwork-pics/artwork3.png;notblerg;1996;2
 Sculpture;artwork4;this is a sculpture;artwork-pics/artwork4.png;notblerg;1996;2.4;4.8;8.2;stone;artwork-pics/artwork8.png;
 Sculpture;artwork5;this is a sculpture;artwork-pics/artwork5.png;notblerg;1996;2.4;4.8;8.2;stone;artwork-pics/artwork8.png;
 Sculpture;artwork6;this is a sculpture;artwork-pics/artwork6.png;notblerg;1996;2.4;4.8;8.2;stone;artwork-pics/artwork8.png;
-Sculpture;artwork7;this is a sculpture;artwork-pics/artwork7.png;notblerg;1996;2.4;4.8;8.2;stone;artwork-pics/artwork8.png;
+Painting;artwork7;this is a painting;artwork-pics/artwork7.png;notblerg;1996;2.4;4.8;
 Sculpture;artwork8;this is a sculpture;artwork-pics/artwork8.png;notblerg;1996;2.4;4.8;8.2;stone;artwork-pics/artwork8.png;
 Sculpture;artwork9;this is a sculpture;artwork-pics/artwork1.png;notblerg;1996;2.4;4.8;8.2;stone;artwork-pics/artwork8.png;
