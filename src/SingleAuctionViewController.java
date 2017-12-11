@@ -21,17 +21,31 @@ public class SingleAuctionViewController {
     public void initialize() {
 
 
-
     }
 
     public void setSelectedAuction(Auction selectedAuction) {
        this.selectedAuction = selectedAuction;
-       refreshImageView();
+       displayAuctionDetails();
     }
 
-    private void refreshImageView() {
+    private void displayAuctionDetails() {
         Image image = new Image(selectedAuction.getArtwork().getPhotoPath());
-        System.out.println(selectedAuction.getArtwork().getTitle());
+        String title = "Title: " + selectedAuction.getArtwork().getTitle() +
+                "\n";
+        String type = "Type: " + selectedAuction.getArtwork().getType() + "\n";
+        String description = "Description: " + selectedAuction.getArtwork()
+                .getDescription() + "\n";
+        String creatorName = "Creator: " + selectedAuction.getArtwork()
+                .getCreatorName() + "\n";
+        Integer intCreationYear = (Integer) selectedAuction.getArtwork()
+                .getCreationYear();
+        String creationYear = "Creation year: " + intCreationYear.toString();
+
+        String auctionDetails = title + type + description + creatorName +
+                creationYear;
+
+
         this.ivAuctionImage.setImage(image);
+        this.lblArtworkDetails.setText(auctionDetails);
     }
 }
