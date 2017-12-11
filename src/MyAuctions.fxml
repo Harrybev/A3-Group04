@@ -16,13 +16,10 @@
       <padding>
         <Insets />
       </padding>
-         <center>
-            <AnchorPane fx:id="paneAnchorPane" minHeight="0.0" minWidth="0.0" onDragDone="#applyFilter" prefHeight="476.0" prefWidth="893.0" BorderPane.alignment="CENTER" />
-         </center>
          <top>
             <Pane prefHeight="120.0" prefWidth="893.0" BorderPane.alignment="CENTER">
                <children>
-                  <Label layoutX="355.0" layoutY="14.0" text="MyAuctions">
+                  <Label layoutX="355.0" layoutY="14.0" text="My Auctions">
                      <font>
                         <Font size="35.0" />
                      </font>
@@ -38,6 +35,9 @@
                </children>
             </Pane>
          </top>
+         <center>
+            <AnchorPane fx:id="paneAnchorPane" minHeight="0.0" minWidth="0.0" onDragDone="#applyFilter" prefHeight="476.0" prefWidth="893.0" BorderPane.alignment="CENTER" />
+         </center>
     </BorderPane>
   </children>
 </AnchorPane>

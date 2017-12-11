@@ -108,13 +108,12 @@ public class ViewAuctionsController {
           x=0;
         }
         try{
-          GridPane gridPaneInside = new GridPane();
-          gridPaneInside.setAlignment(Pos.TOP_LEFT);
-          gridPaneInside.setHgap(10);
-          gridPaneInside.setVgap(10);
-          gridPaneInside.setPadding(new Insets(25, 25, 25, 25));
-
           if(!(auction.isHasEnded())){
+            GridPane gridPaneInside = new GridPane();
+            gridPaneInside.setAlignment(Pos.TOP_LEFT);
+            gridPaneInside.setHgap(10);
+            gridPaneInside.setVgap(10);
+            gridPaneInside.setPadding(new Insets(25, 25, 25, 25));
             Label newArtName = new Label(auction.getArtwork().getTitle());
 
             Label newArtDesc = new Label(auction.getArtwork().getDescription());
@@ -133,6 +132,7 @@ public class ViewAuctionsController {
               handleAuctionClicked(auction);
             });
             gridPane.add(gridPaneInside,x,y);
+            x++;
           }else{
 
         }}catch(ClassCastException e){
@@ -141,7 +141,7 @@ public class ViewAuctionsController {
         }
 
 
-        x++;
+
       }
       auctionsList = Filter.otherUserAuctions(DataController.getAuctionTree(), DataController.getLoggedInUser());
     }

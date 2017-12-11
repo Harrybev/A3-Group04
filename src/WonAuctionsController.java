@@ -130,6 +130,7 @@ public class WonAuctionsController {
             gridPaneInside.add(newArtDesc,0,2);
 
             gridPane.add(gridPaneInside,x,y);
+            x++;
           }else{
 
         }}catch(ClassCastException e){
@@ -138,7 +139,7 @@ public class WonAuctionsController {
         }
 
 
-        x++;
+
       }
       auctionsList = Filter.otherUserAuctions(DataController.getAuctionTree(), DataController.getLoggedInUser());
     }
